@@ -1,12 +1,376 @@
-extends _partial/layout
+<!DOCTYPE html>
+<html lang="en">
 
-prepend site_title
-    != page.title + " · "
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
 
-block content
-    include _mixin/post
-    +postList(page)
-    aside.sidebar
-        include _sidebar/tag
-        include _sidebar/post
-        //- include _sidebar/toc
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="斯蒂芬库徽的博客">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="LiMinghui">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Servlet学习笔记">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="斯蒂芬库徽的博客">
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Step By Step">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>Servlet学习笔记 - Step By Step</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2019/07/23/Servlet/">
+                Servlet学习笔记
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-07-23</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h1 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet:"></a>Servlet:</h1><h2 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h2><p>​        侠义的 Servlet 是指 Java 语言实现的一个接口，广义的 Servlet 是指任何实现了这个 Servlet 接口的类，一般情况下，人们将 Servlet 理解为后者</p>
+<p>​        Servlet 运行于支持 Java 的应用服务器中。从原理上讲，Servlet可以响应任何类型的请求，但绝大多数情况下 Servlet 只用来扩展基于 HTTP 协议的 Web 服务器</p>
+<p>​        本质上来讲 servlet 就是一种接口规范</p>
+<h2 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h2><p>​        运行在支持 java 的应用服务器上</p>
+<p>​        Servlet 的实现遵循了服务器能够识别的规则，也就是服务器会自动的根据请求调用对应的 servlet 进行请求处理</p>
+<h2 id="运行流程："><a href="#运行流程：" class="headerlink" title="运行流程："></a>运行流程：</h2><p>​        1.创建普通的 java 类并继承 HttpServlet</p>
+<p>​        2.复写 service 方法</p>
+<p>​        3.在 service 方法中书写逻辑代码</p>
+<p>​        4.在 web 下的 WEB-INF 文件夹下的 web.xml 文件中配置 servlet</p>
+<p>​        浏览器发送请求到服务器，服务器根据请求 URL 地址中的 URL 信息在 webapps 目录下找到对应的项目文件夹，然后再 web.xml 中检索到对应的 servlet，找到后调用并执行 servlet</p>
+<h3 id="组成："><a href="#组成：" class="headerlink" title="组成："></a>组成：</h3><p>​        服务器地址:端口号（定位到要访问的本机内服务程序）/ webapps下的文件夹的名称（运行哪个文件夹中的代码）/要执行的 servlet 的 url-pattern （根据 xml 文件中的 class 确定运行哪个 .class 文件）</p>
+<p>​        服务器地址:端口号/虚拟项目名/ servlet 的别名</p>
+<h3 id="运行："><a href="#运行：" class="headerlink" title="运行："></a>运行：</h3><p>​        运行的是加载进内存中的 java 类</p>
+<p>​        init() 方法只在 java 类加载进内存中的时候执行一次</p>
+<p>​        servicec 方法是真正处理请求的方法</p>
+<p>​        destroy 方法是在 servlet 被从内存中销毁（服务器关闭）时执行的</p>
+<h3 id="Servlet-的生命周期："><a href="#Servlet-的生命周期：" class="headerlink" title="Servlet 的生命周期："></a>Servlet 的生命周期：</h3><p>​        从第一次调用，到服务器关闭，如果在 web.xml 中配置了 load-on-startup 则是从服务器开启到服务器关闭</p>
+<h3 id="Service-方法和-doPost-方法、doPost-方法的区别："><a href="#Service-方法和-doPost-方法、doPost-方法的区别：" class="headerlink" title="Service 方法和 doPost 方法、doPost 方法的区别："></a>Service 方法和 doPost 方法、doPost 方法的区别：</h3><p>​        Service 方法：无论 get 方式的请求还是 post 方式的请求都可以进行处理，如果 servlet 中有 Service 方法，会优先调用 service 方法对请求进行处理</p>
+<p>​        doGet 方法：处理 GET 请求</p>
+<p>​        doPost 方法：处理 POST 请求</p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/李明徽的第一篇博客/">#李明徽的第一篇博客</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2019/07/24/数据结构（一）——顺序表/">数据结构（一）——线性表</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2019/07/23/Servlet/">Servlet学习笔记</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2019/07/23/hello-world/">Hello World</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://plus.google.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
