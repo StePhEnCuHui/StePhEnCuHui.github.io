@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Step By Step">
 <meta property="og:description" content="一.线性表——顺序表1.1线性表概念​        线性表是一种最基本、最简单、也是最常用的一种数据结构。一个线性表是 n 个具有相同特性的数据元素的有限序列。线性表中数据元素的对应关系是一对一，第一个元素没有直接前驱元素，最后一个元素没有直接后继元素，其他的元素都有唯一的前驱和后继元素。 1.2顺序表​        顺序表是指在内存中以数组的形式保存的线性表，用一组地址连续的存储单元依次存储">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-24T01:10:37.572Z">
+<meta property="og:updated_time" content="2019-08-06T00:19:17.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构（一）——线性表">
 <meta name="twitter:description" content="一.线性表——顺序表1.1线性表概念​        线性表是一种最基本、最简单、也是最常用的一种数据结构。一个线性表是 n 个具有相同特性的数据元素的有限序列。线性表中数据元素的对应关系是一对一，第一个元素没有直接前驱元素，最后一个元素没有直接后继元素，其他的元素都有唯一的前驱和后继元素。 1.2顺序表​        顺序表是指在内存中以数组的形式保存的线性表，用一组地址连续的存储单元依次存储">
@@ -308,6 +308,8 @@
       
         <h1 id="一-线性表——顺序表"><a href="#一-线性表——顺序表" class="headerlink" title="一.线性表——顺序表"></a>一.线性表——顺序表</h1><h2 id="1-1线性表概念"><a href="#1-1线性表概念" class="headerlink" title="1.1线性表概念"></a>1.1线性表概念</h2><p>​        线性表是一种最基本、最简单、也是最常用的一种数据结构。一个线性表是 n 个具有相同特性的数据元素的有限序列。线性表中数据元素的对应关系是一对一，第一个元素没有直接前驱元素，最后一个元素没有直接后继元素，其他的元素都有唯一的前驱和后继元素。</p>
 <h2 id="1-2顺序表"><a href="#1-2顺序表" class="headerlink" title="1.2顺序表"></a>1.2顺序表</h2><p>​        顺序表是指在内存中以数组的形式保存的线性表，用一组地址连续的存储单元依次存储线性表中的元素，使逻辑结构相邻的两个元素存储在相邻的物理存储单元中，即顺序存储结构。</p>
+<a id="more"></a>
+
 <h4 id="顺序表定义："><a href="#顺序表定义：" class="headerlink" title="顺序表定义："></a>顺序表定义：</h4><p>​        MAXSIZE 为顺序表的最大允许存放多少个元素</p>
 <p>​        定义顺序表的结构体变量，data 代表存放元素值的数组，因为数组中每个相邻元素在内存中的物理地址也是相邻的，length 表示顺序表中现有元素的个数，即顺序表的长度</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXSIZE 10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> data[MAXSIZE];</span><br><span class="line">	<span class="keyword">int</span> length;</span><br><span class="line">&#125;Seqlist;</span><br></pre></td></tr></table></figure>

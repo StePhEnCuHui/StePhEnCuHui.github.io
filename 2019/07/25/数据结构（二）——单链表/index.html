@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="单链表一.线性表——单链表1.1单链表概念​        单链表是一种链式存取的数据结构，用一组地址任意的存储单元存放线性表中的数据元素。链式存储不仅需要存储元素本身，还要存储一个指向其后继元素的地址，这种存储结构也被称为 node，存储数据的叫数据域，存储地址的叫指针域。 1.2单链表单链表定义​        链式存储结构需要存放数据的数据域和存放后继节点地址的指针域，所以在定义单链表时需要">
+<meta name="description" content="单链表一.线性表——单链表1.1单链表概念​        单链表是一种链式存取的数据结构，用一组地址任意的存储单元存放线性表中的数据元素。链式存储不仅需要存储元素本身，还要存储一个指向其后继元素的地址，这种存储结构也被称为 node，存储数据的叫数据域，存储地址的叫指针域。">
 <meta name="keywords" content="李明徽线性表">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构（二）——单链表">
 <meta property="og:url" content="http://yoursite.com/2019/07/25/数据结构（二）——单链表/index.html">
 <meta property="og:site_name" content="Step By Step">
-<meta property="og:description" content="单链表一.线性表——单链表1.1单链表概念​        单链表是一种链式存取的数据结构，用一组地址任意的存储单元存放线性表中的数据元素。链式存储不仅需要存储元素本身，还要存储一个指向其后继元素的地址，这种存储结构也被称为 node，存储数据的叫数据域，存储地址的叫指针域。 1.2单链表单链表定义​        链式存储结构需要存放数据的数据域和存放后继节点地址的指针域，所以在定义单链表时需要">
+<meta property="og:description" content="单链表一.线性表——单链表1.1单链表概念​        单链表是一种链式存取的数据结构，用一组地址任意的存储单元存放线性表中的数据元素。链式存储不仅需要存储元素本身，还要存储一个指向其后继元素的地址，这种存储结构也被称为 node，存储数据的叫数据域，存储地址的叫指针域。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-05T11:56:11.639Z">
+<meta property="og:updated_time" content="2019-08-06T00:19:10.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构（二）——单链表">
-<meta name="twitter:description" content="单链表一.线性表——单链表1.1单链表概念​        单链表是一种链式存取的数据结构，用一组地址任意的存储单元存放线性表中的数据元素。链式存储不仅需要存储元素本身，还要存储一个指向其后继元素的地址，这种存储结构也被称为 node，存储数据的叫数据域，存储地址的叫指针域。 1.2单链表单链表定义​        链式存储结构需要存放数据的数据域和存放后继节点地址的指针域，所以在定义单链表时需要">
+<meta name="twitter:description" content="单链表一.线性表——单链表1.1单链表概念​        单链表是一种链式存取的数据结构，用一组地址任意的存储单元存放线性表中的数据元素。链式存储不仅需要存储元素本身，还要存储一个指向其后继元素的地址，这种存储结构也被称为 node，存储数据的叫数据域，存储地址的叫指针域。">
 
 
 
@@ -307,6 +307,8 @@
 
       
         <h1 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h1><h1 id="一-线性表——单链表"><a href="#一-线性表——单链表" class="headerlink" title="一.线性表——单链表"></a>一.线性表——单链表</h1><h2 id="1-1单链表概念"><a href="#1-1单链表概念" class="headerlink" title="1.1单链表概念"></a>1.1单链表概念</h2><p>​        单链表是一种链式存取的数据结构，用一组地址任意的存储单元存放线性表中的数据元素。链式存储不仅需要存储元素本身，还要存储一个指向其后继元素的地址，这种存储结构也被称为 node，存储数据的叫数据域，存储地址的叫指针域。</p>
+<a id="more"></a>
+
 <h2 id="1-2单链表"><a href="#1-2单链表" class="headerlink" title="1.2单链表"></a>1.2单链表</h2><h3 id="单链表定义"><a href="#单链表定义" class="headerlink" title="单链表定义"></a>单链表定义</h3><p>​        链式存储结构需要存放数据的数据域和存放后继节点地址的指针域，所以在定义单链表时需要如下定义</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">	Node* next;</span><br><span class="line">&#125;ListNode, LinkList;</span><br></pre></td></tr></table></figure>
 
