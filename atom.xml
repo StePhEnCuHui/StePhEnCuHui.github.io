@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-13T13:21:21.252Z</updated>
+  <updated>2019-08-15T08:32:14.971Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>神奇的动态数组——vector</title>
+    <link href="http://yoursite.com/2019/08/14/%E7%A5%9E%E5%A5%87%E7%9A%84%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94vector/"/>
+    <id>http://yoursite.com/2019/08/14/神奇的动态数组——vector/</id>
+    <published>2019-08-14T15:01:18.000Z</published>
+    <updated>2019-08-15T08:32:14.971Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="神奇的-Vector-动态数组"><a href="#神奇的-Vector-动态数组" class="headerlink" title="神奇的 Vector 动态数组"></a>神奇的 Vector 动态数组</h1><h2 id="什么是-Vector"><a href="#什么是-Vector" class="headerlink" title="什么是 Vector"></a>什么是 Vector</h2><p>​        Vector 是一个动态数组（dynamic array），提供了很多操作的接口，使用 Vector 需要引入头文件 #include<vector> 并且一定要声明命名空间 std，因为 Vector 是定义在 std 里 template 中的</vector></p><p>​        Vector 是一种动态的顺序表结构，可以像数组一样访问、随机访问、只用迭代器访问其中的元素</p><a id="more"></a><h2 id="Vector-的属性"><a href="#Vector-的属性" class="headerlink" title="Vector 的属性"></a>Vector 的属性</h2><h3 id="大小和容量"><a href="#大小和容量" class="headerlink" title="大小和容量"></a>大小和容量</h3><p>​        对于常规数组来说，最大的限制就是其大小必须事先定义好，而 Vector 中通过 size() 和 capacity() 分别来表示其大小和容量，其中 size() 用来表示大小，即 Vector 中当前存放了多少数据；capacity() 用来表示容量，即 Vector 中最大存放的数据是多少，而当 size() 将要超过 capacity() 时，Vector 会自动扩充其容量，这就是 Vector 是动态数组的原因</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a;<span class="comment">//定义 int 类型的 Vector</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">50</span>; i++) &#123;</span><br><span class="line">a.push_back(i);<span class="comment">//在 Vector 尾部添加元素</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"a = "</span> &lt;&lt; a[i] &lt;&lt; <span class="string">" size = "</span> &lt;&lt; a.size() &lt;&lt; <span class="string">" capacity = "</span> &lt;&lt; a.capacity() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​        以上代码可以很好的反应 capacity() 可以自行扩大的特性</p><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;DataType&gt; item;<span class="comment">//定义 Vector</span></span><br><span class="line"><span class="built_in">vector</span>&lt;DataType&gt; item(n);<span class="comment">//初始化 Vector 的容量</span></span><br><span class="line"><span class="built_in">vector</span>&lt;DataType&gt; item(<span class="keyword">int</span>, DataType);<span class="comment">//初始化 Vector 的容量并且使其内容全部为 Datatype</span></span><br><span class="line"><span class="built_in">vector</span>&lt;DataType&gt; item(it.begin(), it.end());<span class="comment">//传进一个迭代器区间用来为 Vector 赋值</span></span><br><span class="line"><span class="built_in">vector</span>&lt;DataType&gt; item(Class);<span class="comment">//传进一个对象，执行其构造函数</span></span><br></pre></td></tr></table></figure><p>​        Vector 动态数组里可以存放任何类型的变量，但前提是一个 Vector 只能存放同一种类型的数据，并且 Vector 中有很多定义方法，可以根据需求使用不同的方法来定义你的 Vector</p><h3 id="一些方法"><a href="#一些方法" class="headerlink" title="一些方法"></a>一些方法</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; item;</span><br><span class="line">item.empty();<span class="comment">//布尔型函数，空返回 true，非空返回 false</span></span><br><span class="line">item.size();<span class="comment">//返回当前 Vector 的元素数量</span></span><br><span class="line">item.max_size();<span class="comment">//返回当前 Vector 可容纳的最大元素数量</span></span><br><span class="line">item.capacity();<span class="comment">//返回当前 Vector 的容量</span></span><br><span class="line">item.reserve(n);<span class="comment">//重新设定当前 Vector 的容量，若新值小于当前值，则语句无效</span></span><br><span class="line">item.shrink_to_fit();<span class="comment">//修改当前 Vector 的容量为其 size() 值</span></span><br><span class="line">item.assign(n, data);<span class="comment">//将n个数据 data 添加进 Vector 中</span></span><br><span class="line">item.assign(begin(), end());<span class="comment">//复制迭代器中 begin 到 end 的内容并赋值给 Vector</span></span><br><span class="line">item.swap(Vector);</span><br><span class="line">swap(item, Vector);<span class="comment">//以上两个方法都是用来交换两个 Vector 中的元素的</span></span><br><span class="line">item.push_back(data);<span class="comment">//在 Vector 末尾插入新元素 data</span></span><br><span class="line">item.pop_back();<span class="comment">//移除 Vector 的最后一个元素</span></span><br><span class="line">item.insert(pos, data);<span class="comment">//在 pos 的位置插入 data，并返回这个 data 的 pos（int 类型）</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;神奇的-Vector-动态数组&quot;&gt;&lt;a href=&quot;#神奇的-Vector-动态数组&quot; class=&quot;headerlink&quot; title=&quot;神奇的 Vector 动态数组&quot;&gt;&lt;/a&gt;神奇的 Vector 动态数组&lt;/h1&gt;&lt;h2 id=&quot;什么是-Vector&quot;&gt;&lt;a href=&quot;#什么是-Vector&quot; class=&quot;headerlink&quot; title=&quot;什么是 Vector&quot;&gt;&lt;/a&gt;什么是 Vector&lt;/h2&gt;&lt;p&gt;​        Vector 是一个动态数组（dynamic array），提供了很多操作的接口，使用 Vector 需要引入头文件 #include&lt;vector&gt; 并且一定要声明命名空间 std，因为 Vector 是定义在 std 里 template 中的&lt;/vector&gt;&lt;/p&gt;
+&lt;p&gt;​        Vector 是一种动态的顺序表结构，可以像数组一样访问、随机访问、只用迭代器访问其中的元素&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Vector动态数组" scheme="http://yoursite.com/tags/Vector%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84/"/>
+    
+  </entry>
   
   <entry>
     <title>数据结构（六）——顺序队列、链队列</title>
