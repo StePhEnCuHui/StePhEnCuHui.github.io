@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="李明徽的LeetCode,">
+  <meta name="keywords" content="李明徽的 LeetCode,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="验证回文串（简单）题目要求给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。 ​    说明：本题中，我们将空字符串定义为有效的回文串。 ​    示例： 1234输入: &amp;quot;A man, a plan, a canal: Panama&amp;quot;输出: true输入: &amp;quot;race a car&amp;quot;输出: false">
-<meta name="keywords" content="李明徽的LeetCode">
+<meta name="description" content="拼写单词（简单）题目要求给你一份『词汇表』（字符串数组） words 和一张『字母表』（字符串） chars。 假如你可以用 chars 中的『字母』（字符）拼写出 words 中的某个『单词』（字符串），那么我们就认为你掌握了这个单词。 ​    注意：每次拼写时，chars 中的每个字母都只能用一次。 ​                返回词汇表 words 中你掌握的所有单词的 长度之和。">
+<meta name="keywords" content="李明徽的 LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode-125——验证回文串">
-<meta property="og:url" content="http://yoursite.com/2019/08/23/LeetCode-125——验证回文串/index.html">
+<meta property="og:title" content="LeetCode-1160——拼写单词">
+<meta property="og:url" content="http://yoursite.com/2019/08/23/LeetCode-1160——拼写单词/index.html">
 <meta property="og:site_name" content="Step By Step">
-<meta property="og:description" content="验证回文串（简单）题目要求给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。 ​    说明：本题中，我们将空字符串定义为有效的回文串。 ​    示例： 1234输入: &amp;quot;A man, a plan, a canal: Panama&amp;quot;输出: true输入: &amp;quot;race a car&amp;quot;输出: false">
+<meta property="og:description" content="拼写单词（简单）题目要求给你一份『词汇表』（字符串数组） words 和一张『字母表』（字符串） chars。 假如你可以用 chars 中的『字母』（字符）拼写出 words 中的某个『单词』（字符串），那么我们就认为你掌握了这个单词。 ​    注意：每次拼写时，chars 中的每个字母都只能用一次。 ​                返回词汇表 words 中你掌握的所有单词的 长度之和。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-23T02:04:16.820Z">
+<meta property="og:updated_time" content="2019-08-23T03:16:27.243Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode-125——验证回文串">
-<meta name="twitter:description" content="验证回文串（简单）题目要求给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。 ​    说明：本题中，我们将空字符串定义为有效的回文串。 ​    示例： 1234输入: &amp;quot;A man, a plan, a canal: Panama&amp;quot;输出: true输入: &amp;quot;race a car&amp;quot;输出: false">
+<meta name="twitter:title" content="LeetCode-1160——拼写单词">
+<meta name="twitter:description" content="拼写单词（简单）题目要求给你一份『词汇表』（字符串数组） words 和一张『字母表』（字符串） chars。 假如你可以用 chars 中的『字母』（字符）拼写出 words 中的某个『单词』（字符串），那么我们就认为你掌握了这个单词。 ​    注意：每次拼写时，chars 中的每个字母都只能用一次。 ​                返回词汇表 words 中你掌握的所有单词的 长度之和。">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/23/LeetCode-125——验证回文串/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/23/LeetCode-1160——拼写单词/">
 
 
 
 
 
-  <title>LeetCode-125——验证回文串 | Step By Step</title>
+  <title>LeetCode-1160——拼写单词 | Step By Step</title>
   
 
 
@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/LeetCode-125——验证回文串/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/LeetCode-1160——拼写单词/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiMinghui">
@@ -256,7 +256,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode-125——验证回文串</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode-1160——拼写单词</h1>
         
 
         <div class="post-meta">
@@ -268,7 +268,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-23T09:27:05+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-23T11:00:40+08:00">
                 2019-08-23
               </time>
             
@@ -306,18 +306,19 @@
       
 
       
-        <h1 id="验证回文串（简单）"><a href="#验证回文串（简单）" class="headerlink" title="验证回文串（简单）"></a>验证回文串（简单）</h1><h2 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h2><p>给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。</p>
-<p>​    说明：本题中，我们将空字符串定义为有效的回文串。</p>
-<p>​    示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;A man, a plan, a canal: Panama&quot;</span><br><span class="line">输出: true</span><br><span class="line">输入: &quot;race a car&quot;</span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure>
+        <h1 id="拼写单词（简单）"><a href="#拼写单词（简单）" class="headerlink" title="拼写单词（简单）"></a>拼写单词（简单）</h1><h2 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h2><p>给你一份『词汇表』（字符串数组） words 和一张『字母表』（字符串） chars。</p>
+<p>假如你可以用 chars 中的『字母』（字符）拼写出 words 中的某个『单词』（字符串），那么我们就认为你掌握了这个单词。</p>
+<p>​    注意：每次拼写时，chars 中的每个字母都只能用一次。</p>
+<p>​                返回词汇表 words 中你掌握的所有单词的 长度之和。</p>
+<p>​    示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入：words = [&quot;cat&quot;,&quot;bt&quot;,&quot;hat&quot;,&quot;tree&quot;], chars = &quot;atach&quot;</span><br><span class="line">输出：6</span><br><span class="line">解释： </span><br><span class="line">可以形成字符串 &quot;cat&quot; 和 &quot;hat&quot;，所以答案是 3 + 3 = 6。</span><br><span class="line"></span><br><span class="line">输入：words = [&quot;hello&quot;,&quot;world&quot;,&quot;leetcode&quot;], chars = &quot;welldonehoneyr&quot;</span><br><span class="line">输出：10</span><br><span class="line">解释：</span><br><span class="line">可以形成字符串 &quot;hello&quot; 和 &quot;world&quot;，所以答案是 5 + 5 = 10。</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
 
-<h2 id="C-双指针法解决"><a href="#C-双指针法解决" class="headerlink" title="C++双指针法解决"></a>C++双指针法解决</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>​        首先，验证一个普通的标准字符串是不是回文串就是看前后对应位置的字符是不是相同，这明显时要用到双指针前后并行着对照呀</p>
-<p>​        不过根据题目的要求，空格应不计算在内，所以这里要在每次检测元素是否对称前先排除掉中间的空格，并且统一将对应元素转换成小写或者大写来进行比较</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> i = <span class="number">0</span>, j = s.size() - <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span> (s.size() &lt;= <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; j &amp;&amp; !<span class="built_in">isalnum</span>(s[i]))</span><br><span class="line">          i++;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; j &amp;&amp; !<span class="built_in">isalnum</span>(s[j]))</span><br><span class="line">          j--;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">tolower</span>(s[i++]) != <span class="built_in">tolower</span>(s[j--]))</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="通过数组计数"><a href="#通过数组计数" class="headerlink" title="通过数组计数"></a>通过数组计数</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>​        通过记录每个字符出现的次数，在遍历两个字符串后即可确定结果</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countCharacters</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; words, <span class="built_in">string</span> chars)</span> </span>&#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a(<span class="number">26</span>, <span class="number">0</span>);</span><br><span class="line">            <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; chars.length(); i++)</span><br><span class="line">                a[chars[i] - <span class="string">'a'</span>]++;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; words.size(); i++) &#123;</span><br><span class="line">                <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a1 = a;</span><br><span class="line">                <span class="keyword">int</span> j;</span><br><span class="line">                <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; words[i].length(); j++) &#123;</span><br><span class="line">                    a1[words[i][j] - <span class="string">'a'</span>]--;</span><br><span class="line">                    <span class="keyword">if</span> (a1[words[i][j] - <span class="string">'a'</span>] == <span class="number">-1</span>)</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                <span class="keyword">if</span>(j==words[i].length())ans+=words[i].length();</span><br><span class="line">                &#125;</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">        &#125;       </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>​        使用 i 和 j 表示字符串的头尾索引，之后通过一个大循环遍历字符串，在大循环中，要通过两个小循环分别检测当前首位位置是否存在空格，使用循环的目的是防止连续空格，最后通过将对应位置呃赐福全部转换为小写，比较是否相等</p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>​        先遍历一遍字母表字符串，用长度为 26 的数组来记录每个字母出现的次数，再通过遍历单词表中的每一个字母，出现一次就在数组中的数量上 -1，如果数量出现 -1，就不能组成这个单词，否则就可以继续寻找下去，最后返回结果</p>
 
       
     </div>
@@ -345,7 +346,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/李明徽的LeetCode/" rel="tag"># 李明徽的LeetCode</a>
+            <a href="/tags/李明徽的-LeetCode/" rel="tag"># 李明徽的 LeetCode</a>
           
         </div>
       
@@ -358,8 +359,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/19/数据结构（七）——树与二叉树/" rel="next" title="数据结构（七）——树与二叉树">
-                <i class="fa fa-chevron-left"></i> 数据结构（七）——树与二叉树
+              <a href="/2019/08/23/LeetCode-125——验证回文串/" rel="next" title="LeetCode-125——验证回文串">
+                <i class="fa fa-chevron-left"></i> LeetCode-125——验证回文串
               </a>
             
           </div>
@@ -367,10 +368,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/23/LeetCode-1160——拼写单词/" rel="prev" title="LeetCode-1160——拼写单词">
-                LeetCode-1160——拼写单词 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -516,7 +513,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#验证回文串（简单）"><span class="nav-number">1.</span> <span class="nav-text">验证回文串（简单）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目要求"><span class="nav-number">1.1.</span> <span class="nav-text">题目要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-双指针法解决"><span class="nav-number">1.2.</span> <span class="nav-text">C++双指针法解决</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">1.2.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">1.2.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解释"><span class="nav-number">1.2.3.</span> <span class="nav-text">解释</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#拼写单词（简单）"><span class="nav-number">1.</span> <span class="nav-text">拼写单词（简单）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目要求"><span class="nav-number">1.1.</span> <span class="nav-text">题目要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过数组计数"><span class="nav-number">1.2.</span> <span class="nav-text">通过数组计数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">1.2.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">1.2.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">思路</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
