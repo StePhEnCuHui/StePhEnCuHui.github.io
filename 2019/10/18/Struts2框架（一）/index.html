@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="李明徽的LeetCode,">
+  <meta name="keywords" content="JavaEE——Struts2框架,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="合并两个有序链表（简单）题目要求将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的 12输入：1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4输出：1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4  一个小菜鸡的菜鸡 c++ 解法，执行用时 16ms，内存消耗 9MB，还会继续探索更优化的方法和 java 语言的解法！">
-<meta name="keywords" content="李明徽的LeetCode">
+<meta name="description" content="Struts 框架​        Struts2 框架是 Apache 发行的 MVC 开源框架，是表现层 web 框架">
+<meta name="keywords" content="JavaEE——Struts2框架">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode（一）——合并两个有序链表">
-<meta property="og:url" content="http://yoursite.com/2019/08/07/LeetCode（一）——合并两个有序链表/index.html">
+<meta property="og:title" content="Struts2框架（一）">
+<meta property="og:url" content="http://yoursite.com/2019/10/18/Struts2框架（一）/index.html">
 <meta property="og:site_name" content="Step By Step">
-<meta property="og:description" content="合并两个有序链表（简单）题目要求将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的 12输入：1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4输出：1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4  一个小菜鸡的菜鸡 c++ 解法，执行用时 16ms，内存消耗 9MB，还会继续探索更优化的方法和 java 语言的解法！">
+<meta property="og:description" content="Struts 框架​        Struts2 框架是 Apache 发行的 MVC 开源框架，是表现层 web 框架">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-07T07:45:41.696Z">
+<meta property="og:updated_time" content="2019-10-18T03:09:24.675Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode（一）——合并两个有序链表">
-<meta name="twitter:description" content="合并两个有序链表（简单）题目要求将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的 12输入：1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4输出：1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4  一个小菜鸡的菜鸡 c++ 解法，执行用时 16ms，内存消耗 9MB，还会继续探索更优化的方法和 java 语言的解法！">
+<meta name="twitter:title" content="Struts2框架（一）">
+<meta name="twitter:description" content="Struts 框架​        Struts2 框架是 Apache 发行的 MVC 开源框架，是表现层 web 框架">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/07/LeetCode（一）——合并两个有序链表/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/18/Struts2框架（一）/">
 
 
 
 
 
-  <title>LeetCode（一）——合并两个有序链表 | Step By Step</title>
+  <title>Struts2框架（一） | Step By Step</title>
   
 
 
@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/07/LeetCode（一）——合并两个有序链表/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/18/Struts2框架（一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiMinghui">
@@ -256,7 +256,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode（一）——合并两个有序链表</h1>
+          <h1 class="post-title" itemprop="name headline">Struts2框架（一）</h1>
         
 
         <div class="post-meta">
@@ -268,8 +268,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-07T15:21:19+08:00">
-                2019-08-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-18T10:16:33+08:00">
+                2019-10-18
               </time>
             
 
@@ -306,19 +306,54 @@
       
 
       
-        <h1 id="合并两个有序链表（简单）"><a href="#合并两个有序链表（简单）" class="headerlink" title="合并两个有序链表（简单）"></a>合并两个有序链表（简单）</h1><h2 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h2><p>将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4</span><br><span class="line">输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</span><br></pre></td></tr></table></figure>
-
-<p>一个小菜鸡的菜鸡 c++ 解法，执行用时 16ms，内存消耗 9MB，还会继续探索更优化的方法和 java 语言的解法！</p>
+        <h1 id="Struts-框架"><a href="#Struts-框架" class="headerlink" title="Struts 框架"></a>Struts 框架</h1><p>​        Struts2 框架是 Apache 发行的 MVC 开源框架，是表现层 web 框架</p>
 <a id="more"></a>
 
-<h2 id="C-递归解法"><a href="#C-递归解法" class="headerlink" title="C++递归解法"></a>C++递归解法</h2><p>​        下面是题目给出的 C++ 链表定义</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h2 id="Struts-文件包"><a href="#Struts-文件包" class="headerlink" title="Struts 文件包"></a>Struts 文件包</h2><blockquote>
+<p>apps</p>
+<p>docs</p>
+<p>lib</p>
+<p>src</p>
+</blockquote>
+<p>apps：官方提供的 Demo</p>
+<p>docs：官方提供的文档</p>
+<p>lib：官方提供的 jar 包，需要用到哪个才导入哪个</p>
+<p>src：源码</p>
+<h2 id="使用-MyEclipse2017-配置-Struts2-项目"><a href="#使用-MyEclipse2017-配置-Struts2-项目" class="headerlink" title="使用 MyEclipse2017 配置 Struts2 项目"></a>使用 MyEclipse2017 配置 Struts2 项目</h2><ol>
+<li><p>创建 Web Project（配置 tomcat 服务器）</p>
+</li>
+<li><p>将 Struts2 lib 目录下的 jar 包复制到项目中</p>
+</li>
+<li><p>创建 struts.xml 文件在项目中 src 目录下</p>
+</li>
+<li><p>配置 struts 过滤器（配置 web.xml）</p>
+</li>
+<li><p>运行</p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"</span> <span class="attr">id</span>=<span class="string">"WebApp_ID"</span> <span class="attr">version</span>=<span class="string">"3.1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>lmhStruts2<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>​        根据给出的题干要求，想到用递归的方法，逐个同时检测链表 l1 和 l2 中每一个数据值的大小，通过判断大小后对链表的重新排序，来得到合并后的有序链表</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l1 == <span class="literal">NULL</span>) </span><br><span class="line">            <span class="keyword">return</span> l2;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (l2 == <span class="literal">NULL</span>) </span><br><span class="line">            <span class="keyword">return</span> l1;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (l1-&gt;val &lt; l2-&gt;val) &#123;</span><br><span class="line">            l1-&gt;next = mergeTwoLists(l1-&gt;next, l2);</span><br><span class="line">            <span class="keyword">return</span> l1;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            l2-&gt;next = mergeTwoLists(l1, l2-&gt;next);</span><br><span class="line">            <span class="keyword">return</span> l2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>（web.xml 文件配置）</p>
+<h2 id="配置-struts-xml-文件及-Action"><a href="#配置-struts-xml-文件及-Action" class="headerlink" title="配置 struts.xml 文件及 Action"></a>配置 struts.xml 文件及 Action</h2><h3 id="struts-xml-文件"><a href="#struts-xml-文件" class="headerlink" title="struts.xml 文件"></a>struts.xml 文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE struts PUBLIC</span></span><br><span class="line"><span class="meta">	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"</span></span><br><span class="line"><span class="meta">	"http://struts.apache.org/dtds/struts-2.3.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span> = <span class="string">"p1"</span> <span class="attr">extends</span> = <span class="string">"struts-default"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span> = <span class="string">"hello"</span> <span class="attr">class</span> = <span class="string">"com.web.action.HelloAction"</span> <span class="attr">method</span> = <span class="string">"sayHello"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span> = <span class="string">"success"</span>&gt;</span>/success.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">package</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>​        先分别判断两个链表是否为空，如果有一个链表为空，直接返回另一个链表就可以了。接着就到了关键的递归环节，这里对于刚传进来的 l1 和 l2 来说，都代表两个链表的第一个节点，保留含有较小的值得节点，再对该节点的 next 节点和另一个链表使用 mergeTwoLists() 函数，这样，函数就会通过不断地递归，来检测出两个链表的剩余节点中值较小的那个，最后在当一个链表已经被取空之后，函数的递归调用就会停止，从而将两个有序链表合并为一个有序链表</p>
+<p>​    package：表示包<br>​        name：包名，struts.xml 文件中不能有相同的包名，包名是唯一的<br>​        extends：继承，默认 struts-default<br>​    action：动作<br>​        name：相当于 Servlet 的映射路径<br>​        class：处理请求的类，相当于 Servlet<br>​        method：处理请求的方法<br>​    result：结果，返回的 jsp 页面</p>
+<h3 id="Action-编写"><a href="#Action-编写" class="headerlink" title="Action 编写"></a>Action 编写</h3><p>​        在 src 中创建包并创建 Action 类，并创建准备使用的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.web.action;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloAction</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Success"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        根据类名和方法名在 struts.xml 中配好相应的名字，配置完成后启动 tomcat 服务即可访问</p>
+<h2 id="Struts2-执行流程"><a href="#Struts2-执行流程" class="headerlink" title="Struts2 执行流程"></a>Struts2 执行流程</h2><ol>
+<li>tomcat 启动服务，加载 web.xml</li>
+<li>web.xml 实例化并初始化过滤器</li>
+<li>加载 struts.xml</li>
+<li>客户端发送请求</li>
+<li>请求到达过滤器</li>
+<li>截取请求 Action 名称，在 struts.xml 中寻找 Action</li>
+<li>找到 Action 后实例化对应的动作类</li>
+<li>调用对应的方法，获取返回值</li>
+<li>根据返回值，找到 name 取值对应的结果视图</li>
+<li>找到 web 页面</li>
+<li>响应浏览器，展示结果</li>
+</ol>
 
       
     </div>
@@ -346,7 +381,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/李明徽的LeetCode/" rel="tag"># 李明徽的LeetCode</a>
+            <a href="/tags/JavaEE——Struts2框架/" rel="tag"># JavaEE——Struts2框架</a>
           
         </div>
       
@@ -359,8 +394,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/05/数据结构（四）——顺序栈/" rel="next" title="数据结构（四）——顺序栈">
-                <i class="fa fa-chevron-left"></i> 数据结构（四）——顺序栈
+              <a href="/2019/09/16/JavaEE——网络留言板（未完）/" rel="next" title="JavaEE——网络留言板（未完）">
+                <i class="fa fa-chevron-left"></i> JavaEE——网络留言板（未完）
               </a>
             
           </div>
@@ -368,10 +403,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/08/数据结构（五）——链栈/" rel="prev" title="数据结构（五）——链栈">
-                数据结构（五）——链栈 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -448,7 +479,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -461,7 +492,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -517,7 +548,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#合并两个有序链表（简单）"><span class="nav-number">1.</span> <span class="nav-text">合并两个有序链表（简单）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目要求"><span class="nav-number">1.1.</span> <span class="nav-text">题目要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-递归解法"><span class="nav-number">1.2.</span> <span class="nav-text">C++递归解法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">1.2.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">1.2.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解释"><span class="nav-number">1.2.3.</span> <span class="nav-text">解释</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Struts-框架"><span class="nav-number">1.</span> <span class="nav-text">Struts 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Struts-文件包"><span class="nav-number">1.1.</span> <span class="nav-text">Struts 文件包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-MyEclipse2017-配置-Struts2-项目"><span class="nav-number">1.2.</span> <span class="nav-text">使用 MyEclipse2017 配置 Struts2 项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-struts-xml-文件及-Action"><span class="nav-number">1.3.</span> <span class="nav-text">配置 struts.xml 文件及 Action</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#struts-xml-文件"><span class="nav-number">1.3.1.</span> <span class="nav-text">struts.xml 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Action-编写"><span class="nav-number">1.3.2.</span> <span class="nav-text">Action 编写</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Struts2-执行流程"><span class="nav-number">1.4.</span> <span class="nav-text">Struts2 执行流程</span></a></li></ol></li></ol></div>
             
 
           </div>
