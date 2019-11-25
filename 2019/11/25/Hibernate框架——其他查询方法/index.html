@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="李明徽的第一篇博客,">
+  <meta name="keywords" content="Hibernate框架,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Servlet:概念：​        侠义的 Servlet 是指 Java 语言实现的一个接口，广义的 Servlet 是指任何实现了这个 Servlet 接口的类，一般情况下，人们将 Servlet 理解为后者 ​        Servlet 运行于支持 Java 的应用服务器中。从原理上讲，Servlet可以响应任何类型的请求，但绝大多数情况下 Servlet 只用来扩展基于 HTTP">
-<meta name="keywords" content="李明徽的第一篇博客">
+<meta name="description" content="Hibernate 框架的查询方法​        除了通过 session.get() 方法进行查询外，Hibernate 框架还提供了其他的查询方式">
+<meta name="keywords" content="Hibernate框架">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Servlet学习笔记">
-<meta property="og:url" content="http://yoursite.com/2019/07/23/Servlet/index.html">
+<meta property="og:title" content="Hibernate——其他查询方法">
+<meta property="og:url" content="http://yoursite.com/2019/11/25/Hibernate框架——其他查询方法/index.html">
 <meta property="og:site_name" content="Step By Step">
-<meta property="og:description" content="Servlet:概念：​        侠义的 Servlet 是指 Java 语言实现的一个接口，广义的 Servlet 是指任何实现了这个 Servlet 接口的类，一般情况下，人们将 Servlet 理解为后者 ​        Servlet 运行于支持 Java 的应用服务器中。从原理上讲，Servlet可以响应任何类型的请求，但绝大多数情况下 Servlet 只用来扩展基于 HTTP">
+<meta property="og:description" content="Hibernate 框架的查询方法​        除了通过 session.get() 方法进行查询外，Hibernate 框架还提供了其他的查询方式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-06T00:20:38.455Z">
+<meta property="og:updated_time" content="2019-11-25T12:16:08.921Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Servlet学习笔记">
-<meta name="twitter:description" content="Servlet:概念：​        侠义的 Servlet 是指 Java 语言实现的一个接口，广义的 Servlet 是指任何实现了这个 Servlet 接口的类，一般情况下，人们将 Servlet 理解为后者 ​        Servlet 运行于支持 Java 的应用服务器中。从原理上讲，Servlet可以响应任何类型的请求，但绝大多数情况下 Servlet 只用来扩展基于 HTTP">
+<meta name="twitter:title" content="Hibernate——其他查询方法">
+<meta name="twitter:description" content="Hibernate 框架的查询方法​        除了通过 session.get() 方法进行查询外，Hibernate 框架还提供了其他的查询方式">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/23/Servlet/">
+  <link rel="canonical" href="http://yoursite.com/2019/11/25/Hibernate框架——其他查询方法/">
 
 
 
 
 
-  <title>Servlet学习笔记 | Step By Step</title>
+  <title>Hibernate——其他查询方法 | Step By Step</title>
   
 
 
@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/23/Servlet/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/25/Hibernate框架——其他查询方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiMinghui">
@@ -256,7 +256,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Servlet学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">Hibernate——其他查询方法</h1>
         
 
         <div class="post-meta">
@@ -268,8 +268,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-23T15:44:38+08:00">
-                2019-07-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-25T18:32:30+08:00">
+                2019-11-25
               </time>
             
 
@@ -306,29 +306,24 @@
       
 
       
-        <h1 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet:"></a>Servlet:</h1><h2 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h2><p>​        侠义的 Servlet 是指 Java 语言实现的一个接口，广义的 Servlet 是指任何实现了这个 Servlet 接口的类，一般情况下，人们将 Servlet 理解为后者</p>
-<p>​        Servlet 运行于支持 Java 的应用服务器中。从原理上讲，Servlet可以响应任何类型的请求，但绝大多数情况下 Servlet 只用来扩展基于 HTTP 协议的 Web 服务器</p>
-<p>​        本质上来讲 servlet 就是一种接口规范</p>
+        <h1 id="Hibernate-框架的查询方法"><a href="#Hibernate-框架的查询方法" class="headerlink" title="Hibernate 框架的查询方法"></a>Hibernate 框架的查询方法</h1><p>​        除了通过 session.get() 方法进行查询外，Hibernate 框架还提供了其他的查询方式</p>
 <a id="more"></a>
 
-<h2 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h2><p>​        运行在支持 java 的应用服务器上</p>
-<p>​        Servlet 的实现遵循了服务器能够识别的规则，也就是服务器会自动的根据请求调用对应的 servlet 进行请求处理</p>
-<h2 id="运行流程："><a href="#运行流程：" class="headerlink" title="运行流程："></a>运行流程：</h2><p>​        1.创建普通的 java 类并继承 HttpServlet</p>
-<p>​        2.复写 service 方法</p>
-<p>​        3.在 service 方法中书写逻辑代码</p>
-<p>​        4.在 web 下的 WEB-INF 文件夹下的 web.xml 文件中配置 servlet</p>
-<p>​        浏览器发送请求到服务器，服务器根据请求 URL 地址中的 URL 信息在 webapps 目录下找到对应的项目文件夹，然后再 web.xml 中检索到对应的 servlet，找到后调用并执行 servlet</p>
-<h3 id="组成："><a href="#组成：" class="headerlink" title="组成："></a>组成：</h3><p>​        服务器地址:端口号（定位到要访问的本机内服务程序）/ webapps下的文件夹的名称（运行哪个文件夹中的代码）/要执行的 servlet 的 url-pattern （根据 xml 文件中的 class 确定运行哪个 .class 文件）</p>
-<p>​        服务器地址:端口号/虚拟项目名/ servlet 的别名</p>
-<h3 id="运行："><a href="#运行：" class="headerlink" title="运行："></a>运行：</h3><p>​        运行的是加载进内存中的 java 类</p>
-<p>​        init() 方法只在 java 类加载进内存中的时候执行一次</p>
-<p>​        servicec 方法是真正处理请求的方法</p>
-<p>​        destroy 方法是在 servlet 被从内存中销毁（服务器关闭）时执行的</p>
-<h3 id="Servlet-的生命周期："><a href="#Servlet-的生命周期：" class="headerlink" title="Servlet 的生命周期："></a>Servlet 的生命周期：</h3><p>​        从第一次调用，到服务器关闭，如果在 web.xml 中配置了 load-on-startup 则是从服务器开启到服务器关闭</p>
-<h3 id="Service-方法和-doPost-方法、doPost-方法的区别："><a href="#Service-方法和-doPost-方法、doPost-方法的区别：" class="headerlink" title="Service 方法和 doPost 方法、doPost 方法的区别："></a>Service 方法和 doPost 方法、doPost 方法的区别：</h3><p>​        Service 方法：无论 get 方式的请求还是 post 方式的请求都可以进行处理，如果 servlet 中有 Service 方法，会优先调用 service 方法对请求进行处理</p>
-<p>​        doGet 方法：处理 GET 请求</p>
-<p>​        doPost 方法：处理 POST 请求</p>
+<h2 id="Query-查询对象"><a href="#Query-查询对象" class="headerlink" title="Query 查询对象"></a>Query 查询对象</h2><p>​        query 查询对象可以通过设置查询条件进行查询，使用 HQL 语言（Hibernate Query Language），是 Hibernate 的面向对象查询语言，最终底层要转成面向数据库查询语言</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.查询所有用户</span></span><br><span class="line">Query query = session.createQuery(<span class="string">"From User"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.查询符合条件得用户【username 和 password 是 User 对象得属性，而不是表的字段名】</span></span><br><span class="line">Query query = session.createQuery(<span class="string">"From User where username = ? and password = ?"</span>);</span><br><span class="line">query.setParameter(<span class="number">0</span>, <span class="string">"lmh"</span>);</span><br><span class="line">query.setParameter(<span class="number">1</span>, <span class="string">"123"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.分页查询</span></span><br><span class="line">Query query = session.creatQuery(<span class="string">"From User"</span>);</span><br><span class="line">query.setMaxResults(<span class="number">3</span>);</span><br><span class="line">query.setFirstResult(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
 
+<h2 id="Criteria-查询对象"><a href="#Criteria-查询对象" class="headerlink" title="Criteria 查询对象"></a>Criteria 查询对象</h2><p>​        QBC（query by criteria），是 hibernate 提供纯面向对象查询得语言，提供直接使用 PO 对象进行操作</p>
+<p>​        PO：persistent object，用于与数据库交互数据——dao 层（JavaBean + hbm）</p>
+<p>​        BO：business object，业务数据对象——service 层</p>
+<p>​        VO：value object 值对象——web 层</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Criteria：hibernate 独创的查询对象，全程无 hql 语言</span></span><br><span class="line">Criteria criteria = session.createCriteria(User.class);</span><br><span class="line"></span><br><span class="line"><span class="comment">//等于 =</span></span><br><span class="line">criteria.add(Restriction.eq(<span class="string">"lmh"</span>, <span class="string">"123"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//like</span></span><br><span class="line">criteria.add(Restriction.like(<span class="string">"lmh"</span>, <span class="string">"%123%"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//..........</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="SQLQuery-查询对象"><a href="#SQLQuery-查询对象" class="headerlink" title="SQLQuery 查询对象"></a>SQLQuery 查询对象</h2><p>​        SQLQuery：使用原生的 SQL 语句查询</p>
+<p>​        并不是所有的 sql 都能转成 hql</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SQLQuery query = session.createSQLQuery(<span class="string">"select * from t_user"</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件逻辑优化"><a href="#文件逻辑优化" class="headerlink" title="文件逻辑优化"></a>文件逻辑优化</h2><h3 id="使用工具类"><a href="#使用工具类" class="headerlink" title="使用工具类"></a>使用工具类</h3><p>​        将重复代码封装进工具类中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.hibernate.Session;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.SessionFactory;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.cfg.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HibernateUtils</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> SessionFactory sf;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		<span class="comment">//1.加载配置</span></span><br><span class="line">		Configuration cfg = <span class="keyword">new</span> Configuration().configure();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//2.创建一个sessionFactory</span></span><br><span class="line">		sf = cfg.buildSessionFactory();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//3.在虚拟机关闭时，释放SessionFactory</span></span><br><span class="line">		Runtime.getRuntime().addShutdownHook(<span class="keyword">new</span> Thread()&#123;</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				sf.close();</span><br><span class="line">				System.out.println(<span class="string">"释放资源"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Session <span class="title">openSession</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> sf.openSession();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Session <span class="title">getCurrentSession</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> sf.getCurrentSession();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -355,7 +350,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/李明徽的第一篇博客/" rel="tag"># 李明徽的第一篇博客</a>
+            <a href="/tags/Hibernate框架/" rel="tag"># Hibernate框架</a>
           
         </div>
       
@@ -368,8 +363,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/23/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2019/11/18/Hibernate框架——框架的使用及简单配置讲解/" rel="next" title="Hibernate框架——框架的使用及简单配置讲解">
+                <i class="fa fa-chevron-left"></i> Hibernate框架——框架的使用及简单配置讲解
               </a>
             
           </div>
@@ -377,10 +372,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/24/数据结构（一）——顺序表/" rel="prev" title="数据结构（一）——线性表">
-                数据结构（一）——线性表 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -526,7 +517,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Servlet"><span class="nav-number">1.</span> <span class="nav-text">Servlet:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念："><span class="nav-number">1.1.</span> <span class="nav-text">概念：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点："><span class="nav-number">1.2.</span> <span class="nav-text">特点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行流程："><span class="nav-number">1.3.</span> <span class="nav-text">运行流程：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组成："><span class="nav-number">1.3.1.</span> <span class="nav-text">组成：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行："><span class="nav-number">1.3.2.</span> <span class="nav-text">运行：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet-的生命周期："><span class="nav-number">1.3.3.</span> <span class="nav-text">Servlet 的生命周期：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service-方法和-doPost-方法、doPost-方法的区别："><span class="nav-number">1.3.4.</span> <span class="nav-text">Service 方法和 doPost 方法、doPost 方法的区别：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hibernate-框架的查询方法"><span class="nav-number">1.</span> <span class="nav-text">Hibernate 框架的查询方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Query-查询对象"><span class="nav-number">1.1.</span> <span class="nav-text">Query 查询对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Criteria-查询对象"><span class="nav-number">1.2.</span> <span class="nav-text">Criteria 查询对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQLQuery-查询对象"><span class="nav-number">1.3.</span> <span class="nav-text">SQLQuery 查询对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件逻辑优化"><span class="nav-number">1.4.</span> <span class="nav-text">文件逻辑优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用工具类"><span class="nav-number">1.4.1.</span> <span class="nav-text">使用工具类</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
