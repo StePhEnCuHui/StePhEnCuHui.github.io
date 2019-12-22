@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Step By Step">
 <meta property="og:description" content="JAVA 的五种引用类型及引用队列​        在介绍 JAVA 的五种引用之前，先介绍一下什么是引用，以及引用和对象之间的关系 什么是引用​        众所周知，JAVA 是一种面向对象的语言，在 JAVA 程序运行时，对象是存储在堆内存（Heap）中的，C/C++ 中是通过指针来访问所谓对象（结构体）的，而 JAVA 则是通过引用来访问对象，也就是说，引用指向了对象在堆内存中的地址，引">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-22T07:16:10.954Z">
+<meta property="og:updated_time" content="2019-12-22T07:22:21.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA基础——JAVA的五种引用类型及引用队列">
 <meta name="twitter:description" content="JAVA 的五种引用类型及引用队列​        在介绍 JAVA 的五种引用之前，先介绍一下什么是引用，以及引用和对象之间的关系 什么是引用​        众所周知，JAVA 是一种面向对象的语言，在 JAVA 程序运行时，对象是存储在堆内存（Heap）中的，C/C++ 中是通过指针来访问所谓对象（结构体）的，而 JAVA 则是通过引用来访问对象，也就是说，引用指向了对象在堆内存中的地址，引">
@@ -318,12 +318,9 @@
 <p>​        也可以将引用指向对象，这样操作后就可以通过引用来操作对象</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="keyword">new</span> String(<span class="string">"123"</span>);</span><br></pre></td></tr></table></figure>
 
-<p>##垃圾回收算法、五种引用类型及引用队列</p>
-<p>​        JAVA 在垃圾回收机制中判断是否要回收某一对象时，都需要引用的概念</p>
-<p>###引用计数法</p>
-<p>​        引用计数法的原理为：如果变量被引用：计数 +1，没有对象引用计数 -1，为 0 回收，很明显，当一个对象需要被循环引用时，引用计数法可能会存在问题</p>
-<p>###可达性分析算法</p>
-<p>​        Java 虚拟机中的垃圾回收器采用可达性分析来探索所有存活的对象：扫描堆中的对象，看是否能够沿着 GC Root 对象为起点的引用链找到该对象，找不到表示可以回收</p>
+<h2 id="垃圾回收算法、五种引用类型及引用队列"><a href="#垃圾回收算法、五种引用类型及引用队列" class="headerlink" title="垃圾回收算法、五种引用类型及引用队列"></a>垃圾回收算法、五种引用类型及引用队列</h2><p>​        JAVA 在垃圾回收机制中判断是否要回收某一对象时，都需要引用的概念</p>
+<h3 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h3><p>​        引用计数法的原理为：如果变量被引用：计数 +1，没有对象引用计数 -1，为 0 回收，很明显，当一个对象需要被循环引用时，引用计数法可能会存在问题</p>
+<h3 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h3><p>​        Java 虚拟机中的垃圾回收器采用可达性分析来探索所有存活的对象：扫描堆中的对象，看是否能够沿着 GC Root 对象为起点的引用链找到该对象，找不到表示可以回收</p>
 <h3 id="强引用"><a href="#强引用" class="headerlink" title="强引用"></a>强引用</h3><p>​        只有所有 GC Roots 对象都不通过强引用引用该对象，该对象才能被垃圾回收，换句话说就是，只要强引用存在，JVM 垃圾回收器就永远都不会回收被引用的对象，即使内存不足，JVM 会抛出 OutOfMemoryError</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//只要 obj 指向 Object 对象，那它就永远都不会被 JVM 回收</span></span><br><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br><span class="line"><span class="comment">//将 obj 置为 null，可以切断引用链，这样 obj 就会被 JVM 回收</span></span><br><span class="line">obj = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
 
@@ -533,7 +530,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA-的五种引用类型及引用队列"><span class="nav-number">1.</span> <span class="nav-text">JAVA 的五种引用类型及引用队列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是引用"><span class="nav-number">1.1.</span> <span class="nav-text">什么是引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用和对象"><span class="nav-number">1.2.</span> <span class="nav-text">引用和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#强引用"><span class="nav-number">1.2.1.</span> <span class="nav-text">强引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用队列"><span class="nav-number">1.2.2.</span> <span class="nav-text">引用队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软引用"><span class="nav-number">1.2.3.</span> <span class="nav-text">软引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弱引用"><span class="nav-number">1.2.4.</span> <span class="nav-text">弱引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚引用"><span class="nav-number">1.2.5.</span> <span class="nav-text">虚引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#终结器引用"><span class="nav-number">1.2.6.</span> <span class="nav-text">终结器引用</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA-的五种引用类型及引用队列"><span class="nav-number">1.</span> <span class="nav-text">JAVA 的五种引用类型及引用队列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是引用"><span class="nav-number">1.1.</span> <span class="nav-text">什么是引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用和对象"><span class="nav-number">1.2.</span> <span class="nav-text">引用和对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收算法、五种引用类型及引用队列"><span class="nav-number">1.3.</span> <span class="nav-text">垃圾回收算法、五种引用类型及引用队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用计数法"><span class="nav-number">1.3.1.</span> <span class="nav-text">引用计数法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可达性分析算法"><span class="nav-number">1.3.2.</span> <span class="nav-text">可达性分析算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强引用"><span class="nav-number">1.3.3.</span> <span class="nav-text">强引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用队列"><span class="nav-number">1.3.4.</span> <span class="nav-text">引用队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软引用"><span class="nav-number">1.3.5.</span> <span class="nav-text">软引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弱引用"><span class="nav-number">1.3.6.</span> <span class="nav-text">弱引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚引用"><span class="nav-number">1.3.7.</span> <span class="nav-text">虚引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#终结器引用"><span class="nav-number">1.3.8.</span> <span class="nav-text">终结器引用</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
