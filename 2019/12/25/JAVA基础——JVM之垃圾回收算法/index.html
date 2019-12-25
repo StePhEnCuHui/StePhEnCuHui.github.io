@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hibernate框架,">
+  <meta name="keywords" content="JAVA基础,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Hibernate 框架的查询方法​        除了通过 session.get() 方法进行查询外，Hibernate 框架还提供了其他的查询方式">
-<meta name="keywords" content="Hibernate框架">
+<meta name="description" content="JVM 的垃圾回收算法​        在 JVM 中，经常使用的垃圾回收算法有：标记-清除算法、标记-整理算法、复制算法以及分代回收算法，在这里会逐一介绍说明">
+<meta name="keywords" content="JAVA基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hibernate——其他查询方法">
-<meta property="og:url" content="http://yoursite.com/2019/11/25/Hibernate框架——其他查询方法/index.html">
+<meta property="og:title" content="JAVA基础——JVM之垃圾回收算法">
+<meta property="og:url" content="http://yoursite.com/2019/12/25/JAVA基础——JVM之垃圾回收算法/index.html">
 <meta property="og:site_name" content="Step By Step">
-<meta property="og:description" content="Hibernate 框架的查询方法​        除了通过 session.get() 方法进行查询外，Hibernate 框架还提供了其他的查询方式">
+<meta property="og:description" content="JVM 的垃圾回收算法​        在 JVM 中，经常使用的垃圾回收算法有：标记-清除算法、标记-整理算法、复制算法以及分代回收算法，在这里会逐一介绍说明">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-25T12:16:08.921Z">
+<meta property="og:updated_time" content="2019-12-25T10:27:45.208Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hibernate——其他查询方法">
-<meta name="twitter:description" content="Hibernate 框架的查询方法​        除了通过 session.get() 方法进行查询外，Hibernate 框架还提供了其他的查询方式">
+<meta name="twitter:title" content="JAVA基础——JVM之垃圾回收算法">
+<meta name="twitter:description" content="JVM 的垃圾回收算法​        在 JVM 中，经常使用的垃圾回收算法有：标记-清除算法、标记-整理算法、复制算法以及分代回收算法，在这里会逐一介绍说明">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/11/25/Hibernate框架——其他查询方法/">
+  <link rel="canonical" href="http://yoursite.com/2019/12/25/JAVA基础——JVM之垃圾回收算法/">
 
 
 
 
 
-  <title>Hibernate——其他查询方法 | Step By Step</title>
+  <title>JAVA基础——JVM之垃圾回收算法 | Step By Step</title>
   
 
 
@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/25/Hibernate框架——其他查询方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/25/JAVA基础——JVM之垃圾回收算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiMinghui">
@@ -256,7 +256,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hibernate——其他查询方法</h1>
+          <h1 class="post-title" itemprop="name headline">JAVA基础——JVM之垃圾回收算法</h1>
         
 
         <div class="post-meta">
@@ -268,8 +268,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-25T18:32:30+08:00">
-                2019-11-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-25T17:04:47+08:00">
+                2019-12-25
               </time>
             
 
@@ -306,24 +306,21 @@
       
 
       
-        <h1 id="Hibernate-框架的查询方法"><a href="#Hibernate-框架的查询方法" class="headerlink" title="Hibernate 框架的查询方法"></a>Hibernate 框架的查询方法</h1><p>​        除了通过 session.get() 方法进行查询外，Hibernate 框架还提供了其他的查询方式</p>
+        <h1 id="JVM-的垃圾回收算法"><a href="#JVM-的垃圾回收算法" class="headerlink" title="JVM 的垃圾回收算法"></a>JVM 的垃圾回收算法</h1><p>​        在 JVM 中，经常使用的垃圾回收算法有：标记-清除算法、标记-整理算法、复制算法以及分代回收算法，在这里会逐一介绍说明</p>
 <a id="more"></a>
 
-<h2 id="Query-查询对象"><a href="#Query-查询对象" class="headerlink" title="Query 查询对象"></a>Query 查询对象</h2><p>​        query 查询对象可以通过设置查询条件进行查询，使用 HQL 语言（Hibernate Query Language），是 Hibernate 的面向对象查询语言，最终底层要转成面向数据库查询语言</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.查询所有用户</span></span><br><span class="line">Query query = session.createQuery(<span class="string">"From User"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.查询符合条件得用户【username 和 password 是 User 对象得属性，而不是表的字段名】</span></span><br><span class="line">Query query = session.createQuery(<span class="string">"From User where username = ? and password = ?"</span>);</span><br><span class="line">query.setParameter(<span class="number">0</span>, <span class="string">"lmh"</span>);</span><br><span class="line">query.setParameter(<span class="number">1</span>, <span class="string">"123"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.分页查询</span></span><br><span class="line">Query query = session.creatQuery(<span class="string">"From User"</span>);</span><br><span class="line">query.setMaxResults(<span class="number">3</span>);</span><br><span class="line">query.setFirstResult(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="标记-清除算法（Mark-Sweep）"><a href="#标记-清除算法（Mark-Sweep）" class="headerlink" title="标记-清除算法（Mark Sweep）"></a>标记-清除算法（Mark Sweep）</h2><p>​        标记清除算法的运行流程是先标记，将有引用链连接的引用对象进行标记，再将未被标记的引用对象的起始地址和结束地址存入空闲地址列表中，下次需要内存时直接对其进行覆盖</p>
+<p>​        标记清除算法从原理上来说很容易实现，但有一个很严重的问题是此算法容易产生内存碎片，因为标记清除算法回收后的内存可能是断断续续的，而此时就不再可能分配出较大的连续内存空间而触发新一次的垃圾回收</p>
+<p>​        标记清除算法在存活的引用对象多的时候十分高效，但因为其只对未被引用链所连接的即未被标记的引用对象进行清除操作，不移动被标记的对象，所以产生内存碎片是不能避免的</p>
+<h2 id="标记-整理算法（Mark-Compact）"><a href="#标记-整理算法（Mark-Compact）" class="headerlink" title="标记-整理算法（Mark  Compact）"></a>标记-整理算法（Mark  Compact）</h2><p>​        标记整理算法的标记过程和标记清除算法没有区别，整理的过程会对使用的内存进行整理，将存活的对象都向内存的一端移动，然后清理掉整端边界以外的内存</p>
+<p>​        标记整理算法显然解决了标记清除算法会产生内存碎片的问题，但该算法中涉及到对象的移动，所以运算时的成本会有所提高</p>
+<h2 id="复制算法（Copy）"><a href="#复制算法（Copy）" class="headerlink" title="复制算法（Copy）"></a>复制算法（Copy）</h2><p>​        复制算法是将内存区域分成了大小相等的 FROM 和 TO 两块区域，TO 区开始没有对象，所有的对象都使用 FROM 区，当 FROM 区满了需要垃圾回收时，将存活的对象复制到 TO 区中，然后把 FROM 区清空，这样一来复制到 FROM 区的对象是相连的，不会产生内存碎片的问题，最后改 FROM 为 TO，改 TO 为 FROM，这样新的对象就和老对象继续使用新的 FROM 区，而新的 TO 区依然是空的，如此循环</p>
+<p>​        复制算法实现起来十分简单，也不会产生内存碎片，但缺点是以内存空间的使用率为代价，每次只能使用一半的内存空间，如果存活对象多的话，复制算法的效率也会下降</p>
+<h2 id="分代回收算法（Generational-Collention）"><a href="#分代回收算法（Generational-Collention）" class="headerlink" title="分代回收算法（Generational Collention）"></a>分代回收算法（Generational Collention）</h2><p>​        首先分代收集是大部分 JVM 都采用的垃圾回收算法，它将内存划分为不同的区域，根据对象的生命周期对其进行分类，一般分为：新生代（Young Generation）和老年代（Tenured Generation）</p>
+<p>​        新生代中，又被分成一块伊甸园（Eden Space）和两块幸存区（Survivor），幸存区 FROM 和幸存区TO，其比例一般为 8 : 1 : 1，每次都同时使用伊甸园和幸存区 FROM，在进行垃圾回收时（Minor GC），将伊甸园和幸存区 FROM 中的对象复制进幸存区 TO 中，然后清理掉伊甸园和幸存区 FROM，最后像复制算法一样对 FROM 和 TO 进行一次调换如此循环，也就是说，新生代的垃圾回收主要以复制算法为主</p>
+<p>​        在分代回收算法中，有一个用来控制新生代对象进入老年代的属性，叫阈值，每次垃圾回收后，若该对象还存在于内存中，它的年龄就会 + 1，当对象的年龄超过阈值后，它就会从新生代晋升到老年代，也就是说，老年代存放的都是一些生命周期很长的对象</p>
+<p>​        当老年代内存全部被占用时，会先尝试 Minor GC，若空间仍不足，会再进行一次 Full GC，Full GC 的 STW（Stop The World）时间很长，如果 Full GC 后空间仍不足，就会 OOF</p>
 
-<h2 id="Criteria-查询对象"><a href="#Criteria-查询对象" class="headerlink" title="Criteria 查询对象"></a>Criteria 查询对象</h2><p>​        QBC（query by criteria），是 hibernate 提供纯面向对象查询得语言，提供直接使用 PO 对象进行操作</p>
-<p>​        PO：persistent object，用于与数据库交互数据——dao 层（JavaBean + hbm）</p>
-<p>​        BO：business object，业务数据对象——service 层</p>
-<p>​        VO：value object 值对象——web 层</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Criteria：hibernate 独创的查询对象，全程无 hql 语言</span></span><br><span class="line">Criteria criteria = session.createCriteria(User.class);</span><br><span class="line"></span><br><span class="line"><span class="comment">//等于 =</span></span><br><span class="line">criteria.add(Restriction.eq(<span class="string">"lmh"</span>, <span class="string">"123"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//like</span></span><br><span class="line">criteria.add(Restriction.like(<span class="string">"lmh"</span>, <span class="string">"%123%"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//..........</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="SQLQuery-查询对象"><a href="#SQLQuery-查询对象" class="headerlink" title="SQLQuery 查询对象"></a>SQLQuery 查询对象</h2><p>​        SQLQuery：使用原生的 SQL 语句查询</p>
-<p>​        并不是所有的 sql 都能转成 hql</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SQLQuery query = session.createSQLQuery(<span class="string">"select * from t_user"</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="文件逻辑优化"><a href="#文件逻辑优化" class="headerlink" title="文件逻辑优化"></a>文件逻辑优化</h2><h3 id="使用工具类"><a href="#使用工具类" class="headerlink" title="使用工具类"></a>使用工具类</h3><p>​        将重复代码封装进工具类中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.hibernate.Session;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.SessionFactory;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.cfg.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HibernateUtils</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> SessionFactory sf;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		<span class="comment">//1.加载配置</span></span><br><span class="line">		Configuration cfg = <span class="keyword">new</span> Configuration().configure();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//2.创建一个sessionFactory</span></span><br><span class="line">		sf = cfg.buildSessionFactory();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//3.在虚拟机关闭时，释放SessionFactory</span></span><br><span class="line">		Runtime.getRuntime().addShutdownHook(<span class="keyword">new</span> Thread()&#123;</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				sf.close();</span><br><span class="line">				System.out.println(<span class="string">"释放资源"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Session <span class="title">openSession</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> sf.openSession();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Session <span class="title">getCurrentSession</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> sf.getCurrentSession();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -350,7 +347,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hibernate框架/" rel="tag"># Hibernate框架</a>
+            <a href="/tags/JAVA基础/" rel="tag"># JAVA基础</a>
           
         </div>
       
@@ -363,8 +360,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/18/Hibernate框架——框架的使用及简单配置讲解/" rel="next" title="Hibernate框架——框架的使用及简单配置讲解">
-                <i class="fa fa-chevron-left"></i> Hibernate框架——框架的使用及简单配置讲解
+              <a href="/2019/12/20/JAVA基础——JAVA的五种引用类型及引用队列/" rel="next" title="JAVA基础——JAVA的五种引用类型及引用队列">
+                <i class="fa fa-chevron-left"></i> JAVA基础——JAVA的五种引用类型及引用队列
               </a>
             
           </div>
@@ -372,10 +369,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/27/JAVA基础——JAVA简介和运行原理/" rel="prev" title="JAVA基础——JAVA简介和运行原理">
-                JAVA基础——JAVA简介和运行原理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -521,7 +514,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hibernate-框架的查询方法"><span class="nav-number">1.</span> <span class="nav-text">Hibernate 框架的查询方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Query-查询对象"><span class="nav-number">1.1.</span> <span class="nav-text">Query 查询对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Criteria-查询对象"><span class="nav-number">1.2.</span> <span class="nav-text">Criteria 查询对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQLQuery-查询对象"><span class="nav-number">1.3.</span> <span class="nav-text">SQLQuery 查询对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件逻辑优化"><span class="nav-number">1.4.</span> <span class="nav-text">文件逻辑优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用工具类"><span class="nav-number">1.4.1.</span> <span class="nav-text">使用工具类</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JVM-的垃圾回收算法"><span class="nav-number">1.</span> <span class="nav-text">JVM 的垃圾回收算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标记-清除算法（Mark-Sweep）"><span class="nav-number">1.1.</span> <span class="nav-text">标记-清除算法（Mark Sweep）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标记-整理算法（Mark-Compact）"><span class="nav-number">1.2.</span> <span class="nav-text">标记-整理算法（Mark  Compact）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制算法（Copy）"><span class="nav-number">1.3.</span> <span class="nav-text">复制算法（Copy）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分代回收算法（Generational-Collention）"><span class="nav-number">1.4.</span> <span class="nav-text">分代回收算法（Generational Collention）</span></a></li></ol></li></ol></div>
             
 
           </div>
