@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JAVA基础,">
 
 
 
@@ -81,17 +81,22 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="description" content="JVM 垃圾回收器​        在 JVM 中，垃圾回收器大体分为三个种类：串行垃圾回收器、吞吐量优先的垃圾回收器和响应时间优先的垃圾回收器">
+<meta name="keywords" content="JAVA基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/07/23/hello-world/index.html">
+<meta property="og:title" content="JAVA基础——JVM之垃圾回收器">
+<meta property="og:url" content="http://yoursite.com/2019/12/26/JAVA基础——JVM之垃圾回收器/index.html">
 <meta property="og:site_name" content="Step By Step">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="JVM 垃圾回收器​        在 JVM 中，垃圾回收器大体分为三个种类：串行垃圾回收器、吞吐量优先的垃圾回收器和响应时间优先的垃圾回收器">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-06T00:20:47.183Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019122816521345.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191228165229857.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191228165244736.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-12-28T08:54:08.394Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="JAVA基础——JVM之垃圾回收器">
+<meta name="twitter:description" content="JVM 垃圾回收器​        在 JVM 中，垃圾回收器大体分为三个种类：串行垃圾回收器、吞吐量优先的垃圾回收器和响应时间优先的垃圾回收器">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2019122816521345.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70">
 
 
 
@@ -121,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/23/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/12/26/JAVA基础——JVM之垃圾回收器/">
 
 
 
 
 
-  <title>Hello World | Step By Step</title>
+  <title>JAVA基础——JVM之垃圾回收器 | Step By Step</title>
   
 
 
@@ -238,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/23/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/26/JAVA基础——JVM之垃圾回收器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiMinghui">
@@ -255,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">JAVA基础——JVM之垃圾回收器</h1>
         
 
         <div class="post-meta">
@@ -267,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-23T15:07:59+08:00">
-                2019-07-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-26T19:58:59+08:00">
+                2019-12-26
               </time>
             
 
@@ -305,21 +310,27 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+        <h1 id="JVM-垃圾回收器"><a href="#JVM-垃圾回收器" class="headerlink" title="JVM 垃圾回收器"></a>JVM 垃圾回收器</h1><p>​        在 JVM 中，垃圾回收器大体分为三个种类：串行垃圾回收器、吞吐量优先的垃圾回收器和响应时间优先的垃圾回收器</p>
 <a id="more"></a>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h2 id="串行垃圾回收器"><a href="#串行垃圾回收器" class="headerlink" title="串行垃圾回收器"></a>串行垃圾回收器</h2><p>​        串行垃圾回收器是一种单线程的垃圾回收器，适合堆内存小，cpu 个数少的电脑</p>
+<p>​        开启：-XX:+UseSerialGC = Serial + SerialOld</p>
+<p>​        串行垃圾回收器分为两个部分：Serial 和 SerialOld，Serial 工作在新生代，使用的垃圾回收算法是复制算法，SerialOld 工作在老年代，使用标记整理算法</p>
+<p>​        当串行垃圾回收器进行垃圾回收时，所有的用户线程将会暂停，因为垃圾回收的过程中会涉及到地址的变化，当所有线程运行到一个本身的安全点时会进入阻塞状态，等待垃圾回收线程结束后，再恢复运行</p>
+<p><img src="https://img-blog.csdnimg.cn/2019122816521345.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70" alt></p>
+<h2 id="吞吐量优先的垃圾回收器"><a href="#吞吐量优先的垃圾回收器" class="headerlink" title="吞吐量优先的垃圾回收器"></a>吞吐量优先的垃圾回收器</h2><p>​        吞吐量优先的垃圾回收器是一种多线程，并行的垃圾回收器</p>
+<p>​        开启：+UseParallelGC~-XX:+UseParallelOldGC</p>
+<p>​        吞吐量优先的垃圾回收器也分为两个部分：Parallel 和 ParallelOld，Parallel 工作在新生代，使用复制算法，ParallelOld 工作在老年代，使用标记整理算法，两个垃圾回收器都是多线程的垃圾回收器，开启一个的同时会默认开启另一个</p>
+<p>​        当需要进行垃圾回收时，所有线程会到安全点时停下，转换为阻塞状态，之后垃圾回收器会开启多个线程进行垃圾回收，其线程个数一般情况下和 cpu 核数相同，回收结束后，各线程再恢复运行，垃圾回收时，cpu 的利用率会达到 100 %</p>
+<p><img src="https://img-blog.csdnimg.cn/20191228165229857.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70" alt></p>
+<p>​        可以通过参数来设置垃圾回收中的属性：</p>
+<p>​    ·    -XX:+UseAdaptiveSizePolicy<br>​        -XX:GCTimeRatio = ratio 设置垃圾回收时间占总时间的百分比小于 1 / 1 + ratio，ratio 一般设置成 19<br>​        -XX:MaxGCPauseMillis = time 最大暂停毫秒数 &lt; time ms，可能和前一项冲突、对立</p>
+<h2 id="响应时间优先的垃圾回收器"><a href="#响应时间优先的垃圾回收器" class="headerlink" title="响应时间优先的垃圾回收器"></a>响应时间优先的垃圾回收器</h2><p>​        响应时间优先的垃圾回收器是一种多线程，并发的垃圾回收器，用户线程和垃圾回收线程可以同时进行，一起抢占 cpu 资源</p>
+<p>​        开启：-XX:+UseConcMarkSweepGC<del>-XX:+UseParNewGC</del>SerialOl</p>
+<p>​        ConcMarkSweep 是工作在老年代的垃圾回收器，与之配套使用的是工作在新生代的 ParNew，ParNew 是一种基于复制算法的垃圾回收器，ConcMarkSweep 是并发的，基于标记清除算法的垃圾回收器，但是它可能会并发失败，这是它会退化为 SerialOld</p>
+<p>​        当老年代发生垃圾回收时，所有线程会在运行到安全点时暂停并进入阻塞状态，需要进行垃圾回收的线程会进行一次初始标记，初始标记时间很快，只标记一些根对象，接着用户的其他线程便恢复运行，垃圾回收线程与此同时也会并发执行，再一次进行更细致的标记，结束后，会造成第二次 STW，这时对所有的线程进行一次重新标记，以避免并发运行期间，新的内存使用对垃圾回收产生影响，重新标记结束后，垃圾回收线程开始进行清理，用户线程也都恢复运行，这时也是垃圾回收线程和用户线程并发运行，这种垃圾回收方式对系统吞吐量是有影响的，因为用于计算的 cpu 个数降低了</p>
+<p>​        由于这种垃圾回收方式不会保证清除掉所有垃圾，所以不能像以上的两种垃圾回收器那样，等内存占用满时再进行垃圾回收，会在内存占比达到一定比例时便进行垃圾回收</p>
+<p><img src="https://img-blog.csdnimg.cn/20191228165244736.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70" alt></p>
 
       
     </div>
@@ -345,6 +356,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JAVA基础/" rel="tag"># JAVA基础</a>
+          
+        </div>
+      
 
       
       
@@ -354,15 +371,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/12/25/JAVA基础——JVM之垃圾回收算法/" rel="next" title="JAVA基础——JVM之垃圾回收算法">
+                <i class="fa fa-chevron-left"></i> JAVA基础——JVM之垃圾回收算法
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/23/Servlet/" rel="prev" title="Servlet学习笔记">
-                Servlet学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -508,7 +525,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JVM-垃圾回收器"><span class="nav-number">1.</span> <span class="nav-text">JVM 垃圾回收器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#串行垃圾回收器"><span class="nav-number">1.1.</span> <span class="nav-text">串行垃圾回收器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#吞吐量优先的垃圾回收器"><span class="nav-number">1.2.</span> <span class="nav-text">吞吐量优先的垃圾回收器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应时间优先的垃圾回收器"><span class="nav-number">1.3.</span> <span class="nav-text">响应时间优先的垃圾回收器</span></a></li></ol></li></ol></div>
             
 
           </div>
