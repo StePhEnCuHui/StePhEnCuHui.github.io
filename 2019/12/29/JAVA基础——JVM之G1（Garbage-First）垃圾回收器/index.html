@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JAVA基础,">
 
 
 
@@ -81,17 +81,20 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="description" content="Garbage First 垃圾回收器G1 简介​        G1（Garbage First）垃圾回收器是最新的 JDK 中默认的垃圾回收器，也是垃圾回收技术最前沿的成果，它同时注重吞吐量（Throughput）和低延迟（Low Latency），默认的暂停目标是 200ms，适用于超大的堆内存 ​        G1 引入了分区（region）的思想，弱化了分代的概念，它将堆内存分为大小相">
+<meta name="keywords" content="JAVA基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/07/23/hello-world/index.html">
+<meta property="og:title" content="JAVA基础——JVM之G1（Garbage First）垃圾回收器">
+<meta property="og:url" content="http://yoursite.com/2019/12/29/JAVA基础——JVM之G1（Garbage-First）垃圾回收器/index.html">
 <meta property="og:site_name" content="Step By Step">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="Garbage First 垃圾回收器G1 简介​        G1（Garbage First）垃圾回收器是最新的 JDK 中默认的垃圾回收器，也是垃圾回收技术最前沿的成果，它同时注重吞吐量（Throughput）和低延迟（Low Latency），默认的暂停目标是 200ms，适用于超大的堆内存 ​        G1 引入了分区（region）的思想，弱化了分代的概念，它将堆内存分为大小相">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-06T00:20:47.183Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191229114401950.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-12-29T03:45:10.939Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="JAVA基础——JVM之G1（Garbage First）垃圾回收器">
+<meta name="twitter:description" content="Garbage First 垃圾回收器G1 简介​        G1（Garbage First）垃圾回收器是最新的 JDK 中默认的垃圾回收器，也是垃圾回收技术最前沿的成果，它同时注重吞吐量（Throughput）和低延迟（Low Latency），默认的暂停目标是 200ms，适用于超大的堆内存 ​        G1 引入了分区（region）的思想，弱化了分代的概念，它将堆内存分为大小相">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20191229114401950.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70">
 
 
 
@@ -121,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/23/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/12/29/JAVA基础——JVM之G1（Garbage-First）垃圾回收器/">
 
 
 
 
 
-  <title>Hello World | Step By Step</title>
+  <title>JAVA基础——JVM之G1（Garbage First）垃圾回收器 | Step By Step</title>
   
 
 
@@ -238,7 +241,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/23/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/29/JAVA基础——JVM之G1（Garbage-First）垃圾回收器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiMinghui">
@@ -255,7 +258,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">JAVA基础——JVM之G1（Garbage First）垃圾回收器</h1>
         
 
         <div class="post-meta">
@@ -267,8 +270,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-23T15:07:59+08:00">
-                2019-07-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-29T10:16:26+08:00">
+                2019-12-29
               </time>
             
 
@@ -305,21 +308,19 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+        <h1 id="Garbage-First-垃圾回收器"><a href="#Garbage-First-垃圾回收器" class="headerlink" title="Garbage First 垃圾回收器"></a>Garbage First 垃圾回收器</h1><h2 id="G1-简介"><a href="#G1-简介" class="headerlink" title="G1 简介"></a>G1 简介</h2><p>​        G1（Garbage First）垃圾回收器是最新的 JDK 中默认的垃圾回收器，也是垃圾回收技术最前沿的成果，它同时注重吞吐量（Throughput）和低延迟（Low Latency），默认的暂停目标是 200ms，适用于超大的堆内存</p>
+<p>​        G1 引入了分区（region）的思想，弱化了分代的概念，它将堆内存分为大小相等的区，每个区的大约是 1248M，并且每个区都可以是 Eden、Survivor、Old 或者大对象区，G1 垃圾回收器在整体上使用了标记整理算法，两个区域之间使用的是复制算法</p>
 <a id="more"></a>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h2 id="G1-垃圾回收流程"><a href="#G1-垃圾回收流程" class="headerlink" title="G1 垃圾回收流程"></a>G1 垃圾回收流程</h2><p>​        G1 垃圾回收器的名字来源于它的设计原则：优先收集回收效果最大的区域（Garbage First），G1 垃圾回收器不是等到内存耗尽开始进行垃圾回收的，它采用启发式算法，当内存使用达到一定比例时就会开始进行垃圾回收，G1 垃圾回收器的工作流程大体上可以分为三个步骤的循环执行：Young Collection、Young Collection + CM、Mixed Collection</p>
+<p><img src="https://img-blog.csdnimg.cn/20191229114401950.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70" alt></p>
+<h3 id="Young-Collection"><a href="#Young-Collection" class="headerlink" title="Young Collection"></a>Young Collection</h3><p>​        Young Collection 阶段主要进行新生代的垃圾回收，和其他垃圾回收器一样，当 Eden 区逐渐被沾满时，会将 Eden 区中的幸存对象复制进 Survivor 区，这期间会造成 STW，当 Survivor 区中对象逐渐被占满时，被占满的 Survivor 区的对象中，符合晋升条件的会晋升到老年代，其余的会复制到其他 Survivor 区，另外，在进行 Young Collection 时，JVM 会对对象进行初始标记</p>
+<h3 id="Young-Collection-Concurrent-Mark"><a href="#Young-Collection-Concurrent-Mark" class="headerlink" title="Young Collection + Concurrent Mark"></a>Young Collection + Concurrent Mark</h3><p>​        当老年代占用堆空间比例达到一定的阈值时，会进行并发标记，并发标记不会造成 STW，也就是不会影响其他的用户线程，阈值的默认值是 45%，即老年代占比达到堆空间的 45% 时会开始进行并发标记，这里的并发标记过程也和其他的垃圾回收器一样，就是对初始标记后的对象再进行一次更细致的标记</p>
+<h3 id="Mixed-Collection"><a href="#Mixed-Collection" class="headerlink" title="Mixed Collection"></a>Mixed Collection</h3><p>​        混合回收是 G1 垃圾回收循环中的最后一项，在混合回收中，G1 可以将一些老年代区域添加到将回收的 Eden 和 Survivor，G1 垃圾回收器回收足够数量的老年代区域后，G1 会恢复到执行 Young Collection，直到下一个并发标记周期的完成</p>
+<p>​        Mixed Collection 分为最终标记（Remark）和拷贝存活（Evacuation）两个阶段，两个阶段都会造成 STW</p>
+<h4 id="Remark（重标记、最终标记）"><a href="#Remark（重标记、最终标记）" class="headerlink" title="Remark（重标记、最终标记）"></a>Remark（重标记、最终标记）</h4><p>​        最终标记（重标记）对于垃圾回收的过程是十分必要的，比如有如下情况：对象 C 在初始标记时因为没有被强引用所引用，初始标记的过程就不会标记 C 对象，而在垃圾回收之前和并发标记这段时间里，强引用对象 A 又引用了对象 C，如果不在垃圾回收之前进行一次 Remark，这时的对象 C 毫无疑问会被当作垃圾回收掉</p>
+<p>​        为了防止这种事情发生，在并发标记之后，如果对象的引用发生了改变，JVM 会执行写屏障指令，将发生引用改变的对象放入一个 satb_mark_queue 中，当重新标记进行时会检查这个队列，检测其中的对象是否有强引用所引用</p>
+<h4 id="Evacuation（拷贝存活）"><a href="#Evacuation（拷贝存活）" class="headerlink" title="Evacuation（拷贝存活）"></a>Evacuation（拷贝存活）</h4><p>​        拷贝存活即最后的整理，将多个区域的存活对象整理进一个或几个区域，并完成 Eden 到 Survivor，Survivor 到 Old，Old 到 Eden 和 Survivor 的过程，回收老年代的对象时，G1 会优先回收垃圾最多的区域，以达到暂停时间短的目标</p>
 
       
     </div>
@@ -345,6 +346,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JAVA基础/" rel="tag"># JAVA基础</a>
+          
+        </div>
+      
 
       
       
@@ -354,15 +361,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/12/26/JAVA基础——JVM之垃圾回收器/" rel="next" title="JAVA基础——JVM之垃圾回收器">
+                <i class="fa fa-chevron-left"></i> JAVA基础——JVM之垃圾回收器
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/23/Servlet/" rel="prev" title="Servlet学习笔记">
-                Servlet学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -508,7 +515,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Garbage-First-垃圾回收器"><span class="nav-number">1.</span> <span class="nav-text">Garbage First 垃圾回收器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#G1-简介"><span class="nav-number">1.1.</span> <span class="nav-text">G1 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G1-垃圾回收流程"><span class="nav-number">1.2.</span> <span class="nav-text">G1 垃圾回收流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Young-Collection"><span class="nav-number">1.2.1.</span> <span class="nav-text">Young Collection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Young-Collection-Concurrent-Mark"><span class="nav-number">1.2.2.</span> <span class="nav-text">Young Collection + Concurrent Mark</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mixed-Collection"><span class="nav-number">1.2.3.</span> <span class="nav-text">Mixed Collection</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Remark（重标记、最终标记）"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">Remark（重标记、最终标记）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evacuation（拷贝存活）"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">Evacuation（拷贝存活）</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
