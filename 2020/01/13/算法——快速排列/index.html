@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JAVA基础,">
+  <meta name="keywords" content="李明徽的算法,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="JAVA​        本系列主要更新 Java 基础相关的知识，最近准备重新复习一遍 Java 基础，主要涉及一些原理上的东西，会持续更新！">
-<meta name="keywords" content="JAVA基础">
+<meta name="description" content="快排​        从头开始学习算法，从最简单的排序算法开始，第一个接触的就是快排，学习的平台是 AcWing，希望现在学习还不晚，对以后能有帮助">
+<meta name="keywords" content="李明徽的算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA基础——JAVA简介和运行原理">
-<meta property="og:url" content="http://yoursite.com/2019/11/27/JAVA基础——JAVA线程简介及两种创建方式/index.html">
+<meta property="og:title" content="算法——快速排列">
+<meta property="og:url" content="http://yoursite.com/2020/01/13/算法——快速排列/index.html">
 <meta property="og:site_name" content="Step By Step">
-<meta property="og:description" content="JAVA​        本系列主要更新 Java 基础相关的知识，最近准备重新复习一遍 Java 基础，主要涉及一些原理上的东西，会持续更新！">
+<meta property="og:description" content="快排​        从头开始学习算法，从最简单的排序算法开始，第一个接触的就是快排，学习的平台是 AcWing，希望现在学习还不晚，对以后能有帮助">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-27T11:53:13.606Z">
+<meta property="og:updated_time" content="2020-01-13T10:22:31.566Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA基础——JAVA简介和运行原理">
-<meta name="twitter:description" content="JAVA​        本系列主要更新 Java 基础相关的知识，最近准备重新复习一遍 Java 基础，主要涉及一些原理上的东西，会持续更新！">
+<meta name="twitter:title" content="算法——快速排列">
+<meta name="twitter:description" content="快排​        从头开始学习算法，从最简单的排序算法开始，第一个接触的就是快排，学习的平台是 AcWing，希望现在学习还不晚，对以后能有帮助">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/11/27/JAVA基础——JAVA线程简介及两种创建方式/">
+  <link rel="canonical" href="http://yoursite.com/2020/01/13/算法——快速排列/">
 
 
 
 
 
-  <title>JAVA基础——JAVA简介和运行原理 | Step By Step</title>
+  <title>算法——快速排列 | Step By Step</title>
   
 
 
@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/27/JAVA基础——JAVA线程简介及两种创建方式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/13/算法——快速排列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiMinghui">
@@ -256,7 +256,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JAVA基础——JAVA简介和运行原理</h1>
+          <h1 class="post-title" itemprop="name headline">算法——快速排列</h1>
         
 
         <div class="post-meta">
@@ -268,8 +268,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-27T10:12:54+08:00">
-                2019-11-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-13T17:53:56+08:00">
+                2020-01-13
               </time>
             
 
@@ -306,39 +306,16 @@
       
 
       
-        <h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><p>​        本系列主要更新 Java 基础相关的知识，最近准备重新复习一遍 Java 基础，主要涉及一些原理上的东西，会持续更新！</p>
+        <h1 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h1><p>​        从头开始学习算法，从最简单的排序算法开始，第一个接触的就是快排，学习的平台是 AcWing，希望现在学习还不晚，对以后能有帮助</p>
 <a id="more"></a>
 
-<p>##Java 简介</p>
-<p>​        Java 是一种简洁的、面向对象的、分布式的、解释型的、健壮安全的、结构中立的、可移植的、性能优异、多线程的动态语言</p>
-<p>​        看不懂吧，简单来说，Java 就是一种面向对象的编程语言，功能完善、安全、使用广泛，在 WEB</p>
-<p> 程序设计、嵌入式开发、桌面应用开发等开发工作中都占有一席之地</p>
-<p>##Java 平台</p>
-<p>​        当前 Java 技术的平台架构包括三方面：</p>
-<p>​        Java SE：开发部署在桌面、服务器、嵌入式环境和实时环境的 Java 应用程序，包含了 Java Web 服务开发的类，为 Java EE 提供基础</p>
-<p>​        Java EE：帮助开发和部署可移植、健壮、可伸缩且安全的服务器端 Java 应用程序。Java EE 是在 Java SE 的基础上构建的，提供了 Web 服务、组件模型、管理和通信 API，且可以用来实现企业级的面向服务体系结构和 Web 应用程序</p>
-<p>​        Java ME：为在移动设备和嵌入式设备上运行的应用程序提供了一个健壮且灵活的环境，Java ME 包括灵活的用户界面、健壮的安全模式</p>
-<h2 id="Java-运行流程"><a href="#Java-运行流程" class="headerlink" title="Java 运行流程"></a>Java 运行流程</h2><p>​        1.使用文字编辑软件或集成开发环境编辑 Java 源文件，扩展名为 .java</p>
-<p>​        2.通过编译 .java 文件，生成同名的 .class 字节码文件</p>
-<p>​        3.通过 JVM 解释方式，将 .class 字节码文件转变为由 0 或 1 组成的二进制指令（机器码）运行</p>
-<h2 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h2><p>​        JDK 是 Java 开发包（开发工具），JDK 是整个 Java 的核心，包含了 JRE，Java 工具类和 Java 核心类库</p>
-<p>​        JDK 适合编译解释小型 Java 文件，随着项目体积的变大，使用 JDK 来维护各类（class）间的依赖关系将变得十分繁琐和复杂</p>
-<h2 id="JRE"><a href="#JRE" class="headerlink" title="JRE"></a>JRE</h2><p>​        JRE 是 Java 运行环境，包含了 JVM（Java 虚拟机）标准实现及 Java 核心类库，但不包含编译器、调试器和其他工具</p>
-<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p>​        JVM 是 Java 虚拟机，是 Java 跨平台性的基础，Java 的 .class 字节码文件因为会在 JVM 中被解释成面型不同系统的机器码文件，所以 Java 才具有了跨平台性</p>
-<h3 id="JVM-的内存模型"><a href="#JVM-的内存模型" class="headerlink" title="JVM 的内存模型"></a>JVM 的内存模型</h3><blockquote>
-<p>运行时数据区</p>
-<blockquote>
-<p>方法区</p>
-<p>虚拟机栈</p>
-<p>本地方法栈</p>
-<p>堆</p>
-<p>程序计数器</p>
-</blockquote>
-<p>执行引擎</p>
-<p>本地接口</p>
-<p>本地方法库</p>
-</blockquote>
-<p>​        JVM 还有很多内容，我还在继续学习！</p>
+<h2 id="快排的原理"><a href="#快排的原理" class="headerlink" title="快排的原理"></a>快排的原理</h2><p>​        快排使用的是分治的思想，有三个关键点：确定分界点、调整区间、递归处理左右两段，这里的思想是使用两个指针，分别对应数组的左右边界，一下简称 l 和 r，通过循环来将两个指针向中间移动直到 l 和 r 相遇，在这期间，将数组调整为小于等于分界点的值和大于等于分界点的值两部分，再使用递归的思想处理</p>
+<p>​        首先要做的是确定一个分治的分界点，这个点可以是任意的一个数组元素，但不要给它设置成固定值，最好通过变量来对它进行定义，例如 array[l]、array[r]、array[(l + r) / 2] 这种都可以</p>
+<p>​        然后通过分界点的值来调整数组空间，，这里需要用到刚才提到的 l 和 r 两个指针，过程是：先将 l 向后移动，检验 l 对应的值是否小于分界点，如果小于则继续后移 l，否则 l 就会停下，这是 r 开始前移，检测移动后的 r 所对应的值是否大于分界点，如果大于则继续前移 r，否则 r 也会停下，这个时候 l 和 r 都已经停下了，说明 l 和 r 都已经遇到了不属于自己对应空间的值，直接交换两个指针当前所对应的值，然后继续移动 l 和 r 指针，直到 l 和 r 相遇</p>
+<p>​        最后便是使用递归的思想，对分界点左边（大小意义上的左，并非是排序上的左）和分界点右边的元素再进行第二步的过程，当最后一次递归结束后，数组便完成了排序</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span> <span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l == r)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"><span class="comment">//x:分治变量 循环变量需在两侧边界外一个偏移量的位置，因为每次都是先让指针后/前移一格，所以循环变量需要在边界的前/后一个偏移量的位置</span></span><br><span class="line">    <span class="keyword">int</span> x = arr[l], i = l - <span class="number">1</span>, j = r + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        	i++;</span><br><span class="line">    	<span class="keyword">while</span> (arr[i] &lt; x);</span><br><span class="line">    	<span class="keyword">do</span></span><br><span class="line">        	j++;</span><br><span class="line">    	<span class="keyword">while</span> (arr[j] &gt; x);</span><br><span class="line">    	<span class="keyword">if</span> (i &lt; j) </span><br><span class="line">       		swap(arr[i], arr[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    quick_sort(arr, l, j);</span><br><span class="line">    quick_sort(arr, j + <span class="number">1</span>, r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        </p>
 
       
     </div>
@@ -366,7 +343,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JAVA基础/" rel="tag"># JAVA基础</a>
+            <a href="/tags/李明徽的算法/" rel="tag"># 李明徽的算法</a>
           
         </div>
       
@@ -379,8 +356,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/25/Hibernate框架——其他查询方法/" rel="next" title="Hibernate——其他查询方法">
-                <i class="fa fa-chevron-left"></i> Hibernate——其他查询方法
+              <a href="/2020/01/04/JAVA基础——JAVA线程简介及两种创建方式/" rel="next" title="JAVA基础——JAVA线程简介及两种创建方式">
+                <i class="fa fa-chevron-left"></i> JAVA基础——JAVA线程简介及两种创建方式
               </a>
             
           </div>
@@ -388,10 +365,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/01/JAVA基础——JVM简介及程序计数器/" rel="prev" title="JAVA基础——JVM简介及程序计数器">
-                JAVA基础——JVM简介及程序计数器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -468,7 +441,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -481,7 +454,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -537,7 +510,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA"><span class="nav-number">1.</span> <span class="nav-text">JAVA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-运行流程"><span class="nav-number">1.1.</span> <span class="nav-text">Java 运行流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK"><span class="nav-number">1.2.</span> <span class="nav-text">JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JRE"><span class="nav-number">1.3.</span> <span class="nav-text">JRE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM"><span class="nav-number">1.4.</span> <span class="nav-text">JVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM-的内存模型"><span class="nav-number">1.4.1.</span> <span class="nav-text">JVM 的内存模型</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#快排"><span class="nav-number">1.</span> <span class="nav-text">快排</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#快排的原理"><span class="nav-number">1.1.</span> <span class="nav-text">快排的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.2.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
             
 
           </div>
