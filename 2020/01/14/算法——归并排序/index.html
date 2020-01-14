@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="快排​        从头开始学习算法，从最简单的排序算法开始，第一个接触的就是快排，学习的平台是 AcWing，希望现在学习还不晚，对以后能有帮助">
+<meta name="description" content="归并排序​        归并排序是另一种排序算法，也是采用分治的思想，但是和快排有很大的区别，归并排序是稳定的，而快排则不稳定">
 <meta name="keywords" content="李明徽的算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法——快速排列">
-<meta property="og:url" content="http://yoursite.com/2020/01/13/算法——快速排列/index.html">
+<meta property="og:title" content="算法——归并排序">
+<meta property="og:url" content="http://yoursite.com/2020/01/14/算法——归并排序/index.html">
 <meta property="og:site_name" content="Step By Step">
-<meta property="og:description" content="快排​        从头开始学习算法，从最简单的排序算法开始，第一个接触的就是快排，学习的平台是 AcWing，希望现在学习还不晚，对以后能有帮助">
+<meta property="og:description" content="归并排序​        归并排序是另一种排序算法，也是采用分治的思想，但是和快排有很大的区别，归并排序是稳定的，而快排则不稳定">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-13T10:22:31.566Z">
+<meta property="og:updated_time" content="2020-01-14T10:39:35.363Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法——快速排列">
-<meta name="twitter:description" content="快排​        从头开始学习算法，从最简单的排序算法开始，第一个接触的就是快排，学习的平台是 AcWing，希望现在学习还不晚，对以后能有帮助">
+<meta name="twitter:title" content="算法——归并排序">
+<meta name="twitter:description" content="归并排序​        归并排序是另一种排序算法，也是采用分治的思想，但是和快排有很大的区别，归并排序是稳定的，而快排则不稳定">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/01/13/算法——快速排列/">
+  <link rel="canonical" href="http://yoursite.com/2020/01/14/算法——归并排序/">
 
 
 
 
 
-  <title>算法——快速排列 | Step By Step</title>
+  <title>算法——归并排序 | Step By Step</title>
   
 
 
@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/13/算法——快速排列/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/14/算法——归并排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiMinghui">
@@ -256,7 +256,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算法——快速排列</h1>
+          <h1 class="post-title" itemprop="name headline">算法——归并排序</h1>
         
 
         <div class="post-meta">
@@ -268,8 +268,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-13T17:53:56+08:00">
-                2020-01-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-14T17:54:45+08:00">
+                2020-01-14
               </time>
             
 
@@ -306,16 +306,28 @@
       
 
       
-        <h1 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h1><p>​        从头开始学习算法，从最简单的排序算法开始，第一个接触的就是快排，学习的平台是 AcWing，希望现在学习还不晚，对以后能有帮助</p>
+        <h1 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h1><p>​        归并排序是另一种排序算法，也是采用分治的思想，但是和快排有很大的区别，归并排序是稳定的，而快排则不稳定</p>
 <a id="more"></a>
 
-<h2 id="快排的原理"><a href="#快排的原理" class="headerlink" title="快排的原理"></a>快排的原理</h2><p>​        快排使用的是分治的思想，有三个关键点：确定分界点、调整区间、递归处理左右两段，这里的思想是使用两个指针，分别对应数组的左右边界，一下简称 l 和 r，通过循环来将两个指针向中间移动直到 l 和 r 相遇，在这期间，将数组调整为小于等于分界点的值和大于等于分界点的值两部分，再使用递归的思想处理</p>
-<p>​        首先要做的是确定一个分治的分界点，这个点可以是任意的一个数组元素，但不要给它设置成固定值，最好通过变量来对它进行定义，例如 array[l]、array[r]、array[(l + r) / 2] 这种都可以</p>
-<p>​        然后通过分界点的值来调整数组空间，，这里需要用到刚才提到的 l 和 r 两个指针，过程是：先将 l 向后移动，检验 l 对应的值是否小于分界点，如果小于则继续后移 l，否则 l 就会停下，这是 r 开始前移，检测移动后的 r 所对应的值是否大于分界点，如果大于则继续前移 r，否则 r 也会停下，这个时候 l 和 r 都已经停下了，说明 l 和 r 都已经遇到了不属于自己对应空间的值，直接交换两个指针当前所对应的值，然后继续移动 l 和 r 指针，直到 l 和 r 相遇</p>
-<p>​        最后便是使用递归的思想，对分界点左边（大小意义上的左，并非是排序上的左）和分界点右边的元素再进行第二步的过程，当最后一次递归结束后，数组便完成了排序</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span> <span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l == r)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"><span class="comment">//x:分治变量 循环变量需在两侧边界外一个偏移量的位置，因为每次都是先让指针后/前移一格，所以循环变量需要在边界的前/后一个偏移量的位置</span></span><br><span class="line">    <span class="keyword">int</span> x = arr[l], i = l - <span class="number">1</span>, j = r + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        	i++;</span><br><span class="line">    	<span class="keyword">while</span> (arr[i] &lt; x);</span><br><span class="line">    	<span class="keyword">do</span></span><br><span class="line">        	j++;</span><br><span class="line">    	<span class="keyword">while</span> (arr[j] &gt; x);</span><br><span class="line">    	<span class="keyword">if</span> (i &lt; j) </span><br><span class="line">       		swap(arr[i], arr[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    quick_sort(arr, l, j);</span><br><span class="line">    quick_sort(arr, j + <span class="number">1</span>, r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="归并的思想"><a href="#归并的思想" class="headerlink" title="归并的思想"></a>归并的思想</h2><p>​        归并排序的思想可以简单的分为三个步骤：</p>
+<ol>
+<li>确定分界点 mid</li>
+<li>递归分界点得到左右空间</li>
+<li>归并，将若干数组合并为一个有序数组</li>
+</ol>
+<h2 id="确定分界点"><a href="#确定分界点" class="headerlink" title="确定分界点"></a>确定分界点</h2><p>​        确定分界点，归并排序的分界点即为数组的中点，设数组左边界为 left，有边界为 right，那么分界点 mid 便为 </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 
-<p>​        </p>
+<p>​        归并排序的分界点和快排的分界点有本质的区别，快排的分界点是对数组的元素值而言的，而归并排序的分界点是就数组的 index 来说的</p>
+<p>​        通过确定的分界点，一个数组就被分解成了两个以 mid 为分界的数组，第一个数组的就原素组而言的下标范围是 left &lt;= index &lt;= mid，第二个数组是 mid + 1 &lt;= index &lt;= right</p>
+<h2 id="递归分界点左右空间"><a href="#递归分界点左右空间" class="headerlink" title="递归分界点左右空间"></a>递归分界点左右空间</h2><p>​        根据第一步得到的结果，可以使用递归将得到的两个数组继续分解，即</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">merge_sort(q, l, mid);</span><br><span class="line">merge_sort(q, mid + <span class="number">1</span>, r);</span><br></pre></td></tr></table></figure>
+
+<h2 id="归并"><a href="#归并" class="headerlink" title="归并"></a>归并</h2><p>​        这是归并排序最重要的一步，是对归并得到的数组得处理，对于两个有序数组来说，想要合并，就要不断得对比数组头位置元素的大小，这又是使用双指针，分别指向两个数组的头元素，不断对比两个指针对应元素大小，保存较小的那个，并后移与其对应的指针，由于两个指针实际上是分步执行的，当其中一个数组被遍历完后，直接将另一个数组接到答案数组的尾部即可，代码如下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//k 用来记录答案数组中现存元素的数量</span></span><br><span class="line"><span class="keyword">int</span> k = <span class="number">0</span>, i = l, j = mid + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= r) &#123;</span><br><span class="line">	<span class="keyword">if</span> (q[i] &lt;= q[j])</span><br><span class="line">		tmp[k++] = q[i++];</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		tmp[k++] = q[j++];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (i &lt;= mid)</span><br><span class="line">	tmp[k++] = q[i++];</span><br><span class="line"><span class="keyword">while</span> (j &lt;= r)</span><br><span class="line">	tmp[k++] = q[j++];</span><br><span class="line"><span class="keyword">for</span> (i = l, j = <span class="number">0</span>; i &lt;= r; i++, j++)</span><br><span class="line">	q[i] = tmp[j];</span><br></pre></td></tr></table></figure>
+
+<h2 id="全部代码"><a href="#全部代码" class="headerlink" title="全部代码"></a>全部代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> q[N], tmp[N];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge_sort</span><span class="params">(<span class="keyword">int</span> q[], <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (l == r)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">	merge_sort(q, l, mid);</span><br><span class="line">	merge_sort(q, mid + <span class="number">1</span>, r);</span><br><span class="line">	<span class="keyword">int</span> k = <span class="number">0</span>, i = l, j = mid + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= r) &#123;</span><br><span class="line">		<span class="keyword">if</span> (q[i] &lt;= q[j])</span><br><span class="line">			tmp[k++] = q[i++];</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			tmp[k++] = q[j++];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (i &lt;= mid)</span><br><span class="line">		tmp[k++] = q[i++];</span><br><span class="line">	<span class="keyword">while</span> (j &lt;= r)</span><br><span class="line">		tmp[k++] = q[j++];</span><br><span class="line">	<span class="keyword">for</span> (i = l, j = <span class="number">0</span>; i &lt;= r; i++, j++)</span><br><span class="line">		q[i] = tmp[j];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; q[i];</span><br><span class="line">	&#125;</span><br><span class="line">	merge_sort(q, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; q[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -356,8 +368,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/04/JAVA基础——JAVA线程简介及两种创建方式/" rel="next" title="JAVA基础——JAVA线程简介及两种创建方式">
-                <i class="fa fa-chevron-left"></i> JAVA基础——JAVA线程简介及两种创建方式
+              <a href="/2020/01/13/算法——快速排序/" rel="next" title="算法——快速排序">
+                <i class="fa fa-chevron-left"></i> 算法——快速排序
               </a>
             
           </div>
@@ -441,7 +453,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -510,7 +522,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#快排"><span class="nav-number">1.</span> <span class="nav-text">快排</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#快排的原理"><span class="nav-number">1.1.</span> <span class="nav-text">快排的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.2.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#归并排序"><span class="nav-number">1.</span> <span class="nav-text">归并排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#归并的思想"><span class="nav-number">1.1.</span> <span class="nav-text">归并的思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#确定分界点"><span class="nav-number">1.2.</span> <span class="nav-text">确定分界点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归分界点左右空间"><span class="nav-number">1.3.</span> <span class="nav-text">递归分界点左右空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并"><span class="nav-number">1.4.</span> <span class="nav-text">归并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全部代码"><span class="nav-number">1.5.</span> <span class="nav-text">全部代码</span></a></li></ol></li></ol></div>
             
 
           </div>
