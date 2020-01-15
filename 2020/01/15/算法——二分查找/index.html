@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JAVA基础,">
+  <meta name="keywords" content="李明徽的算法,">
 
 
 
@@ -81,22 +81,18 @@
 
 
 
-<meta name="description" content="JVM 垃圾回收器​        在 JVM 中，垃圾回收器大体分为三个种类：串行垃圾回收器、吞吐量优先的垃圾回收器和响应时间优先的垃圾回收器">
-<meta name="keywords" content="JAVA基础">
+<meta name="description" content="二分算法​        二分算法分为浮点数二分和整数二分，整数二分相对于浮点数二分来讲更复杂，需要考虑边界问题等">
+<meta name="keywords" content="李明徽的算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA基础——JVM之垃圾回收器">
-<meta property="og:url" content="http://yoursite.com/2019/12/26/JAVA基础——JVM之垃圾回收器/index.html">
+<meta property="og:title" content="算法——二分查找">
+<meta property="og:url" content="http://yoursite.com/2020/01/15/算法——二分查找/index.html">
 <meta property="og:site_name" content="Step By Step">
-<meta property="og:description" content="JVM 垃圾回收器​        在 JVM 中，垃圾回收器大体分为三个种类：串行垃圾回收器、吞吐量优先的垃圾回收器和响应时间优先的垃圾回收器">
+<meta property="og:description" content="二分算法​        二分算法分为浮点数二分和整数二分，整数二分相对于浮点数二分来讲更复杂，需要考虑边界问题等">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2019122816521345.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191228165229857.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191228165244736.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-12-28T08:54:08.394Z">
+<meta property="og:updated_time" content="2020-01-15T07:07:46.598Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA基础——JVM之垃圾回收器">
-<meta name="twitter:description" content="JVM 垃圾回收器​        在 JVM 中，垃圾回收器大体分为三个种类：串行垃圾回收器、吞吐量优先的垃圾回收器和响应时间优先的垃圾回收器">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2019122816521345.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70">
+<meta name="twitter:title" content="算法——二分查找">
+<meta name="twitter:description" content="二分算法​        二分算法分为浮点数二分和整数二分，整数二分相对于浮点数二分来讲更复杂，需要考虑边界问题等">
 
 
 
@@ -126,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/12/26/JAVA基础——JVM之垃圾回收器/">
+  <link rel="canonical" href="http://yoursite.com/2020/01/15/算法——二分查找/">
 
 
 
 
 
-  <title>JAVA基础——JVM之垃圾回收器 | Step By Step</title>
+  <title>算法——二分查找 | Step By Step</title>
   
 
 
@@ -243,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/26/JAVA基础——JVM之垃圾回收器/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/15/算法——二分查找/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiMinghui">
@@ -260,7 +256,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JAVA基础——JVM之垃圾回收器</h1>
+          <h1 class="post-title" itemprop="name headline">算法——二分查找</h1>
         
 
         <div class="post-meta">
@@ -272,8 +268,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-26T19:58:59+08:00">
-                2019-12-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-15T13:25:57+08:00">
+                2020-01-15
               </time>
             
 
@@ -310,27 +306,18 @@
       
 
       
-        <h1 id="JVM-垃圾回收器"><a href="#JVM-垃圾回收器" class="headerlink" title="JVM 垃圾回收器"></a>JVM 垃圾回收器</h1><p>​        在 JVM 中，垃圾回收器大体分为三个种类：串行垃圾回收器、吞吐量优先的垃圾回收器和响应时间优先的垃圾回收器</p>
+        <h1 id="二分算法"><a href="#二分算法" class="headerlink" title="二分算法"></a>二分算法</h1><p>​        二分算法分为浮点数二分和整数二分，整数二分相对于浮点数二分来讲更复杂，需要考虑边界问题等</p>
 <a id="more"></a>
 
-<h2 id="串行垃圾回收器"><a href="#串行垃圾回收器" class="headerlink" title="串行垃圾回收器"></a>串行垃圾回收器</h2><p>​        串行垃圾回收器是一种单线程的垃圾回收器，适合堆内存小，cpu 个数少的电脑</p>
-<p>​        开启：-XX:+UseSerialGC = Serial + SerialOld</p>
-<p>​        串行垃圾回收器分为两个部分：Serial 和 SerialOld，Serial 工作在新生代，使用的垃圾回收算法是复制算法，SerialOld 工作在老年代，使用标记整理算法</p>
-<p>​        当串行垃圾回收器进行垃圾回收时，所有的用户线程将会暂停，因为垃圾回收的过程中会涉及到地址的变化，当所有线程运行到一个本身的安全点时会进入阻塞状态，等待垃圾回收线程结束后，再恢复运行</p>
-<p><img src="https://img-blog.csdnimg.cn/2019122816521345.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70" alt></p>
-<h2 id="吞吐量优先的垃圾回收器"><a href="#吞吐量优先的垃圾回收器" class="headerlink" title="吞吐量优先的垃圾回收器"></a>吞吐量优先的垃圾回收器</h2><p>​        吞吐量优先的垃圾回收器是一种多线程，并行的垃圾回收器</p>
-<p>​        开启：+UseParallelGC~-XX:+UseParallelOldGC</p>
-<p>​        吞吐量优先的垃圾回收器也分为两个部分：Parallel 和 ParallelOld，Parallel 工作在新生代，使用复制算法，ParallelOld 工作在老年代，使用标记整理算法，两个垃圾回收器都是多线程的垃圾回收器，开启一个的同时会默认开启另一个</p>
-<p>​        当需要进行垃圾回收时，所有线程会到安全点时停下，转换为阻塞状态，之后垃圾回收器会开启多个线程进行垃圾回收，其线程个数一般情况下和 cpu 核数相同，回收结束后，各线程再恢复运行，垃圾回收时，cpu 的利用率会达到 100 %</p>
-<p><img src="https://img-blog.csdnimg.cn/20191228165229857.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70" alt></p>
-<p>​        可以通过参数来设置垃圾回收中的属性：</p>
-<p>​    ·    -XX:+UseAdaptiveSizePolicy<br>​        -XX:GCTimeRatio = ratio 设置垃圾回收时间占总时间的百分比小于 1 / 1 + ratio，ratio 一般设置成 19<br>​        -XX:MaxGCPauseMillis = time 最大暂停毫秒数 &lt; time ms，可能和前一项冲突、对立</p>
-<h2 id="响应时间优先的垃圾回收器"><a href="#响应时间优先的垃圾回收器" class="headerlink" title="响应时间优先的垃圾回收器"></a>响应时间优先的垃圾回收器</h2><p>​        响应时间优先的垃圾回收器是一种多线程，并发的垃圾回收器，用户线程和垃圾回收线程可以同时进行，一起抢占 cpu 资源</p>
-<p>​        开启：-XX:+UseConcMarkSweepGC<del>-XX:+UseParNewGC</del>SerialOl</p>
-<p>​        ConcMarkSweep 是工作在老年代的垃圾回收器，与之配套使用的是工作在新生代的 ParNew，ParNew 是一种基于复制算法的垃圾回收器，ConcMarkSweep 是并发的，基于标记清除算法的垃圾回收器，但是它可能会并发失败，这是它会退化为 SerialOld</p>
-<p>​        当老年代发生垃圾回收时，所有线程会在运行到安全点时暂停并进入阻塞状态，需要进行垃圾回收的线程会进行一次初始标记，初始标记时间很快，只标记一些根对象，接着用户的其他线程便恢复运行，垃圾回收线程与此同时也会并发执行，再一次进行更细致的标记，结束后，会造成第二次 STW，这时对所有的线程进行一次重新标记，以避免并发运行期间，新的内存使用对垃圾回收产生影响，重新标记结束后，垃圾回收线程开始进行清理，用户线程也都恢复运行，这时也是垃圾回收线程和用户线程并发运行，这种垃圾回收方式对系统吞吐量是有影响的，因为用于计算的 cpu 个数降低了</p>
-<p>​        由于这种垃圾回收方式不会保证清除掉所有垃圾，所以不能像以上的两种垃圾回收器那样，等内存占用满时再进行垃圾回收，会在内存占比达到一定比例时便进行垃圾回收</p>
-<p><img src="https://img-blog.csdnimg.cn/20191228165244736.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70" alt></p>
+<h2 id="二分思想"><a href="#二分思想" class="headerlink" title="二分思想"></a>二分思想</h2><p>​        二分算法的思想是就一段有序序列来讲，想要查找其中某一个数，可以先找到位于序列中点的数，如果目标值小等于中点值，且序列是单调递增的，那么目标值一定在中点左侧，这样再用同样的方式对左侧区间进行二分，如此查找，最后就会找到要找的数字</p>
+<h2 id="整数二分"><a href="#整数二分" class="headerlink" title="整数二分"></a>整数二分</h2><p>​        整数二分思想上很好理解，就是将有序的序列从中间分开，判断目标值在哪半边，再继续二分那段序列就可以</p>
+<p>​        下面给出整数二分的一个例子，包括了整数二分的两种写法</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, k;</span><br><span class="line"><span class="keyword">int</span> q[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">quick_sort</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (l == r)</span><br><span class="line">		<span class="keyword">return</span> q[l];</span><br><span class="line">	<span class="keyword">int</span> x = q[l], i = l - <span class="number">1</span>, j = r + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">		<span class="keyword">while</span> (x &gt; q[++i]);</span><br><span class="line">		<span class="keyword">while</span> (x &lt; q[--j]);</span><br><span class="line">		<span class="keyword">if</span> (i &lt; j)</span><br><span class="line">			swap(q[i], q[j]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> sl = j - l + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (k &lt;= sl)</span><br><span class="line">		<span class="keyword">return</span> quick_sort(l, j, k);</span><br><span class="line">	<span class="keyword">return</span> quick_sort(j + <span class="number">1</span>, r, k - sl);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;k);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;q[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; quick_sort(<span class="number">0</span>, n - <span class="number">1</span>, k);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        这里之所以存在两种写法，主要区别在于求中点 mid 的值时，如果边界值采取不当的话，整数二分极有可能产生死循环导致程序崩溃，所以须在求 mid 时进行向下取整，即 <code>mid = (l + r + 1) / 2</code></p>
+<h2 id="浮点数二分"><a href="#浮点数二分" class="headerlink" title="浮点数二分"></a>浮点数二分</h2><p>​        在理解了整数二分的基础上，理解浮点数二分就变得十分简单了，因为浮点数二分不会涉及到边界问题，所以在确定边界值上十分简单，下面是用浮点数二分的思想实现的开平方问题</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> x;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">	<span class="keyword">double</span> l = <span class="number">0</span>, r = x;</span><br><span class="line">	<span class="keyword">while</span> (r - l &gt; <span class="number">1e-6</span>) &#123;</span><br><span class="line">		<span class="keyword">double</span> mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (mid * mid &gt;= x)</span><br><span class="line">			r = mid;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			l = mid;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; l;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -358,7 +345,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JAVA基础/" rel="tag"># JAVA基础</a>
+            <a href="/tags/李明徽的算法/" rel="tag"># 李明徽的算法</a>
           
         </div>
       
@@ -371,8 +358,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/25/JAVA基础——JVM之垃圾回收算法/" rel="next" title="JAVA基础——JVM之垃圾回收算法">
-                <i class="fa fa-chevron-left"></i> JAVA基础——JVM之垃圾回收算法
+              <a href="/2020/01/14/算法——归并排序/" rel="next" title="算法——归并排序">
+                <i class="fa fa-chevron-left"></i> 算法——归并排序
               </a>
             
           </div>
@@ -380,10 +367,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/29/JAVA基础——JVM之G1（Garbage-First）垃圾回收器/" rel="prev" title="JAVA基础——JVM之G1（Garbage First）垃圾回收器">
-                JAVA基础——JVM之G1（Garbage First）垃圾回收器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -529,7 +512,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JVM-垃圾回收器"><span class="nav-number">1.</span> <span class="nav-text">JVM 垃圾回收器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#串行垃圾回收器"><span class="nav-number">1.1.</span> <span class="nav-text">串行垃圾回收器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#吞吐量优先的垃圾回收器"><span class="nav-number">1.2.</span> <span class="nav-text">吞吐量优先的垃圾回收器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应时间优先的垃圾回收器"><span class="nav-number">1.3.</span> <span class="nav-text">响应时间优先的垃圾回收器</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二分算法"><span class="nav-number">1.</span> <span class="nav-text">二分算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二分思想"><span class="nav-number">1.1.</span> <span class="nav-text">二分思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整数二分"><span class="nav-number">1.2.</span> <span class="nav-text">整数二分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮点数二分"><span class="nav-number">1.3.</span> <span class="nav-text">浮点数二分</span></a></li></ol></li></ol></div>
             
 
           </div>
