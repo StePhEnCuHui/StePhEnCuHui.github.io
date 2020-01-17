@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="快排​        从头开始学习算法，从最简单的排序算法开始，第一个接触的就是快排，学习的平台是 AcWing，希望现在学习还不晚，对以后能有帮助">
+<meta name="description" content="双指针算法​        双指针算法是指一切采用双指针的方式，降低原本暴力解法的时间复杂度的算法，通常双指针算法可以将暴力的 O(n^2)降低到 O(n) ​        由于双指针算法指的是一类算法，下面我用两道题来简单解释一下">
 <meta name="keywords" content="李明徽的算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法——快速排序">
-<meta property="og:url" content="http://yoursite.com/2020/01/13/算法——快速排序/index.html">
+<meta property="og:title" content="算法——双指针算法">
+<meta property="og:url" content="http://yoursite.com/2020/01/17/算法——双指针算法/index.html">
 <meta property="og:site_name" content="Step By Step">
-<meta property="og:description" content="快排​        从头开始学习算法，从最简单的排序算法开始，第一个接触的就是快排，学习的平台是 AcWing，希望现在学习还不晚，对以后能有帮助">
+<meta property="og:description" content="双指针算法​        双指针算法是指一切采用双指针的方式，降低原本暴力解法的时间复杂度的算法，通常双指针算法可以将暴力的 O(n^2)降低到 O(n) ​        由于双指针算法指的是一类算法，下面我用两道题来简单解释一下">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-14T10:40:00.623Z">
+<meta property="og:updated_time" content="2020-01-17T14:38:40.288Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法——快速排序">
-<meta name="twitter:description" content="快排​        从头开始学习算法，从最简单的排序算法开始，第一个接触的就是快排，学习的平台是 AcWing，希望现在学习还不晚，对以后能有帮助">
+<meta name="twitter:title" content="算法——双指针算法">
+<meta name="twitter:description" content="双指针算法​        双指针算法是指一切采用双指针的方式，降低原本暴力解法的时间复杂度的算法，通常双指针算法可以将暴力的 O(n^2)降低到 O(n) ​        由于双指针算法指的是一类算法，下面我用两道题来简单解释一下">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/01/13/算法——快速排序/">
+  <link rel="canonical" href="http://yoursite.com/2020/01/17/算法——双指针算法/">
 
 
 
 
 
-  <title>算法——快速排序 | Step By Step</title>
+  <title>算法——双指针算法 | Step By Step</title>
   
 
 
@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/13/算法——快速排序/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/17/算法——双指针算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiMinghui">
@@ -256,7 +256,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算法——快速排序</h1>
+          <h1 class="post-title" itemprop="name headline">算法——双指针算法</h1>
         
 
         <div class="post-meta">
@@ -268,8 +268,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-13T17:53:56+08:00">
-                2020-01-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-17T21:56:51+08:00">
+                2020-01-17
               </time>
             
 
@@ -306,16 +306,19 @@
       
 
       
-        <h1 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h1><p>​        从头开始学习算法，从最简单的排序算法开始，第一个接触的就是快排，学习的平台是 AcWing，希望现在学习还不晚，对以后能有帮助</p>
+        <h1 id="双指针算法"><a href="#双指针算法" class="headerlink" title="双指针算法"></a>双指针算法</h1><p>​        双指针算法是指一切采用双指针的方式，降低原本暴力解法的时间复杂度的算法，通常双指针算法可以将暴力的 <code>O(n^2)</code>降低到 <code>O(n)</code></p>
+<p>​        由于双指针算法指的是一类算法，下面我用两道题来简单解释一下</p>
 <a id="more"></a>
 
-<h2 id="快排的原理"><a href="#快排的原理" class="headerlink" title="快排的原理"></a>快排的原理</h2><p>​        快排使用的是分治的思想，有三个关键点：确定分界点、调整区间、递归处理左右两段，这里的思想是使用两个指针，分别对应数组的左右边界，一下简称 l 和 r，通过循环来将两个指针向中间移动直到 l 和 r 相遇，在这期间，将数组调整为小于等于分界点的值和大于等于分界点的值两部分，再使用递归的思想处理</p>
-<p>​        首先要做的是确定一个分治的分界点，这个点可以是任意的一个数组元素，但不要给它设置成固定值，最好通过变量来对它进行定义，例如 array[l]、array[r]、array[(l + r) / 2] 这种都可以</p>
-<p>​        然后通过分界点的值来调整数组空间，，这里需要用到刚才提到的 l 和 r 两个指针，过程是：先将 l 向后移动，检验 l 对应的值是否小于分界点，如果小于则继续后移 l，否则 l 就会停下，这是 r 开始前移，检测移动后的 r 所对应的值是否大于分界点，如果大于则继续前移 r，否则 r 也会停下，这个时候 l 和 r 都已经停下了，说明 l 和 r 都已经遇到了不属于自己对应空间的值，直接交换两个指针当前所对应的值，然后继续移动 l 和 r 指针，直到 l 和 r 相遇</p>
-<p>​        最后便是使用递归的思想，对分界点左边（大小意义上的左，并非是排序上的左）和分界点右边的元素再进行第二步的过程，当最后一次递归结束后，数组便完成了排序</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span> <span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l == r)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"><span class="comment">//x:分治变量 循环变量需在两侧边界外一个偏移量的位置，因为每次都是先让指针后/前移一格，所以循环变量需要在边界的前/后一个偏移量的位置</span></span><br><span class="line">    <span class="keyword">int</span> x = arr[l], i = l - <span class="number">1</span>, j = r + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        	i++;</span><br><span class="line">    	<span class="keyword">while</span> (arr[i] &lt; x);</span><br><span class="line">    	<span class="keyword">do</span></span><br><span class="line">        	j++;</span><br><span class="line">    	<span class="keyword">while</span> (arr[j] &gt; x);</span><br><span class="line">    	<span class="keyword">if</span> (i &lt; j) </span><br><span class="line">       		swap(arr[i], arr[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    quick_sort(arr, l, j);</span><br><span class="line">    quick_sort(arr, j + <span class="number">1</span>, r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="单词个数问题"><a href="#单词个数问题" class="headerlink" title="单词个数问题"></a>单词个数问题</h2><p>​        即查找一段字符串中，以空格为分隔的单词的个数，这道题用暴力法完全可解，外层 for 循环遍历整个字符数组，内层 for 循环检测 <code>&#39; &#39;</code> 字符，但是显然这种方法时间复杂度是 <code>O(n^2)</code></p>
+<p>​        如果采用双指针算法， 外层循环用来控制遍历字符串，内层循环直接跳到 <code>&#39; &#39;</code> 处，记住这个单词后，直接将外层循环跳到 <code>&#39; &#39;</code> 的下一位继续执行，时间复杂度便为 <code>&#39;O(n)&#39;</code></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numStr</span><span class="params">(<span class="keyword">char</span> str[])</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> l = <span class="number">0</span>, r = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> length = <span class="built_in">strlen</span>(str);</span><br><span class="line">	<span class="keyword">while</span> (str[l]) &#123;</span><br><span class="line">		<span class="keyword">while</span> (r &lt;= length &amp;&amp; str[r] != <span class="string">' '</span>)</span><br><span class="line">			r++;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> k = l; k &lt; r; k++)</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; str[k];</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		sum++;</span><br><span class="line">		l = ++r;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> sum = numStr(<span class="string">"hello world !"</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"有 "</span> &lt;&lt; sum &lt;&lt; <span class="string">" 个单词"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>​        </p>
+<h2 id="最长连续不重复子序列问题"><a href="#最长连续不重复子序列问题" class="headerlink" title="最长连续不重复子序列问题"></a>最长连续不重复子序列问题</h2><p>​        首先，这个问题也可以使用暴力法，嵌套 for 循环，可以解决问题，但是速度慢且代码复杂</p>
+<p>​        采用双指针算法的思想，第一个指针持续后移，使用另一个数组统计每个数字出现的次数来控制第二个指针的移动，以此来计算不重复子序列，时间复杂度可达到 <code>O(n)</code></p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Windows.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"><span class="keyword">int</span> s[N];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">	<span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		s[a[i]]++;</span><br><span class="line">		<span class="keyword">while</span> (s[a[i]] &gt; <span class="number">1</span>) &#123;</span><br><span class="line">			s[a[j]]--;</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line">		res = max(res, i - j + <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>​        另外归并排序也是双指针算法的一个实例，归并排序在我之前的博客有讲过，链接是：<a href="https://stephencuhui.github.io/2020/01/14/%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" target="_blank" rel="noopener">归并排序讲解</a></p>
 
       
     </div>
@@ -356,8 +359,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/04/JAVA基础——JAVA线程简介及两种创建方式/" rel="next" title="JAVA基础——JAVA线程简介及两种创建方式">
-                <i class="fa fa-chevron-left"></i> JAVA基础——JAVA线程简介及两种创建方式
+              <a href="/2020/01/15/算法——二分查找/" rel="next" title="算法——二分查找">
+                <i class="fa fa-chevron-left"></i> 算法——二分查找
               </a>
             
           </div>
@@ -365,10 +368,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/01/14/算法——归并排序/" rel="prev" title="算法——归并排序">
-                算法——归并排序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -514,7 +513,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#快排"><span class="nav-number">1.</span> <span class="nav-text">快排</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#快排的原理"><span class="nav-number">1.1.</span> <span class="nav-text">快排的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.2.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#双指针算法"><span class="nav-number">1.</span> <span class="nav-text">双指针算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单词个数问题"><span class="nav-number">1.1.</span> <span class="nav-text">单词个数问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">1.1.1.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最长连续不重复子序列问题"><span class="nav-number">1.2.</span> <span class="nav-text">最长连续不重复子序列问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并排序"><span class="nav-number">1.3.</span> <span class="nav-text">归并排序</span></a></li></ol></li></ol></div>
             
 
           </div>
