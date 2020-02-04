@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="李明徽的Python,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Step By Step" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Python 中的多线程什么是线程​        一个进程中包括多个线程，线程是 CPU 调度和分派的基本单位，是进程中执行运算的最小单位，真正在 CPU 上运行的是线程，可以与同一个进程中的其他线程共享进程的全部资源">
+<meta name="keywords" content="李明徽的Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python——多线程以及多线程会产生的一些问题">
+<meta property="og:url" content="http://yoursite.com/2020/02/04/Python——多线程以及多线程会产生的一些问题/index.html">
+<meta property="og:site_name" content="Step By Step">
+<meta property="og:description" content="Python 中的多线程什么是线程​        一个进程中包括多个线程，线程是 CPU 调度和分派的基本单位，是进程中执行运算的最小单位，真正在 CPU 上运行的是线程，可以与同一个进程中的其他线程共享进程的全部资源">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-04T14:39:45.183Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python——多线程以及多线程会产生的一些问题">
+<meta name="twitter:description" content="Python 中的多线程什么是线程​        一个进程中包括多个线程，线程是 CPU 调度和分派的基本单位，是进程中执行运算的最小单位，真正在 CPU 上运行的是线程，可以与同一个进程中的其他线程共享进程的全部资源">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/02/04/Python——多线程以及多线程会产生的一些问题/">
+
+
+
+
+
+  <title>Python——多线程以及多线程会产生的一些问题 | Step By Step</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  
+	<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/StePhEnCuHui" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Step By Step</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">耀出千分光</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/04/Python——多线程以及多线程会产生的一些问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiMinghui">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Step By Step">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python——多线程以及多线程会产生的一些问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-04T21:35:59+08:00">
+                2020-02-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Python-中的多线程"><a href="#Python-中的多线程" class="headerlink" title="Python 中的多线程"></a>Python 中的多线程</h1><h2 id="什么是线程"><a href="#什么是线程" class="headerlink" title="什么是线程"></a>什么是线程</h2><p>​        一个进程中包括多个线程，线程是 CPU 调度和分派的基本单位，是进程中执行运算的最小单位，真正在 CPU 上运行的是线程，可以与同一个进程中的其他线程共享进程的全部资源</p>
+<a id="more"></a>
+
+<h2 id="Python-中实现多线程"><a href="#Python-中实现多线程" class="headerlink" title="Python 中实现多线程"></a>Python 中实现多线程</h2><p>​        Python 中有两种方式床架多线程，一种是调用底层的 <code>thread</code>模块（Python3 中已弃用），另一种是使用<code>threading</code>模块，下面我说的也是使用这个模块实现多线程的方法</p>
+<p>​        从形式上将，多线程的实现和多进程的实现十分类似，<code>threading</code>模块提供了<code>Thread</code>类来创建线程，同<code>Process</code>类一样，我们可以通过直接调用或创建子类来继承这两种方式来创建线程</p>
+<h3 id="使用-Thread-实现多线程"><a href="#使用-Thread-实现多线程" class="headerlink" title="使用 Thread 实现多线程"></a>使用 Thread 实现多线程</h3><p>​        直接调用<code>threading</code>，模块的<code>Thread</code>类来创建线程十分简单，使用<code>threading.Thread([target], [(item1, item2, ...)])</code>方法，<code>target</code>为目标函数名称（如果有目标函数的话），后边为参数元组，用来传递函数参数</p>
+<p>​        线程创建好后，调用<code>Thread.start()</code>方法，就可以运行线程，如果没有目标函数，<code>start()</code>会自动执行<code>Thread</code>类中的<code>run()</code>方法，示例如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">saySorry</span><span class="params">()</span>:</span></span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">    print(<span class="string">'I am sorry'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">        print(<span class="string">'create %i Thread'</span> % i)</span><br><span class="line">        t = threading.Thread(target=saySorry)</span><br><span class="line">        t.start()</span><br></pre></td></tr></table></figure>
+
+<p>​        运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">create 0 Thread</span><br><span class="line">create 1 Thread</span><br><span class="line">create 2 Thread</span><br><span class="line">create 3 Thread</span><br><span class="line">create 4 Thread</span><br><span class="line">I am sorry</span><br><span class="line">I am sorry</span><br><span class="line">I am sorry</span><br><span class="line">I am sorry</span><br><span class="line">I am sorry</span><br></pre></td></tr></table></figure>
+
+<p>​        上边的程序也证明了，程序在创建了子线程后，不会等待线程执行完毕，而是会继续向下执行，而当主程序全部执行完毕后，却会等待所有子线程执行完毕再结束，这点和进程有些区别</p>
+<h3 id="继承-Thread-实现多线程"><a href="#继承-Thread-实现多线程" class="headerlink" title="继承 Thread 实现多线程"></a>继承 Thread 实现多线程</h3><p>​        另外一种方式是通过创建继承<code>Thread</code>类的子类来实现多线程，这样做的好处就是可以将线程要运行的代码全部放入<code>run</code>函数中，用起来更方便，示例如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span><span class="params">(threading.Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">            msg = <span class="string">'I am '</span> + self.name + <span class="string">' @ '</span> + str(i)</span><br><span class="line">            print(msg)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    t = MyThread()</span><br><span class="line">    t.start()</span><br></pre></td></tr></table></figure>
+
+<p>​        运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">I am Thread-1 @ 0</span><br><span class="line">I am Thread-1 @ 1</span><br><span class="line">I am Thread-1 @ 2</span><br></pre></td></tr></table></figure>
+
+<h2 id="Python-多线程中全局变量和非全局变量的使用问题"><a href="#Python-多线程中全局变量和非全局变量的使用问题" class="headerlink" title="Python 多线程中全局变量和非全局变量的使用问题"></a>Python 多线程中全局变量和非全局变量的使用问题</h2><p>​        开始就说过，线程可以和同一个进程中的其他线程共享进程的全部资源，那么在多线程程序中，各线程对全局变量和非全局变量的使用到底是怎样的呢</p>
+<h3 id="非全局变量"><a href="#非全局变量" class="headerlink" title="非全局变量"></a>非全局变量</h3><p>​        非全局变量在多线程中是不会被共享的，这就像是假设有一个存在局部变量<code>a</code>的函数，当程序调用两次这个函数时，每次调用所产生的局部变量<code>a</code>都是一个新的变量，不会受另一个函数执行的干扰，示例如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">()</span>:</span></span><br><span class="line">    str = threading.current_thread().name</span><br><span class="line">    g_num = <span class="number">100</span></span><br><span class="line">    <span class="keyword">if</span> str == <span class="string">'Thread-1'</span>:</span><br><span class="line">        print(str)</span><br><span class="line">        g_num += <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(str)</span><br><span class="line">        g_num -= <span class="number">1</span></span><br><span class="line">    print(<span class="string">'-----test1----- g_num = %d'</span> % g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p1 = Thread(target=test1)</span><br><span class="line">p1.start()</span><br><span class="line"></span><br><span class="line">p2 = Thread(target=test1)</span><br><span class="line">p2.start()</span><br></pre></td></tr></table></figure>
+
+<p>​        运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Thread-1</span><br><span class="line">-----test1----- g_num = 101</span><br><span class="line">Thread-2</span><br><span class="line">-----test1----- g_num = 99</span><br></pre></td></tr></table></figure>
+
+<p>​        可以看到，局部变量<code>g_num</code>并不会因为另一个线程中的同名函数而收到影响</p>
+<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><p>​        在多线程中，全局变量是可以在各线程间共享的，这也就是说，线程间通信不需要通过管道、内存映射等方法，只需要使用一个全局变量（同一个进程中的共享资源）便可以，示例如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"></span><br><span class="line">g_flag = <span class="number">0</span></span><br><span class="line">g_num = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_num</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000000</span>):</span><br><span class="line">        g_num += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"---test1--- g_num = %d"</span> % g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_num</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000000</span>):</span><br><span class="line">        g_num += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"---test2--- g_num = %d "</span> % g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p1 = Thread(target=test1)</span><br><span class="line">p1.start()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p2 = Thread(target=test2)</span><br><span class="line">p2.start()</span><br><span class="line"></span><br><span class="line">print(<span class="string">"---g_num= %d ---"</span> % g_num)</span><br></pre></td></tr></table></figure>
+
+<p>​        运行结果:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---g_num= 372639 ---</span><br><span class="line">---test1--- g_num = 1456098</span><br><span class="line">---test2--- g_num = 1596586</span><br></pre></td></tr></table></figure>
+
+<p>​        到这里，我们可以发现一个问题，正常来讲，<code>g_num</code>最后的值不应给是<code>2000000</code>吗，为什么不是呢？这就是多线程使用全局变量时有可能出现的 bug，请继续阅读！</p>
+<h2 id="Python-多线程中如何防止使用全局变量出现-bug（轮询和互斥锁）"><a href="#Python-多线程中如何防止使用全局变量出现-bug（轮询和互斥锁）" class="headerlink" title="Python 多线程中如何防止使用全局变量出现 bug（轮询和互斥锁）"></a>Python 多线程中如何防止使用全局变量出现 bug（轮询和互斥锁）</h2><p>​        通过刚才在多线程中使用全局变量我们发现，当代码逻辑稍微复杂一些时，在两个线程中同时使用一个全局变量会出现问题，是什么导致了这个问题呢？</p>
+<p>​        从代码中我们可以发现<code>g_num += 1</code>这句代码，实际上是<code>g_num + 1</code>和将其结果赋给<code>g_num</code>两步，正是因为这连续的两次对全局变量的操作造成了这个问题</p>
+<p>​        当一个线程执行到<code>g_num + 1</code>这步后，cpu 有可能会转头去处理另一个线程，另一个线程也运行了<code>g_num + 1</code>，当 cpu 再回头执行第一个线程时，<code>g_num</code> 已经不止被运算过一次了</p>
+<p>​        那么怎么避免这样的情况发生呢，只能是如果存在对全局变量变量值的修改时，我们要优先运行一个线程，当它结束修改后，再允许另一个线程去访问这个局部变量，下面提供两种方式，轮询和互斥锁</p>
+<h3 id="轮询"><a href="#轮询" class="headerlink" title="轮询"></a>轮询</h3><p>​        顾名思义，轮询的意思就是反复询问，抽象起来理解就是，我们可以设置另一个用来作为目标值的全局变量，两个线程执行的条件根据目标值的不同而不同，当目标值满足一个线程执行时，其他线程就会一直处在一个堵塞的过程，它会一直询问目标值是否符合自己，当上一个线程结束时，这个线程会将目标值修改，这样下一个符合目标值的线程就会运行，示例如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"></span><br><span class="line">g_flag = <span class="number">0</span></span><br><span class="line">g_num = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_num</span><br><span class="line">    <span class="keyword">global</span> g_flag</span><br><span class="line">    <span class="keyword">if</span> g_flag == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000000</span>):</span><br><span class="line">            g_num += <span class="number">1</span></span><br><span class="line">        g_flag = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"---test1--- g_num = %d"</span> % g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_num</span><br><span class="line">    <span class="keyword">global</span> g_flag</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">if</span> g_flag != <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000000</span>):</span><br><span class="line">                g_num += <span class="number">1</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"---test2--- g_num = %d "</span> % g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p1 = Thread(target=test1)</span><br><span class="line">p1.start()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p2 = Thread(target=test2)</span><br><span class="line">p2.start()</span><br><span class="line"></span><br><span class="line">print(<span class="string">"---g_num= %d ---"</span> % g_num)</span><br></pre></td></tr></table></figure>
+
+<p>​        运行结果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---g_num= <span class="number">181893</span> ---</span><br><span class="line">---test1--- g_num = <span class="number">1000000</span></span><br><span class="line">---test2--- g_num = <span class="number">2000000</span></span><br></pre></td></tr></table></figure>
+
+<p>​        如结果所示，线程之间使用全局变量的 bug 已经解决，但是轮询的方法十分消耗资源，堵塞的线程其实一直都处在一个死循环的状态占用系统资源</p>
+<h3 id="互斥锁"><a href="#互斥锁" class="headerlink" title="互斥锁"></a>互斥锁</h3><p>​        相比而言，互斥锁就是一种比较优化的方法，互斥锁会使用<code>threading</code>模块的<code>Lock</code>类</p>
+<p>​        互斥锁的思想是，当一个线程运行时，它会给它需要的这部分资源上锁，这样同样使用这把锁的其他线程全部都会被堵塞，但被互斥锁所堵塞的线程不会占用系统资源，它们会处在睡眠状态，当运行的线程用完被锁的这部分资源后，它会解锁，这时其他线程就会被唤醒来抢占 cpu 资源，得到资源的线程会再次上锁，达到多线程下全局变量的访问安全，示例如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Lock</span><br><span class="line"></span><br><span class="line">g_num = <span class="number">0</span></span><br><span class="line">mutex = Lock()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_num</span><br><span class="line">    mutex.acquire()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000000</span>):</span><br><span class="line">        g_num += <span class="number">1</span></span><br><span class="line">    mutex.release()</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"---test1--- g_num = %d"</span> % g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_num</span><br><span class="line">    mutex.acquire()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000000</span>):</span><br><span class="line">        g_num += <span class="number">1</span></span><br><span class="line">    mutex.release()</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"---test2--- g_num = %d "</span> % g_num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p1 = Thread(target=test1)</span><br><span class="line">p1.start()</span><br><span class="line"></span><br><span class="line">p2 = Thread(target=test2)</span><br><span class="line">p2.start()</span><br><span class="line"></span><br><span class="line">print(<span class="string">"---g_num= %d ---"</span> % g_num)</span><br></pre></td></tr></table></figure>
+
+<p>​        运行结果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---g_num= <span class="number">200009</span> ---</span><br><span class="line">---test1--- g_num = <span class="number">1000000</span></span><br><span class="line">---test2--- g_num = <span class="number">2000000</span></span><br></pre></td></tr></table></figure>
+
+<p>​        互斥锁的方法说明：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建锁</span></span><br><span class="line">mutex = threading.Lock()</span><br><span class="line"><span class="comment"># 上锁，blocking 为 True 表示堵塞</span></span><br><span class="line">mutex.acquire([blocking])</span><br><span class="line"><span class="comment"># 解锁，只要开了锁，那么接下来会让所有因为这个锁而被阻塞的线程抢着上锁</span></span><br><span class="line">mutex.release()</span><br></pre></td></tr></table></figure>
+
+<p>​        使用互斥锁时要注意，为了提高运算效率，上锁的资源越少，运算的效率越高</p>
+<p>​        另外，线程等待解锁的方式不是通过轮询，二十通过通知，线程会睡眠，等待唤醒的通知，所以互斥锁较轮询来讲更为优化</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+	
+	<div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/李明徽的Python/" rel="tag"># 李明徽的Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/03/Python——进程、进程池、进程间通信（还有一个复制文件的小程序）/" rel="next" title="Python——多进程、进程池、进程间通信（还有一个复制文件的小程序）">
+                <i class="fa fa-chevron-left"></i> Python——多进程、进程池、进程间通信（还有一个复制文件的小程序）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">LiMinghui</p>
+              <p class="site-description motion-element" itemprop="description">斯蒂芬库徽的博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/StePhEnCuHui" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="2606223743@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-中的多线程"><span class="nav-number">1.</span> <span class="nav-text">Python 中的多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是线程"><span class="nav-number">1.1.</span> <span class="nav-text">什么是线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-中实现多线程"><span class="nav-number">1.2.</span> <span class="nav-text">Python 中实现多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Thread-实现多线程"><span class="nav-number">1.2.1.</span> <span class="nav-text">使用 Thread 实现多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承-Thread-实现多线程"><span class="nav-number">1.2.2.</span> <span class="nav-text">继承 Thread 实现多线程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-多线程中全局变量和非全局变量的使用问题"><span class="nav-number">1.3.</span> <span class="nav-text">Python 多线程中全局变量和非全局变量的使用问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非全局变量"><span class="nav-number">1.3.1.</span> <span class="nav-text">非全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量"><span class="nav-number">1.3.2.</span> <span class="nav-text">全局变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-多线程中如何防止使用全局变量出现-bug（轮询和互斥锁）"><span class="nav-number">1.4.</span> <span class="nav-text">Python 多线程中如何防止使用全局变量出现 bug（轮询和互斥锁）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#轮询"><span class="nav-number">1.4.1.</span> <span class="nav-text">轮询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#互斥锁"><span class="nav-number">1.4.2.</span> <span class="nav-text">互斥锁</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiMinghui</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
