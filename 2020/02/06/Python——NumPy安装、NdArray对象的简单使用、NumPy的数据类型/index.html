@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="李明徽的Python,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Step By Step" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="什么是 NumPy NumPy 是一个用 python 实现的科学计算，包括：1、一个强大的 N 维数组对象 Array；2、比较成熟的（广播）函数库；3、用于整合 C/C++ 和 Fortran 代码的工具包；4、实用的线性代数、傅里叶变换和随机数生成函数，numpy 和稀疏矩阵运算包scipy配合使用更加方便 ​        NumPy（Numeric Python）提供了许多高级的数值编程">
+<meta name="keywords" content="李明徽的Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python——NumPy安装、NdArray对象的简单使用、NumPy的数据类型">
+<meta property="og:url" content="http://yoursite.com/2020/02/06/Python——NumPy安装、NdArray对象的简单使用、NumPy的数据类型/index.html">
+<meta property="og:site_name" content="Step By Step">
+<meta property="og:description" content="什么是 NumPy NumPy 是一个用 python 实现的科学计算，包括：1、一个强大的 N 维数组对象 Array；2、比较成熟的（广播）函数库；3、用于整合 C/C++ 和 Fortran 代码的工具包；4、实用的线性代数、傅里叶变换和随机数生成函数，numpy 和稀疏矩阵运算包scipy配合使用更加方便 ​        NumPy（Numeric Python）提供了许多高级的数值编程">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-06T15:31:58.236Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python——NumPy安装、NdArray对象的简单使用、NumPy的数据类型">
+<meta name="twitter:description" content="什么是 NumPy NumPy 是一个用 python 实现的科学计算，包括：1、一个强大的 N 维数组对象 Array；2、比较成熟的（广播）函数库；3、用于整合 C/C++ 和 Fortran 代码的工具包；4、实用的线性代数、傅里叶变换和随机数生成函数，numpy 和稀疏矩阵运算包scipy配合使用更加方便 ​        NumPy（Numeric Python）提供了许多高级的数值编程">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/02/06/Python——NumPy安装、NdArray对象的简单使用、NumPy的数据类型/">
+
+
+
+
+
+  <title>Python——NumPy安装、NdArray对象的简单使用、NumPy的数据类型 | Step By Step</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  
+	<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/StePhEnCuHui" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Step By Step</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">耀出千分光</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/06/Python——NumPy安装、NdArray对象的简单使用、NumPy的数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiMinghui">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Step By Step">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python——NumPy安装、NdArray对象的简单使用、NumPy的数据类型</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-06T23:30:33+08:00">
+                2020-02-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="什么是-NumPy"><a href="#什么是-NumPy" class="headerlink" title="什么是 NumPy"></a>什么是 NumPy</h1><blockquote>
+<p>NumPy 是一个用 python 实现的科学计算，包括：1、一个强大的 N 维数组对象 Array；2、比较成熟的（广播）函数库；3、用于整合 C/C++ 和 Fortran 代码的工具包；4、实用的线性代数、傅里叶变换和随机数生成函数，numpy 和稀疏矩阵运算包scipy配合使用更加方便</p>
+<p>​        NumPy（Numeric Python）提供了许多高级的数值编程工具，如：矩阵数据类型、矢量处理，以及精密的运算库，专为进行严格的数字处理而产生，多为很多大型金融公司使用，以及核心的科学计算组织如：Lawrence Livermore， NASA 用其处理一些本来使用 C++，Fortran 或 MatLab 等所做的任务</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="安装-NumPy"><a href="#安装-NumPy" class="headerlink" title="安装 NumPy"></a>安装 NumPy</h2><p>​        在 windows 下，推荐使用下载 Python 发行版的方式，它会包含很多关键的包，比如<code>NumPy</code>、<code>Pandas</code>等</p>
+<p>​        我选择的是<code>ANACONDA</code>，可以直接百度搜索到官网下载，但是会很慢，可以在清华大学开源镜像站下载，连接是</p>
+<blockquote>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a></p>
+</blockquote>
+<p>​        下载安装后，系统就已经拥有 NumPy 包了</p>
+<p>​        也可以使用 PIP 命令直接安装</p>
+<h3 id="导入-NumPy"><a href="#导入-NumPy" class="headerlink" title="导入 NumPy"></a>导入 NumPy</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+
+<p>​        上边的代码是向程序中导入 NumPy 库，如果导入成功，也就说明 NumPy 库安装成功了</p>
+<h2 id="NumPy-中的-NdArray-对象"><a href="#NumPy-中的-NdArray-对象" class="headerlink" title="NumPy 中的 NdArray 对象"></a>NumPy 中的 NdArray 对象</h2><p>​        NumPy 最最最重要的特点就是它所包含的多维数组对象：<code>ndarray</code>，它是用于存放同类元素的多维数组</p>
+<h3 id="NdArray-的使用"><a href="#NdArray-的使用" class="headerlink" title="NdArray 的使用"></a>NdArray 的使用</h3><h4 id="创建一个-NdArray-对象"><a href="#创建一个-NdArray-对象" class="headerlink" title="创建一个 NdArray 对象"></a>创建一个 NdArray 对象</h4><p>​        <code>ndarray</code>数组可以直接通过<code>numpy.array(object, dtype = None, copy = True, order = None, subok = False, nfmin = 0)</code>方法来创建，下面说一下<code>ndarray</code>的重要参数</p>
+<ul>
+<li>object：数组或嵌套数列</li>
+<li>dtype：数组元素的数据类型，可选</li>
+<li>copy：对象是否需要复制，可选</li>
+<li>order：创建数组呃样式，C 为行方向，F 为列方向，A 为任意方向（默认）</li>
+<li>subok：默认返回一个与基类类型一致的数组</li>
+<li>ndmin：指定生成数组的最小维度</li>
+</ul>
+<p>​        下面是一个创建多维数组的简单示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">arr = np.array(</span><br><span class="line">    [</span><br><span class="line">        [</span><br><span class="line">            [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>],</span><br><span class="line">            [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>],</span><br><span class="line">            [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line">        ],</span><br><span class="line">        [</span><br><span class="line">            [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>],</span><br><span class="line">            [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>],</span><br><span class="line">            [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line">        ]</span><br><span class="line">    ]，</span><br><span class="line">    dtype=np.int</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="NumPy-中的数据类型"><a href="#NumPy-中的数据类型" class="headerlink" title="NumPy 中的数据类型"></a>NumPy 中的数据类型</h2><p>​        <code>numpy</code>支持的数据类型比<code>Python</code>内置的数据类型多得多，如下表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">bool_</td>
+<td align="center">布尔型数据类型（True 或 False）</td>
+</tr>
+<tr>
+<td align="center">int_</td>
+<td align="center">默认的整数类型（类似于 C 语言中的 long）</td>
+</tr>
+<tr>
+<td align="center">intc</td>
+<td align="center">同 C 语言中的 int 类型一样</td>
+</tr>
+<tr>
+<td align="center">intp</td>
+<td align="center">用于索引的整数类型</td>
+</tr>
+<tr>
+<td align="center">int8</td>
+<td align="center">字节（-128 to 127）</td>
+</tr>
+<tr>
+<td align="center">int16</td>
+<td align="center">整数（-32768 to 32767）</td>
+</tr>
+<tr>
+<td align="center">int32</td>
+<td align="center">整数（-2147483648 to 2147483647）</td>
+</tr>
+<tr>
+<td align="center">int64</td>
+<td align="center">整数（-9223372036854775808 to 9223372036854775807）</td>
+</tr>
+<tr>
+<td align="center">uint8</td>
+<td align="center">无符号整数（0 to 255）</td>
+</tr>
+<tr>
+<td align="center">uint16</td>
+<td align="center">无符号整数（0 to 65535）</td>
+</tr>
+<tr>
+<td align="center">uint32</td>
+<td align="center">无符号整数（0 to 4294967295）</td>
+</tr>
+<tr>
+<td align="center">uint64</td>
+<td align="center">无符号整数（0 to 18446744073709551615）</td>
+</tr>
+<tr>
+<td align="center">float_</td>
+<td align="center">float64 类型的简写</td>
+</tr>
+<tr>
+<td align="center">float16</td>
+<td align="center">半精度浮点数，包括：1 个符号位，5 个指数位，10 个尾数位</td>
+</tr>
+<tr>
+<td align="center">float32</td>
+<td align="center">单精度浮点数，包括：1 个符号位，8 个指数位，23 个尾数位</td>
+</tr>
+<tr>
+<td align="center">float64</td>
+<td align="center">双精度浮点数，包括：1 个符号位，11 个指数位，52 个尾数位</td>
+</tr>
+<tr>
+<td align="center">complex_</td>
+<td align="center">complex128 类型的简写，即 128 位复数</td>
+</tr>
+<tr>
+<td align="center">complex64</td>
+<td align="center">复数，表示双 32 位浮点数（实数部分和虚数部分）</td>
+</tr>
+<tr>
+<td align="center">complex128</td>
+<td align="center">复数，表示双 64 位浮点数（实数部分和虚数部分）</td>
+</tr>
+</tbody></table>
+<p>​        并且，在<code>numpy</code>中，每个内建类型都有一个唯一定义的字符代码：</p>
+<table>
+<thead>
+<tr>
+<th align="center">字符</th>
+<th align="center">对应类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">b</td>
+<td align="center">布尔型</td>
+</tr>
+<tr>
+<td align="center">i</td>
+<td align="center">(有符号) 整型</td>
+</tr>
+<tr>
+<td align="center">u</td>
+<td align="center">无符号整型 integer</td>
+</tr>
+<tr>
+<td align="center">f</td>
+<td align="center">浮点型</td>
+</tr>
+<tr>
+<td align="center">c</td>
+<td align="center">复数浮点型</td>
+</tr>
+<tr>
+<td align="center">m</td>
+<td align="center">timedelta（时间间隔）</td>
+</tr>
+<tr>
+<td align="center">M</td>
+<td align="center">datetime（日期时间）</td>
+</tr>
+<tr>
+<td align="center">O</td>
+<td align="center">(Python) 对象</td>
+</tr>
+<tr>
+<td align="center">S, a</td>
+<td align="center">(byte-)字符串</td>
+</tr>
+<tr>
+<td align="center">U</td>
+<td align="center">Unicode</td>
+</tr>
+<tr>
+<td align="center">V</td>
+<td align="center">原始数据 (void)</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+	
+	<div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/李明徽的Python/" rel="tag"># 李明徽的Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/05/Python——生产者消费者问题、同步和异步/" rel="next" title="Python——生产者消费者问题、死锁、同步和异步">
+                <i class="fa fa-chevron-left"></i> Python——生产者消费者问题、死锁、同步和异步
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">LiMinghui</p>
+              <p class="site-description motion-element" itemprop="description">斯蒂芬库徽的博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/StePhEnCuHui" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="2606223743@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是-NumPy"><span class="nav-number">1.</span> <span class="nav-text">什么是 NumPy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-NumPy"><span class="nav-number">1.1.</span> <span class="nav-text">安装 NumPy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导入-NumPy"><span class="nav-number">1.1.1.</span> <span class="nav-text">导入 NumPy</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NumPy-中的-NdArray-对象"><span class="nav-number">1.2.</span> <span class="nav-text">NumPy 中的 NdArray 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NdArray-的使用"><span class="nav-number">1.2.1.</span> <span class="nav-text">NdArray 的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个-NdArray-对象"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">创建一个 NdArray 对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NumPy-中的数据类型"><span class="nav-number">1.3.</span> <span class="nav-text">NumPy 中的数据类型</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiMinghui</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
