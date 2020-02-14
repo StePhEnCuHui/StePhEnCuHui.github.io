@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Step By Step">
 <meta property="og:description" content="题目​        反转一个链表 ​        示例： 12输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL输出: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-14T14:03:19.769Z">
+<meta property="og:updated_time" content="2020-02-14T14:41:07.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode-206——反转链表（Java、Python）">
 <meta name="twitter:description" content="题目​        反转一个链表 ​        示例： 12输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL输出: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL">
@@ -319,7 +319,7 @@
 
 <h2 id="Python-版"><a href="#Python-版" class="headerlink" title="Python 版"></a>Python 版</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverseList</span><span class="params">(head)</span>:</span></span><br><span class="line">    cur, prev = head, <span class="literal">None</span></span><br><span class="line">    <span class="keyword">while</span> cur:</span><br><span class="line">        cur.next, prev, cur = prev, cur, cur.next</span><br><span class="line">    <span class="keyword">return</span> prev</span><br></pre></td></tr></table></figure>
 
-<p>​        Python 的代码中<code>cur.next, prev, cur = prev, cur, cur.next</code>使用了多重赋值的语法，关于多重赋值原理的解释，看这里：</p>
+<p>​        Python 的代码中<code>cur.next, prev, cur = prev, cur, cur.next</code>使用了多重赋值的语法，关于多重赋值原理的解释，看这里：<a href="https://blog.csdn.net/scfor333/article/details/104316694" target="_blank" rel="noopener">https://blog.csdn.net/scfor333/article/details/104316694</a></p>
 
       
     </div>
@@ -369,6 +369,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/14/LeetCode-141——环形链表（Java、Python）/" rel="prev" title="LeetCode-141——环形链表">
+                LeetCode-141——环形链表 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -445,7 +449,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

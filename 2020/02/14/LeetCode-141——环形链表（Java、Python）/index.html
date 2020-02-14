@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="李明徽的第一篇博客,">
+  <meta name="keywords" content="李明徽的算法,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Servlet:概念：​        侠义的 Servlet 是指 Java 语言实现的一个接口，广义的 Servlet 是指任何实现了这个 Servlet 接口的类，一般情况下，人们将 Servlet 理解为后者 ​        Servlet 运行于支持 Java 的应用服务器中。从原理上讲，Servlet可以响应任何类型的请求，但绝大多数情况下 Servlet 只用来扩展基于 HTTP">
-<meta name="keywords" content="李明徽的第一篇博客">
+<meta name="description" content="题目​        给定一个链表，判断链表中是否有环 ​        为了表示给定链表中的环，我们使用整数pos来表示链表尾连接到链表中的位置（索引从0开始）。 如果pos是-1，则在该链表中没有环 ​        示例： 1234567输入：head = [3,2,0,-4], pos = 1输出：true解释：链表中有一个环，其尾部连接到第二个节点。输入：head = [1,2], po">
+<meta name="keywords" content="李明徽的算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Servlet学习笔记">
-<meta property="og:url" content="http://yoursite.com/2019/07/23/Servlet/index.html">
+<meta property="og:title" content="LeetCode-141——环形链表">
+<meta property="og:url" content="http://yoursite.com/2020/02/14/LeetCode-141——环形链表（Java、Python）/index.html">
 <meta property="og:site_name" content="Step By Step">
-<meta property="og:description" content="Servlet:概念：​        侠义的 Servlet 是指 Java 语言实现的一个接口，广义的 Servlet 是指任何实现了这个 Servlet 接口的类，一般情况下，人们将 Servlet 理解为后者 ​        Servlet 运行于支持 Java 的应用服务器中。从原理上讲，Servlet可以响应任何类型的请求，但绝大多数情况下 Servlet 只用来扩展基于 HTTP">
+<meta property="og:description" content="题目​        给定一个链表，判断链表中是否有环 ​        为了表示给定链表中的环，我们使用整数pos来表示链表尾连接到链表中的位置（索引从0开始）。 如果pos是-1，则在该链表中没有环 ​        示例： 1234567输入：head = [3,2,0,-4], pos = 1输出：true解释：链表中有一个环，其尾部连接到第二个节点。输入：head = [1,2], po">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-06T00:20:38.455Z">
+<meta property="og:updated_time" content="2020-02-14T14:40:16.981Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Servlet学习笔记">
-<meta name="twitter:description" content="Servlet:概念：​        侠义的 Servlet 是指 Java 语言实现的一个接口，广义的 Servlet 是指任何实现了这个 Servlet 接口的类，一般情况下，人们将 Servlet 理解为后者 ​        Servlet 运行于支持 Java 的应用服务器中。从原理上讲，Servlet可以响应任何类型的请求，但绝大多数情况下 Servlet 只用来扩展基于 HTTP">
+<meta name="twitter:title" content="LeetCode-141——环形链表">
+<meta name="twitter:description" content="题目​        给定一个链表，判断链表中是否有环 ​        为了表示给定链表中的环，我们使用整数pos来表示链表尾连接到链表中的位置（索引从0开始）。 如果pos是-1，则在该链表中没有环 ​        示例： 1234567输入：head = [3,2,0,-4], pos = 1输出：true解释：链表中有一个环，其尾部连接到第二个节点。输入：head = [1,2], po">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/23/Servlet/">
+  <link rel="canonical" href="http://yoursite.com/2020/02/14/LeetCode-141——环形链表（Java、Python）/">
 
 
 
 
 
-  <title>Servlet学习笔记 | Step By Step</title>
+  <title>LeetCode-141——环形链表 | Step By Step</title>
   
 
 
@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/23/Servlet/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/14/LeetCode-141——环形链表（Java、Python）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiMinghui">
@@ -256,7 +256,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Servlet学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode-141——环形链表</h1>
         
 
         <div class="post-meta">
@@ -268,8 +268,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-23T15:44:38+08:00">
-                2019-07-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-14T22:22:46+08:00">
+                2020-02-14
               </time>
             
 
@@ -306,28 +306,24 @@
       
 
       
-        <h1 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet:"></a>Servlet:</h1><h2 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h2><p>​        侠义的 Servlet 是指 Java 语言实现的一个接口，广义的 Servlet 是指任何实现了这个 Servlet 接口的类，一般情况下，人们将 Servlet 理解为后者</p>
-<p>​        Servlet 运行于支持 Java 的应用服务器中。从原理上讲，Servlet可以响应任何类型的请求，但绝大多数情况下 Servlet 只用来扩展基于 HTTP 协议的 Web 服务器</p>
-<p>​        本质上来讲 servlet 就是一种接口规范</p>
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>​        给定一个链表，判断链表中是否有环</p>
+<p>​        为了表示给定链表中的环，我们使用整数<code>pos</code>来表示链表尾连接到链表中的位置（索引从<code>0</code>开始）。 如果<code>pos</code>是<code>-1</code>，则在该链表中没有环</p>
+<p>​        示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [3,2,0,-4], pos = 1</span><br><span class="line">输出：true</span><br><span class="line">解释：链表中有一个环，其尾部连接到第二个节点。</span><br><span class="line"></span><br><span class="line">输入：head = [1,2], pos = 0</span><br><span class="line">输出：true</span><br><span class="line">解释：链表中有一个环，其尾部连接到第一个节点。</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<h2 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h2><p>​        运行在支持 java 的应用服务器上</p>
-<p>​        Servlet 的实现遵循了服务器能够识别的规则，也就是服务器会自动的根据请求调用对应的 servlet 进行请求处理</p>
-<h2 id="运行流程："><a href="#运行流程：" class="headerlink" title="运行流程："></a>运行流程：</h2><p>​        1.创建普通的 java 类并继承 HttpServlet</p>
-<p>​        2.复写 service 方法</p>
-<p>​        3.在 service 方法中书写逻辑代码</p>
-<p>​        4.在 web 下的 WEB-INF 文件夹下的 web.xml 文件中配置 servlet</p>
-<p>​        浏览器发送请求到服务器，服务器根据请求 URL 地址中的 URL 信息在 webapps 目录下找到对应的项目文件夹，然后再 web.xml 中检索到对应的 servlet，找到后调用并执行 servlet</p>
-<h3 id="组成："><a href="#组成：" class="headerlink" title="组成："></a>组成：</h3><p>​        服务器地址:端口号（定位到要访问的本机内服务程序）/ webapps下的文件夹的名称（运行哪个文件夹中的代码）/要执行的 servlet 的 url-pattern （根据 xml 文件中的 class 确定运行哪个 .class 文件）</p>
-<p>​        服务器地址:端口号/虚拟项目名/ servlet 的别名</p>
-<h3 id="运行："><a href="#运行：" class="headerlink" title="运行："></a>运行：</h3><p>​        运行的是加载进内存中的 java 类</p>
-<p>​        init() 方法只在 java 类加载进内存中的时候执行一次</p>
-<p>​        servicec 方法是真正处理请求的方法</p>
-<p>​        destroy 方法是在 servlet 被从内存中销毁（服务器关闭）时执行的</p>
-<h3 id="Servlet-的生命周期："><a href="#Servlet-的生命周期：" class="headerlink" title="Servlet 的生命周期："></a>Servlet 的生命周期：</h3><p>​        从第一次调用，到服务器关闭，如果在 web.xml 中配置了 load-on-startup 则是从服务器开启到服务器关闭</p>
-<h3 id="Service-方法和-doPost-方法、doPost-方法的区别："><a href="#Service-方法和-doPost-方法、doPost-方法的区别：" class="headerlink" title="Service 方法和 doPost 方法、doPost 方法的区别："></a>Service 方法和 doPost 方法、doPost 方法的区别：</h3><p>​        Service 方法：无论 get 方式的请求还是 post 方式的请求都可以进行处理，如果 servlet 中有 Service 方法，会优先调用 service 方法对请求进行处理</p>
-<p>​        doGet 方法：处理 GET 请求</p>
-<p>​        doPost 方法：处理 POST 请求</p>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>​        这里给这道题提供两种解法</p>
+<h2 id="使用-Set"><a href="#使用-Set" class="headerlink" title="使用 Set"></a>使用 Set</h2><p>​        检测一个链表中是否存在环，可以理解为检测链表中存不存在一个节点，这个节点有两个指针同时指向它，这样链表中就产生了环，我们可以使用 Set 来解决这个问题</p>
+<p>​        我们从头至尾遍历这个链表，每到一个节点，就检测实现定义好的 Set 中是否存在一个相同的节点，不存在就将它放入 Set，反之如果存在，就说明这个节点被两个节点同时所指向，使链表形成了环</p>
+<h2 id="Java-代码"><a href="#Java-代码" class="headerlink" title="Java 代码"></a>Java 代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasCycle</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    Set&lt;ListNode&gt; set = <span class="keyword">new</span> HashSet&lt;ListNode&gt;();</span><br><span class="line">    <span class="keyword">while</span> (head.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">        head = head.next;</span><br><span class="line">        <span class="keyword">if</span> (set.contains(head))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            set.add(head);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用快慢指针"><a href="#使用快慢指针" class="headerlink" title="使用快慢指针"></a>使用快慢指针</h2><p>​        另一种方法是使用快慢指针，即定义两个指针，都从链表的头部开始遍历，只要保证慢指针每次走的步数小于快指针即可（通常就慢指针一次走一个节点，快指针一次走两个就行），当其中一个指针为空了，就说明链表到头了，没有环，而如果两个指针相遇了，就说明链表是有环的</p>
+<p>​        这个解法的原理就是，如果链表没有环，快慢指针永远都不会相遇</p>
+<h2 id="Java-代码-1"><a href="#Java-代码-1" class="headerlink" title="Java 代码"></a>Java 代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasCycle</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    ListNode fast = head, slow = head;</span><br><span class="line">    <span class="keyword">while</span> (fast != <span class="keyword">null</span> &amp;&amp; slow != <span class="keyword">null</span> &amp;&amp; fast.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">        slow = slow.next;</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">        <span class="keyword">if</span> (slow == fast)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Python-代码"><a href="#Python-代码" class="headerlink" title="Python 代码"></a>Python 代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hasCycle</span><span class="params">(self, head: ListNode)</span> -&gt; bool:</span></span><br><span class="line">    fast = slow = head</span><br><span class="line">    <span class="keyword">while</span> slow <span class="keyword">and</span> fast <span class="keyword">and</span> fast.next:</span><br><span class="line">        slow = slow.next</span><br><span class="line">        fast = fast.next.next</span><br><span class="line">        <span class="keyword">if</span> slow <span class="keyword">is</span> fast:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -355,7 +351,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/李明徽的第一篇博客/" rel="tag"># 李明徽的第一篇博客</a>
+            <a href="/tags/李明徽的算法/" rel="tag"># 李明徽的算法</a>
           
         </div>
       
@@ -368,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/23/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2020/02/14/LeetCode-206——反转链表（Java、Python）/" rel="next" title="LeetCode-206——反转链表（Java、Python）">
+                <i class="fa fa-chevron-left"></i> LeetCode-206——反转链表（Java、Python）
               </a>
             
           </div>
@@ -377,10 +373,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/24/数据结构（一）——顺序表/" rel="prev" title="数据结构（一）——线性表">
-                数据结构（一）——线性表 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -526,7 +518,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Servlet"><span class="nav-number">1.</span> <span class="nav-text">Servlet:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念："><span class="nav-number">1.1.</span> <span class="nav-text">概念：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点："><span class="nav-number">1.2.</span> <span class="nav-text">特点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行流程："><span class="nav-number">1.3.</span> <span class="nav-text">运行流程：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组成："><span class="nav-number">1.3.1.</span> <span class="nav-text">组成：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行："><span class="nav-number">1.3.2.</span> <span class="nav-text">运行：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet-的生命周期："><span class="nav-number">1.3.3.</span> <span class="nav-text">Servlet 的生命周期：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service-方法和-doPost-方法、doPost-方法的区别："><span class="nav-number">1.3.4.</span> <span class="nav-text">Service 方法和 doPost 方法、doPost 方法的区别：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解法"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Set"><span class="nav-number">2.1.</span> <span class="nav-text">使用 Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-代码"><span class="nav-number">2.2.</span> <span class="nav-text">Java 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用快慢指针"><span class="nav-number">2.3.</span> <span class="nav-text">使用快慢指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-代码-1"><span class="nav-number">2.4.</span> <span class="nav-text">Java 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-代码"><span class="nav-number">2.5.</span> <span class="nav-text">Python 代码</span></a></li></ol></li></ol></div>
             
 
           </div>
