@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-14T14:40:16.981Z</updated>
+  <updated>2020-02-15T13:51:06.367Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode-242——有效的字母异位词（Java、Python）</title>
+    <link href="http://yoursite.com/2020/02/15/LeetCode-242%E2%80%94%E2%80%94%E6%9C%89%E6%95%88%E7%9A%84%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D%EF%BC%88Java%E3%80%81Python%EF%BC%89/"/>
+    <id>http://yoursite.com/2020/02/15/LeetCode-242——有效的字母异位词（Java、Python）/</id>
+    <published>2020-02-15T13:22:07.000Z</published>
+    <updated>2020-02-15T13:51:06.367Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>​        给定两个字符串<code>s</code>和<code>t</code>，编写一个函数来判断<code>t</code>是否是<code>s</code>的字母异位词</p><p>​        示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;anagram&quot;, t = &quot;nagaram&quot;</span><br><span class="line">输出: true</span><br><span class="line"></span><br><span class="line">输入: s = &quot;rat&quot;, t = &quot;car&quot;</span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure><a id="more"></a><h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>​        这里提供三种解法</p><h2 id="直接排序"><a href="#直接排序" class="headerlink" title="直接排序"></a>直接排序</h2><p>​        因为大部分语言中都自带排序函数，我们可以直接把两个字符串进行排序，因为如果两个字符串互为字母异位词的话，那么他们所包含的字母及每个字母的数量就是一致的，代码很简洁，使用 Python 的话只有两行</p><h2 id="Python-代码"><a href="#Python-代码" class="headerlink" title="Python 代码"></a>Python 代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isAnagram</span><span class="params">(self, s, t)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> sorted(s) == sorted(t)</span><br></pre></td></tr></table></figure><h2 id="使用-map-记住每个字母的数量"><a href="#使用-map-记住每个字母的数量" class="headerlink" title="使用 map 记住每个字母的数量"></a>使用 map 记住每个字母的数量</h2><p>​        我们也可以利用 map 键值对的特性，使用两个 map 来存储每个字符串中的每一个字母出现的次数，最后直接比较这两个 map 是否相等即可，代码使用的是 Python 中的字典</p><h2 id="Python-代码-1"><a href="#Python-代码-1" class="headerlink" title="Python 代码"></a>Python 代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isAnagram</span><span class="params">(self, s, t)</span>:</span></span><br><span class="line">    dic1, dic2 = &#123;&#125;, &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> s:</span><br><span class="line">        dic1[item] = dic1.get(item, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> t:</span><br><span class="line">        dic2[item] = dic2.get(item, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> dic1 == dic2</span><br></pre></td></tr></table></figure><h2 id="使用长度为-26-的数组计数"><a href="#使用长度为-26-的数组计数" class="headerlink" title="使用长度为 26 的数组计数"></a>使用长度为 26 的数组计数</h2><p>​        题目给出了两个字符串中的字符均为小写，我们可以直接初始化两个长为 26，初始值都为 0 的数组，然后遍历两个字符串来给字符串中的字符进行计数，最后比较数组是否相等</p><h2 id="Java-代码"><a href="#Java-代码" class="headerlink" title="Java 代码"></a>Java 代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isAnagram</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">    <span class="keyword">int</span>[] b = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray()) &#123;</span><br><span class="line">        a[(<span class="keyword">int</span>)c - (<span class="keyword">int</span>)(<span class="string">'a'</span>)] += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : t.toCharArray()) &#123;</span><br><span class="line">        b[(<span class="keyword">int</span>)c - (<span class="keyword">int</span>)(<span class="string">'a'</span>)] += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Arrays.equals(a, b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Python-代码-2"><a href="#Python-代码-2" class="headerlink" title="Python 代码"></a>Python 代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isAnagram</span><span class="params">(self, s, t)</span>:</span></span><br><span class="line">    dic1, dic2 = [<span class="number">0</span>] * <span class="number">26</span>, [<span class="number">0</span>] * <span class="number">26</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> s:</span><br><span class="line">        dic1[ord(item) - ord(<span class="string">'a'</span>)] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> t:</span><br><span class="line">        dic2[ord(item) - ord(<span class="string">'a'</span>)] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> dic1 == dic2</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;​        给定两个字符串&lt;code&gt;s&lt;/code&gt;和&lt;code&gt;t&lt;/code&gt;，编写一个函数来判断&lt;code&gt;t&lt;/code&gt;是否是&lt;code&gt;s&lt;/code&gt;的字母异位词&lt;/p&gt;
+&lt;p&gt;​        示例：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;输入: s = &amp;quot;anagram&amp;quot;, t = &amp;quot;nagaram&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;输出: true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;输入: s = &amp;quot;rat&amp;quot;, t = &amp;quot;car&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;输出: false&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="李明徽的算法" scheme="http://yoursite.com/tags/%E6%9D%8E%E6%98%8E%E5%BE%BD%E7%9A%84%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode-141——环形链表</title>
@@ -405,26 +427,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;Java-虚拟机栈&quot;&gt;&lt;a href=&quot;#Java-虚拟机栈&quot; class=&quot;headerlink&quot; title=&quot;Java 虚拟机栈&quot;&gt;&lt;/a&gt;Java 虚拟机栈&lt;/h1&gt;&lt;p&gt;​        虚拟机栈描述的是 Java 方法执行的动态内存模型&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="JAVA基础" scheme="http://yoursite.com/tags/JAVA%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JAVA基础——JVM简介及程序计数器</title>
-    <link href="http://yoursite.com/2019/12/01/JAVA%E5%9F%BA%E7%A1%80%E2%80%94%E2%80%94JVM%E7%AE%80%E4%BB%8B%E5%8F%8A%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8/"/>
-    <id>http://yoursite.com/2019/12/01/JAVA基础——JVM简介及程序计数器/</id>
-    <published>2019-12-01T08:34:08.000Z</published>
-    <updated>2019-12-01T10:30:43.130Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h1><p>​        JVM（Java 虚拟机），是一种用于计算设备的规范，是一个虚构出来的计算机，通过在实际的计算机上仿真模拟各种计算功能来实现，引入 JVM 后，Java 语言在不同平台上运行时不需要重新编译，它屏蔽了与具体平台相关的信息，使得 Java 程序只需生成在 JVM 上运行的字节码文件，就可以在多种平台上不加修改的运行</p><a id="more"></a><h2 id="JVM-基本结构"><a href="#JVM-基本结构" class="headerlink" title="JVM 基本结构"></a>JVM 基本结构</h2><p>​        首先，JVM 分为线程共享区和线程独占区两部分，线程共享区即线程公有，可以所有线程共享，向下分为方法区和 Java 堆，线程独占区即线程私有，向下分为虚拟机栈、本地方法栈以及一会会详细介绍的程序计数器</p><p>具体结构如图：</p><p><img src="https://img-blog.csdnimg.cn/20191201151515479.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70" alt></p><h2 id="JVM-程序计数器"><a href="#JVM-程序计数器" class="headerlink" title="JVM 程序计数器"></a>JVM 程序计数器</h2><p>​        程序计数器是一个记录着当前线程所执行到的字节码行号</p><h3 id="程序计数器的特点"><a href="#程序计数器的特点" class="headerlink" title="程序计数器的特点"></a>程序计数器的特点</h3><ol><li><p>线程隔离，每个线程工作室都有属于自己的独立计数器</p></li><li><p>执行 Java 方法时，程序计数器是有值的，且记录的是正在执行的字节码指令的地址</p></li><li><p>执行本地方法时，程序计数器的值为空（Undefined），因为 native 方法时 java 通过 JNI（Java 本地接口）直接调用本地的 C/C++ 库，由于此方法是通过 C/C++ 实现的，无法生成字节码文件，所以其在执行时内存的分配不是由 JVM 决定的</p></li><li><p>程序计数器占用的内存很小，在进行 JVM 内存计算时，可以忽略</p></li><li><p>另外，JVM 中只有程序计数器没有规定任何 OutOfMemoryError</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;JVM&quot;&gt;&lt;a href=&quot;#JVM&quot; class=&quot;headerlink&quot; title=&quot;JVM&quot;&gt;&lt;/a&gt;JVM&lt;/h1&gt;&lt;p&gt;​        JVM（Java 虚拟机），是一种用于计算设备的规范，是一个虚构出来的计算机，通过在实际的计算机上仿真模拟各种计算功能来实现，引入 JVM 后，Java 语言在不同平台上运行时不需要重新编译，它屏蔽了与具体平台相关的信息，使得 Java 程序只需生成在 JVM 上运行的字节码文件，就可以在多种平台上不加修改的运行&lt;/p&gt;
     
     </summary>
     

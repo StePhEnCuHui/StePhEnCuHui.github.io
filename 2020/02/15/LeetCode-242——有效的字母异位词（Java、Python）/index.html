@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JAVA基础,">
+  <meta name="keywords" content="李明徽的算法,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="JAVA​        本系列主要更新 Java 基础相关的知识，最近准备重新复习一遍 Java 基础，主要涉及一些原理上的东西，会持续更新！">
-<meta name="keywords" content="JAVA基础">
+<meta name="description" content="题目​        给定两个字符串s和t，编写一个函数来判断t是否是s的字母异位词 ​        示例： 12345输入: s = &amp;quot;anagram&amp;quot;, t = &amp;quot;nagaram&amp;quot;输出: true输入: s = &amp;quot;rat&amp;quot;, t = &amp;quot;car&amp;quot;输出: false">
+<meta name="keywords" content="李明徽的算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA基础——JAVA简介和运行原理">
-<meta property="og:url" content="http://yoursite.com/2019/11/27/JAVA基础——JAVA简介/index.html">
+<meta property="og:title" content="LeetCode-242——有效的字母异位词（Java、Python）">
+<meta property="og:url" content="http://yoursite.com/2020/02/15/LeetCode-242——有效的字母异位词（Java、Python）/index.html">
 <meta property="og:site_name" content="Step By Step">
-<meta property="og:description" content="JAVA​        本系列主要更新 Java 基础相关的知识，最近准备重新复习一遍 Java 基础，主要涉及一些原理上的东西，会持续更新！">
+<meta property="og:description" content="题目​        给定两个字符串s和t，编写一个函数来判断t是否是s的字母异位词 ​        示例： 12345输入: s = &amp;quot;anagram&amp;quot;, t = &amp;quot;nagaram&amp;quot;输出: true输入: s = &amp;quot;rat&amp;quot;, t = &amp;quot;car&amp;quot;输出: false">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-27T11:53:13.606Z">
+<meta property="og:updated_time" content="2020-02-15T13:51:06.367Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA基础——JAVA简介和运行原理">
-<meta name="twitter:description" content="JAVA​        本系列主要更新 Java 基础相关的知识，最近准备重新复习一遍 Java 基础，主要涉及一些原理上的东西，会持续更新！">
+<meta name="twitter:title" content="LeetCode-242——有效的字母异位词（Java、Python）">
+<meta name="twitter:description" content="题目​        给定两个字符串s和t，编写一个函数来判断t是否是s的字母异位词 ​        示例： 12345输入: s = &amp;quot;anagram&amp;quot;, t = &amp;quot;nagaram&amp;quot;输出: true输入: s = &amp;quot;rat&amp;quot;, t = &amp;quot;car&amp;quot;输出: false">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/11/27/JAVA基础——JAVA简介/">
+  <link rel="canonical" href="http://yoursite.com/2020/02/15/LeetCode-242——有效的字母异位词（Java、Python）/">
 
 
 
 
 
-  <title>JAVA基础——JAVA简介和运行原理 | Step By Step</title>
+  <title>LeetCode-242——有效的字母异位词（Java、Python） | Step By Step</title>
   
 
 
@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/27/JAVA基础——JAVA简介/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/15/LeetCode-242——有效的字母异位词（Java、Python）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiMinghui">
@@ -256,7 +256,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JAVA基础——JAVA简介和运行原理</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode-242——有效的字母异位词（Java、Python）</h1>
         
 
         <div class="post-meta">
@@ -268,8 +268,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-27T10:12:54+08:00">
-                2019-11-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-15T21:22:07+08:00">
+                2020-02-15
               </time>
             
 
@@ -306,39 +306,24 @@
       
 
       
-        <h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><p>​        本系列主要更新 Java 基础相关的知识，最近准备重新复习一遍 Java 基础，主要涉及一些原理上的东西，会持续更新！</p>
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>​        给定两个字符串<code>s</code>和<code>t</code>，编写一个函数来判断<code>t</code>是否是<code>s</code>的字母异位词</p>
+<p>​        示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;anagram&quot;, t = &quot;nagaram&quot;</span><br><span class="line">输出: true</span><br><span class="line"></span><br><span class="line">输入: s = &quot;rat&quot;, t = &quot;car&quot;</span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<p>##Java 简介</p>
-<p>​        Java 是一种简洁的、面向对象的、分布式的、解释型的、健壮安全的、结构中立的、可移植的、性能优异、多线程的动态语言</p>
-<p>​        看不懂吧，简单来说，Java 就是一种面向对象的编程语言，功能完善、安全、使用广泛，在 WEB</p>
-<p> 程序设计、嵌入式开发、桌面应用开发等开发工作中都占有一席之地</p>
-<p>##Java 平台</p>
-<p>​        当前 Java 技术的平台架构包括三方面：</p>
-<p>​        Java SE：开发部署在桌面、服务器、嵌入式环境和实时环境的 Java 应用程序，包含了 Java Web 服务开发的类，为 Java EE 提供基础</p>
-<p>​        Java EE：帮助开发和部署可移植、健壮、可伸缩且安全的服务器端 Java 应用程序。Java EE 是在 Java SE 的基础上构建的，提供了 Web 服务、组件模型、管理和通信 API，且可以用来实现企业级的面向服务体系结构和 Web 应用程序</p>
-<p>​        Java ME：为在移动设备和嵌入式设备上运行的应用程序提供了一个健壮且灵活的环境，Java ME 包括灵活的用户界面、健壮的安全模式</p>
-<h2 id="Java-运行流程"><a href="#Java-运行流程" class="headerlink" title="Java 运行流程"></a>Java 运行流程</h2><p>​        1.使用文字编辑软件或集成开发环境编辑 Java 源文件，扩展名为 .java</p>
-<p>​        2.通过编译 .java 文件，生成同名的 .class 字节码文件</p>
-<p>​        3.通过 JVM 解释方式，将 .class 字节码文件转变为由 0 或 1 组成的二进制指令（机器码）运行</p>
-<h2 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h2><p>​        JDK 是 Java 开发包（开发工具），JDK 是整个 Java 的核心，包含了 JRE，Java 工具类和 Java 核心类库</p>
-<p>​        JDK 适合编译解释小型 Java 文件，随着项目体积的变大，使用 JDK 来维护各类（class）间的依赖关系将变得十分繁琐和复杂</p>
-<h2 id="JRE"><a href="#JRE" class="headerlink" title="JRE"></a>JRE</h2><p>​        JRE 是 Java 运行环境，包含了 JVM（Java 虚拟机）标准实现及 Java 核心类库，但不包含编译器、调试器和其他工具</p>
-<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p>​        JVM 是 Java 虚拟机，是 Java 跨平台性的基础，Java 的 .class 字节码文件因为会在 JVM 中被解释成面型不同系统的机器码文件，所以 Java 才具有了跨平台性</p>
-<h3 id="JVM-的内存模型"><a href="#JVM-的内存模型" class="headerlink" title="JVM 的内存模型"></a>JVM 的内存模型</h3><blockquote>
-<p>运行时数据区</p>
-<blockquote>
-<p>方法区</p>
-<p>虚拟机栈</p>
-<p>本地方法栈</p>
-<p>堆</p>
-<p>程序计数器</p>
-</blockquote>
-<p>执行引擎</p>
-<p>本地接口</p>
-<p>本地方法库</p>
-</blockquote>
-<p>​        JVM 还有很多内容，我还在继续学习！</p>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>​        这里提供三种解法</p>
+<h2 id="直接排序"><a href="#直接排序" class="headerlink" title="直接排序"></a>直接排序</h2><p>​        因为大部分语言中都自带排序函数，我们可以直接把两个字符串进行排序，因为如果两个字符串互为字母异位词的话，那么他们所包含的字母及每个字母的数量就是一致的，代码很简洁，使用 Python 的话只有两行</p>
+<h2 id="Python-代码"><a href="#Python-代码" class="headerlink" title="Python 代码"></a>Python 代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isAnagram</span><span class="params">(self, s, t)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> sorted(s) == sorted(t)</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-map-记住每个字母的数量"><a href="#使用-map-记住每个字母的数量" class="headerlink" title="使用 map 记住每个字母的数量"></a>使用 map 记住每个字母的数量</h2><p>​        我们也可以利用 map 键值对的特性，使用两个 map 来存储每个字符串中的每一个字母出现的次数，最后直接比较这两个 map 是否相等即可，代码使用的是 Python 中的字典</p>
+<h2 id="Python-代码-1"><a href="#Python-代码-1" class="headerlink" title="Python 代码"></a>Python 代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isAnagram</span><span class="params">(self, s, t)</span>:</span></span><br><span class="line">    dic1, dic2 = &#123;&#125;, &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> s:</span><br><span class="line">        dic1[item] = dic1.get(item, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> t:</span><br><span class="line">        dic2[item] = dic2.get(item, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> dic1 == dic2</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用长度为-26-的数组计数"><a href="#使用长度为-26-的数组计数" class="headerlink" title="使用长度为 26 的数组计数"></a>使用长度为 26 的数组计数</h2><p>​        题目给出了两个字符串中的字符均为小写，我们可以直接初始化两个长为 26，初始值都为 0 的数组，然后遍历两个字符串来给字符串中的字符进行计数，最后比较数组是否相等</p>
+<h2 id="Java-代码"><a href="#Java-代码" class="headerlink" title="Java 代码"></a>Java 代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isAnagram</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">    <span class="keyword">int</span>[] b = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray()) &#123;</span><br><span class="line">        a[(<span class="keyword">int</span>)c - (<span class="keyword">int</span>)(<span class="string">'a'</span>)] += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : t.toCharArray()) &#123;</span><br><span class="line">        b[(<span class="keyword">int</span>)c - (<span class="keyword">int</span>)(<span class="string">'a'</span>)] += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Arrays.equals(a, b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Python-代码-2"><a href="#Python-代码-2" class="headerlink" title="Python 代码"></a>Python 代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isAnagram</span><span class="params">(self, s, t)</span>:</span></span><br><span class="line">    dic1, dic2 = [<span class="number">0</span>] * <span class="number">26</span>, [<span class="number">0</span>] * <span class="number">26</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> s:</span><br><span class="line">        dic1[ord(item) - ord(<span class="string">'a'</span>)] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> t:</span><br><span class="line">        dic2[ord(item) - ord(<span class="string">'a'</span>)] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> dic1 == dic2</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -366,7 +351,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JAVA基础/" rel="tag"># JAVA基础</a>
+            <a href="/tags/李明徽的算法/" rel="tag"># 李明徽的算法</a>
           
         </div>
       
@@ -379,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/25/Hibernate框架——其他查询方法/" rel="next" title="Hibernate——其他查询方法">
-                <i class="fa fa-chevron-left"></i> Hibernate——其他查询方法
+              <a href="/2020/02/14/LeetCode-141——环形链表（Java、Python）/" rel="next" title="LeetCode-141——环形链表">
+                <i class="fa fa-chevron-left"></i> LeetCode-141——环形链表
               </a>
             
           </div>
@@ -388,10 +373,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/01/JAVA基础——JVM简介及程序计数器/" rel="prev" title="JAVA基础——JVM简介及程序计数器">
-                JAVA基础——JVM简介及程序计数器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -537,7 +518,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA"><span class="nav-number">1.</span> <span class="nav-text">JAVA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-运行流程"><span class="nav-number">1.1.</span> <span class="nav-text">Java 运行流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK"><span class="nav-number">1.2.</span> <span class="nav-text">JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JRE"><span class="nav-number">1.3.</span> <span class="nav-text">JRE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM"><span class="nav-number">1.4.</span> <span class="nav-text">JVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM-的内存模型"><span class="nav-number">1.4.1.</span> <span class="nav-text">JVM 的内存模型</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解法"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直接排序"><span class="nav-number">2.1.</span> <span class="nav-text">直接排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-代码"><span class="nav-number">2.2.</span> <span class="nav-text">Python 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-map-记住每个字母的数量"><span class="nav-number">2.3.</span> <span class="nav-text">使用 map 记住每个字母的数量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-代码-1"><span class="nav-number">2.4.</span> <span class="nav-text">Python 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用长度为-26-的数组计数"><span class="nav-number">2.5.</span> <span class="nav-text">使用长度为 26 的数组计数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-代码"><span class="nav-number">2.6.</span> <span class="nav-text">Java 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-代码-2"><span class="nav-number">2.7.</span> <span class="nav-text">Python 代码</span></a></li></ol></li></ol></div>
             
 
           </div>
