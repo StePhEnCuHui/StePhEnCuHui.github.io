@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="李明徽得算法,">
+  <meta name="keywords" content="李明徽的算法,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="插入排序​        插入排序是排序算法的一种，顾名思义，是一种插入的形态进行排序的算法">
-<meta name="keywords" content="李明徽得算法">
+<meta name="description" content="什么是 DFS​        DFS 是深度优先遍历，将序列抽象成树状结构，以优先深度的方式进行遍历，获取想要的结果">
+<meta name="keywords" content="李明徽的算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法——插入排序及优化（希尔排序）">
-<meta property="og:url" content="http://yoursite.com/2020/02/17/算法——插入排序及优化（希尔排序）/index.html">
+<meta property="og:title" content="算法——使用DFS解决全排列问题">
+<meta property="og:url" content="http://yoursite.com/2020/02/27/算法——使用DFS解决全排列问题/index.html">
 <meta property="og:site_name" content="Step By Step">
-<meta property="og:description" content="插入排序​        插入排序是排序算法的一种，顾名思义，是一种插入的形态进行排序的算法">
+<meta property="og:description" content="什么是 DFS​        DFS 是深度优先遍历，将序列抽象成树状结构，以优先深度的方式进行遍历，获取想要的结果">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-17T08:22:52.576Z">
+<meta property="og:updated_time" content="2020-02-27T15:25:11.508Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法——插入排序及优化（希尔排序）">
-<meta name="twitter:description" content="插入排序​        插入排序是排序算法的一种，顾名思义，是一种插入的形态进行排序的算法">
+<meta name="twitter:title" content="算法——使用DFS解决全排列问题">
+<meta name="twitter:description" content="什么是 DFS​        DFS 是深度优先遍历，将序列抽象成树状结构，以优先深度的方式进行遍历，获取想要的结果">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/02/17/算法——插入排序及优化（希尔排序）/">
+  <link rel="canonical" href="http://yoursite.com/2020/02/27/算法——使用DFS解决全排列问题/">
 
 
 
 
 
-  <title>算法——插入排序及优化（希尔排序） | Step By Step</title>
+  <title>算法——使用DFS解决全排列问题 | Step By Step</title>
   
 
 
@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/17/算法——插入排序及优化（希尔排序）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/27/算法——使用DFS解决全排列问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiMinghui">
@@ -256,7 +256,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算法——插入排序及优化（希尔排序）</h1>
+          <h1 class="post-title" itemprop="name headline">算法——使用DFS解决全排列问题</h1>
         
 
         <div class="post-meta">
@@ -268,8 +268,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-17T15:56:47+08:00">
-                2020-02-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-27T22:48:40+08:00">
+                2020-02-27
               </time>
             
 
@@ -306,17 +306,22 @@
       
 
       
-        <h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><p>​        插入排序是排序算法的一种，顾名思义，是一种插入的形态进行排序的算法</p>
+        <h1 id="什么是-DFS"><a href="#什么是-DFS" class="headerlink" title="什么是 DFS"></a>什么是 DFS</h1><p>​        DFS 是深度优先遍历，将序列抽象成树状结构，以优先深度的方式进行遍历，获取想要的结果</p>
 <a id="more"></a>
 
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>​        插入排序的过程可以形象的比做我们打扑克抓牌时，整理扑克牌的过程，每次我们抽一张新牌时，会以特定的规律，将其插入到已有的牌中，使手中的牌形成一个有序的牌的集合</p>
-<p>​        插入排序也是如此我们使用两个嵌套的<code>for</code>循环从头开始遍历一个序列，外部的<code>for</code>循环顺序向下执行，内部的<code>for</code>循环负责比较其当前遍历的位置元素是否小于（或大于）它前面的所有元素，如果是，就调换其位置，以此类推，最后得到一个有序的序列</p>
-<h2 id="Java-代码"><a href="#Java-代码" class="headerlink" title="Java 代码"></a>Java 代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertionSort</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N = nums.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &gt; <span class="number">0</span> &amp;&amp; nums[j] &lt; nums[j - <span class="number">1</span>]; j--) &#123;</span><br><span class="line">            <span class="keyword">int</span> item = nums[j - <span class="number">1</span>];</span><br><span class="line">            nums[j - <span class="number">1</span>] = nums[j];</span><br><span class="line">            nums[j] = item;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h2><p>​        假设一个树的结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    1 </span><br><span class="line">  2   3</span><br><span class="line">4  5 5  7</span><br></pre></td></tr></table></figure>
 
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>​        从插入排序的定义中我们可以发现，如果一个尽量有序的序列，例如<code>[1, 2, 3, 4, 0]</code>，实际上插入排序的效率是接近<code>O(N)</code>的，因为它的内层循环实际上只运行了一次，所以插入排序十分适合对已经尽量有序的序列来进行排序</p>
-<h1 id="优化插入排序——希尔排序"><a href="#优化插入排序——希尔排序" class="headerlink" title="优化插入排序——希尔排序"></a>优化插入排序——希尔排序</h1><p>​        为了优化插入排序，我们可以先使数组尽可能多的有序化，或者说局部有序化，希尔排序就诞生了</p>
-<h2 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h2><p>​        希尔排序的原理是通过间隔<code>h</code>分组，将原序列分成又干个不相邻的间隔为<code>h</code>的两两一组的序列，对这两个元素进行插入排序，然后缩小间隔<code>h</code>，再两两进行插入排序，在这个过程中，原序列会从无序越来越趋近于有序，当<code>h = 0</code>时，虽然是对整个序列进行插入排序，但此时序列已经相对的更加有序，所以效率会得到提高</p>
-<h2 id="Java-代码-1"><a href="#Java-代码-1" class="headerlink" title="Java 代码"></a>Java 代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">shellsort</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N = nums.length;</span><br><span class="line">    <span class="keyword">int</span> h = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (h &lt; N / <span class="number">3</span>)</span><br><span class="line">        h = h * <span class="number">3</span> + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (h &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = h; i &lt; N; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &gt;= h &amp;&amp; nums[j] &lt; nums[j - h]; j -= h) &#123;</span><br><span class="line">                <span class="keyword">int</span> item = nums[j];</span><br><span class="line">                nums[j] = nums[j - h];</span><br><span class="line">                nums[j - h] = item;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        h = h / <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​        使用深度优先遍历的遍历顺序就是<code>1-&gt;2-&gt;4-&gt;5-&gt;3-&gt;5-&gt;7</code>，也就是说，深度优先遍历会从根节点<code>root</code>开始，以深度优先遍历到其一个 <em>不能再继续向下遍历</em> 的子孙节点，然后回溯到该节点的父节点，再重复向下遍历和回溯的过程</p>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>​        DFS 的优点是，使用 DFS 进行遍历，空间的占用是<code>O(h)</code>（h 为树的高度）级别的，因为空间占有最多的时候，也就是遍历到最深的叶子节点时，此时空间的使用是等于树的高度的</p>
+<p>​        而由于 DFS 执着与向下搜索，可能会错过更近的答案，从而浪费运算的时间，即如果树的第二层和第五层都存在答案，DFS 可能会先找到第五层的目标而不是第二层的</p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>​        这是一道全排列问题，即给定<code>n</code>，我们要给出<code>1 ~ n</code>这些数字所能排列出的所有情况，这里<code>1 ≤ n ≤ 7</code></p>
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>​        首先考虑思路，全排列问题是经典的 DFS 问题，假定<code>n = 3</code>，我们要给出<code>1 ~ 3</code>的全排列，正确结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 2 3 </span><br><span class="line">1 3 2 </span><br><span class="line">2 1 3 </span><br><span class="line">2 3 1 </span><br><span class="line">3 1 2 </span><br><span class="line">3 2 1</span><br></pre></td></tr></table></figure>
+
+<p>​        我们可以把它抽象为一个树，我们首先考虑第一位的元素，有三种情况<code>1、2、3</code>，这就是树的三个分支，再考虑<code>1</code>的分支的第二位，有<code>12、13</code>两种情况，这两种情况又是<code>1</code>的两个分支，在考虑<code>12</code>，只剩<code>123</code>一种情况了，到此，从<code>1</code>开始的一个分支就彻底结束了，我们也得到了全排列的第一个情况</p>
+<p>​        这是我们还位于<code>123</code>，下一步就是回溯，向上回溯，首先来到<code>12</code>，我们发现它只有<code>123</code>一个分支，已经被遍历完了，所以继续向上回溯，来到<code>1</code>，我们发现它还有一个<code>13</code>分支没有遍历，我们就继续遍历<code>13</code>，如此一直重复下去，直到所有的分支都遍历结束后，我们也就得到了全排列的全部结果</p>
+<h2 id="代码-注释"><a href="#代码-注释" class="headerlink" title="代码 + 注释"></a>代码 + 注释</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="comment">// 用来存储结果的数组</span></span><br><span class="line"><span class="keyword">int</span> path[N];</span><br><span class="line"><span class="comment">// 用来标志元素是否被使用过的数组</span></span><br><span class="line"><span class="keyword">bool</span> st[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 如果 dfs 层数 == 最大深度，就输出这种情况</span></span><br><span class="line">    <span class="keyword">if</span> (u == n) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, path[i]);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 深度优先遍历</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="comment">// 每遍历到一个元素，先检测是否重复</span></span><br><span class="line">        <span class="keyword">if</span> (!st[i]) &#123;</span><br><span class="line">            <span class="comment">// 设定当前位置的值</span></span><br><span class="line">            path[u] = i;</span><br><span class="line">            <span class="comment">// 将这个值标记为已用</span></span><br><span class="line">            st[i] = <span class="literal">true</span>;</span><br><span class="line">            <span class="comment">// 继续向下遍历</span></span><br><span class="line">            dfs(u + <span class="number">1</span>);</span><br><span class="line">            <span class="comment">// 恢复原样</span></span><br><span class="line">            st[i] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="comment">// 从 0 开始 DFS</span></span><br><span class="line">    dfs(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -345,7 +350,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/李明徽得算法/" rel="tag"># 李明徽得算法</a>
+            <a href="/tags/李明徽的算法/" rel="tag"># 李明徽的算法</a>
           
         </div>
       
@@ -358,8 +363,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/15/LeetCode-98——验证二叉搜索树（Java、Python）/" rel="next" title="LeetCode-98——验证二叉搜索树">
-                <i class="fa fa-chevron-left"></i> LeetCode-98——验证二叉搜索树
+              <a href="/2020/02/21/JAVA基础——JDK实现的动态代理/" rel="next" title="JAVA基础——JDK实现的动态代理">
+                <i class="fa fa-chevron-left"></i> JAVA基础——JDK实现的动态代理
               </a>
             
           </div>
@@ -367,10 +372,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/20/JAVA基础——静态代理/" rel="prev" title="JAVA基础——静态代理">
-                JAVA基础——静态代理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -516,7 +517,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#插入排序"><span class="nav-number">1.</span> <span class="nav-text">插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-代码"><span class="nav-number">1.2.</span> <span class="nav-text">Java 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">1.3.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#优化插入排序——希尔排序"><span class="nav-number">2.</span> <span class="nav-text">优化插入排序——希尔排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理-1"><span class="nav-number">2.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-代码-1"><span class="nav-number">2.2.</span> <span class="nav-text">Java 代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是-DFS"><span class="nav-number">1.</span> <span class="nav-text">什么是 DFS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#例如"><span class="nav-number">1.1.</span> <span class="nav-text">例如</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优缺点"><span class="nav-number">1.2.</span> <span class="nav-text">优缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子"><span class="nav-number">2.</span> <span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">2.1.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码-注释"><span class="nav-number">2.2.</span> <span class="nav-text">代码 + 注释</span></a></li></ol></li></ol></div>
             
 
           </div>
