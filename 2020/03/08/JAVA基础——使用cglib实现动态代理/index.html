@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JAVA基础,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Step By Step" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="JAVA 代理模式​        简而言之，代理是一种通过创建代理对象的方式，从而实现对被代理对象实现功能增强的一种方式，JAVA 中有静态和动态两种代理，动态代理又可以分为_基于接口的动态代理_（JDK 实现）和_基于子类的动态代理_（cglib 实现），这里我们讲解基于子类的动态代理">
+<meta name="keywords" content="JAVA基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA基础——使用cglib实现动态代理">
+<meta property="og:url" content="http://yoursite.com/2020/03/08/JAVA基础——使用cglib实现动态代理/index.html">
+<meta property="og:site_name" content="Step By Step">
+<meta property="og:description" content="JAVA 代理模式​        简而言之，代理是一种通过创建代理对象的方式，从而实现对被代理对象实现功能增强的一种方式，JAVA 中有静态和动态两种代理，动态代理又可以分为_基于接口的动态代理_（JDK 实现）和_基于子类的动态代理_（cglib 实现），这里我们讲解基于子类的动态代理">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-08T15:03:20.660Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA基础——使用cglib实现动态代理">
+<meta name="twitter:description" content="JAVA 代理模式​        简而言之，代理是一种通过创建代理对象的方式，从而实现对被代理对象实现功能增强的一种方式，JAVA 中有静态和动态两种代理，动态代理又可以分为_基于接口的动态代理_（JDK 实现）和_基于子类的动态代理_（cglib 实现），这里我们讲解基于子类的动态代理">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/08/JAVA基础——使用cglib实现动态代理/">
+
+
+
+
+
+  <title>JAVA基础——使用cglib实现动态代理 | Step By Step</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  
+	<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/StePhEnCuHui" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Step By Step</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">耀出千分光</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/08/JAVA基础——使用cglib实现动态代理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiMinghui">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Step By Step">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JAVA基础——使用cglib实现动态代理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-08T22:23:30+08:00">
+                2020-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="JAVA-代理模式"><a href="#JAVA-代理模式" class="headerlink" title="JAVA 代理模式"></a>JAVA 代理模式</h1><p>​        简而言之，代理是一种通过创建代理对象的方式，从而实现对被代理对象实现功能增强的一种方式，JAVA 中有静态和动态两种代理，动态代理又可以分为_基于接口的动态代理_（JDK 实现）和_基于子类的动态代理_（cglib 实现），这里我们讲解基于子类的动态代理</p>
+<a id="more"></a>
+
+<h1 id="基于子类的动态代理（cglib-实现的动态代理）"><a href="#基于子类的动态代理（cglib-实现的动态代理）" class="headerlink" title="基于子类的动态代理（cglib 实现的动态代理）"></a>基于子类的动态代理（cglib 实现的动态代理）</h1><p>​        使用代理的好处就是在不修改原代码的基础上可以实现对原方法的增强，使用<code>JDK</code>官方的动态代理主要是依靠<code>Proxy</code>类，这种方法实现的动态代理要求被代理类_至少实现一个接口_，没有实现接口的类是不能被代理的</p>
+<p>​        那么没有实现接口或者不需要实现接口的类，我们怎么对它进行代理呢？</p>
+<p>​        通过引入第三方<code>cglib</code>库，我们可以实现基于子类的动态代理，使用<code>cglib</code>实现的动态代理也有一个约束条件，就是<em>被代理类不能是最终类</em></p>
+<p>​        使用<code>cglib</code>实现的动态代理核心是<code>Enhancer</code>类，其实实现的过程和<code>JDK</code>实现动态代理的过程极其类似</p>
+<h2 id="导入-jar-包"><a href="#导入-jar-包" class="headerlink" title="导入 jar 包"></a>导入 jar 包</h2><p>​        我是用的是<code>maven</code>工程，所以第一步是要导入<code>cglib</code>的 jar 包，当然手动导入也没有问题，<code>pom.xml</code>文件配置如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cglib<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>cglib<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1_3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="编写被代理类"><a href="#编写被代理类" class="headerlink" title="编写被代理类"></a>编写被代理类</h2><p>​        我这里被代理类主要就实现一个卖东西的功能，之后我们会通过代理类对被代理类中的方法进行增强操作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lmh.cglib;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.lmh.proxy.IPorducer;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 生产者</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Producer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saleProduct</span><span class="params">(<span class="keyword">float</span> money)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"销售产品，拿到钱 "</span> + money);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="编写代理类（这里也是一个测试类）"><a href="#编写代理类（这里也是一个测试类）" class="headerlink" title="编写代理类（这里也是一个测试类）"></a>编写代理类（这里也是一个测试类）</h2><p>​        这一步是整个过程的关键，代理类的实现要通过<code>Enhancer</code>类，我们需要通过<code>Enhancer</code>类中的<code>create</code>方法创建一个代理对象，具体实现方法如下，作用是给售价打八折，后面我会详细的解释各部分的功能</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lmh.cglib;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.lmh.proxy.IPorducer;</span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.Enhancer;</span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.MethodInterceptor;</span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.MethodProxy;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 模拟一个消费者</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Producer producer = <span class="keyword">new</span> Producer();</span><br><span class="line">        Producer enhancerProducer = (Producer) Enhancer.create(producer.getClass(), <span class="keyword">new</span> MethodInterceptor() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object o, Method method, Object[] objects, MethodProxy methodProxy)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">                <span class="comment">// 提供增强代码</span></span><br><span class="line">                Object returnValue = <span class="keyword">null</span>;</span><br><span class="line">                Float money = (Float) objects[<span class="number">0</span>];</span><br><span class="line">                <span class="keyword">if</span> (<span class="string">"saleProduct"</span>.equals(method.getName())) &#123;</span><br><span class="line">                    returnValue = method.invoke(producer, money * <span class="number">0.8f</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> returnValue;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        enhancerProducer.saleProduct(<span class="number">1000f</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        这里我们可以看到，<code>enhancerProducer</code>就是我们创建的代理对象，这个对象可以执行被代理类中所有的方法，并且我们可以在代理对象中对被代理类的方法进行增强，这里使用了强转，因为<code>create</code>方法的返回值是<code>Object</code>类型的对象</p>
+<p>​        <code>create</code>方法有两个参数，分别是<code>Class type</code>和<code>Callback callback</code>，其中<code>Class type</code>是值被代理类的字节码文件，这是固定的，因为有了被代理类的字节码后，就相当于可以获取被代理类的全部信息；<code>Callback callback</code>是用于提供增强代码的，一般都是写一个接口的实现，通常情况下都是匿名内部类，这里我们一般不适用<code>Callback</code>接口，而是使用它的子接口实现类<code>MethodInterceptor</code></p>
+<p>​        <code>MethodInterceptor</code>接口需要重写<code>intercept</code>方法，<code>intercept</code>方法中的内容即为对被代理类的增强，该方法有四个参数：<code>Object o</code>、<code>Method method</code>、<code>Object[] objects</code>和<code>MethodProxy methodProxy</code></p>
+<p>​        <code>Object o</code>参数，是一个代理对象的引用，<code>Method method</code>是当前执行，即被拦截的被代理类方法，<code>Objects[] objects</code>是当前执行方法所用的参数，索引顺序即为方法定义时参数的顺序，<code>MethodProxy methodProxy</code>指的是当前执行的方法的代理对象</p>
+<p>​        通过向上述代码一样编写，我们就可以实现对被代理类功能的增强！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+	
+	<div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JAVA基础/" rel="tag"># JAVA基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/06/Spring框架——使用注解实现Spring-IOC/" rel="next" title="Spring框架——使用注解实现Spring IOC">
+                <i class="fa fa-chevron-left"></i> Spring框架——使用注解实现Spring IOC
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">LiMinghui</p>
+              <p class="site-description motion-element" itemprop="description">斯蒂芬库徽的博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/StePhEnCuHui" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="2606223743@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA-代理模式"><span class="nav-number">1.</span> <span class="nav-text">JAVA 代理模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于子类的动态代理（cglib-实现的动态代理）"><span class="nav-number">2.</span> <span class="nav-text">基于子类的动态代理（cglib 实现的动态代理）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入-jar-包"><span class="nav-number">2.1.</span> <span class="nav-text">导入 jar 包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写被代理类"><span class="nav-number">2.2.</span> <span class="nav-text">编写被代理类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写代理类（这里也是一个测试类）"><span class="nav-number">2.3.</span> <span class="nav-text">编写代理类（这里也是一个测试类）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiMinghui</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
