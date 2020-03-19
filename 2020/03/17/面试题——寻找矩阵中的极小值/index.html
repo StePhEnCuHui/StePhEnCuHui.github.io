@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="AcWing 1452 寻找矩阵的极小值题目给定一个n×n的矩阵，矩阵中包含n×n个_互不相同_的整数。 定义极小值：如果一个数的值比与它相邻的所有数字的值都小，则这个数值就被称为极小值。 一个数的相邻数字是指其上下左右四个方向相邻的四个数字，另外注意，处于边界或角落的数的相邻数字可能少于四个。 要求在O(nlogn)的时间复杂度之内找出任意一个极小值的位置，并输出它在第几行第几列。 本题中矩阵是">
+<meta name="description" content="AcWing 1452 寻找矩阵的极小值题目给定一个n × n的矩阵，矩阵中包含n × n个_互不相同_的整数 定义极小值：如果一个数的值比与它相邻的所有数字的值都小，则这个数值就被称为极小值 一个数的相邻数字是指其上下左右四个方向相邻的四个数字，另外注意，处于边界或角落的数的相邻数字可能少于四个 要求在O(nlogn)的时间复杂度之内找出任意一个极小值的位置，并输出它在第几行第几列 本题中矩阵是">
 <meta name="keywords" content="面试题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试题——寻找矩阵中的极小值">
 <meta property="og:url" content="http://yoursite.com/2020/03/17/面试题——寻找矩阵中的极小值/index.html">
 <meta property="og:site_name" content="Step By Step">
-<meta property="og:description" content="AcWing 1452 寻找矩阵的极小值题目给定一个n×n的矩阵，矩阵中包含n×n个_互不相同_的整数。 定义极小值：如果一个数的值比与它相邻的所有数字的值都小，则这个数值就被称为极小值。 一个数的相邻数字是指其上下左右四个方向相邻的四个数字，另外注意，处于边界或角落的数的相邻数字可能少于四个。 要求在O(nlogn)的时间复杂度之内找出任意一个极小值的位置，并输出它在第几行第几列。 本题中矩阵是">
+<meta property="og:description" content="AcWing 1452 寻找矩阵的极小值题目给定一个n × n的矩阵，矩阵中包含n × n个_互不相同_的整数 定义极小值：如果一个数的值比与它相邻的所有数字的值都小，则这个数值就被称为极小值 一个数的相邻数字是指其上下左右四个方向相邻的四个数字，另外注意，处于边界或角落的数的相邻数字可能少于四个 要求在O(nlogn)的时间复杂度之内找出任意一个极小值的位置，并输出它在第几行第几列 本题中矩阵是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-17T03:01:25.809Z">
+<meta property="og:updated_time" content="2020-03-19T08:28:54.477Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题——寻找矩阵中的极小值">
-<meta name="twitter:description" content="AcWing 1452 寻找矩阵的极小值题目给定一个n×n的矩阵，矩阵中包含n×n个_互不相同_的整数。 定义极小值：如果一个数的值比与它相邻的所有数字的值都小，则这个数值就被称为极小值。 一个数的相邻数字是指其上下左右四个方向相邻的四个数字，另外注意，处于边界或角落的数的相邻数字可能少于四个。 要求在O(nlogn)的时间复杂度之内找出任意一个极小值的位置，并输出它在第几行第几列。 本题中矩阵是">
+<meta name="twitter:description" content="AcWing 1452 寻找矩阵的极小值题目给定一个n × n的矩阵，矩阵中包含n × n个_互不相同_的整数 定义极小值：如果一个数的值比与它相邻的所有数字的值都小，则这个数值就被称为极小值 一个数的相邻数字是指其上下左右四个方向相邻的四个数字，另外注意，处于边界或角落的数的相邻数字可能少于四个 要求在O(nlogn)的时间复杂度之内找出任意一个极小值的位置，并输出它在第几行第几列 本题中矩阵是">
 
 
 
@@ -306,19 +306,19 @@
       
 
       
-        <h1 id="AcWing-1452-寻找矩阵的极小值"><a href="#AcWing-1452-寻找矩阵的极小值" class="headerlink" title="AcWing 1452 寻找矩阵的极小值"></a>AcWing 1452 寻找矩阵的极小值</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个<code>n×n</code>的矩阵，矩阵中包含<code>n×n</code>个_互不相同_的整数。</p>
-<p>定义极小值：如果一个数的值比与它相邻的所有数字的值都小，则这个数值就被称为极小值。</p>
-<p>一个数的相邻数字是指其上下左右四个方向相邻的四个数字，另外注意，处于边界或角落的数的相邻数字可能少于四个。</p>
-<p>要求在<code>O(nlogn)</code>的时间复杂度之内找出任意一个极小值的位置，并输出它在第几行第几列。</p>
-<p>本题中矩阵是隐藏的，你可以通过我们预设的<code>int</code>函数<code>query</code>来获得矩阵中某个位置的数值是多少。</p>
-<p>例如，<code>query(a,b)</code>即可获得矩阵中第<code>a</code>行第<code>b</code>列的位置的数值。</p>
+        <h1 id="AcWing-1452-寻找矩阵的极小值"><a href="#AcWing-1452-寻找矩阵的极小值" class="headerlink" title="AcWing 1452 寻找矩阵的极小值"></a>AcWing 1452 寻找矩阵的极小值</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个<code>n × n</code>的矩阵，矩阵中包含<code>n × n</code>个_互不相同_的整数</p>
+<p>定义极小值：如果一个数的值比与它相邻的所有数字的值都小，则这个数值就被称为极小值</p>
+<p>一个数的相邻数字是指其上下左右四个方向相邻的四个数字，另外注意，处于边界或角落的数的相邻数字可能少于四个</p>
+<p>要求在<code>O(nlogn)</code>的时间复杂度之内找出任意一个极小值的位置，并输出它在第几行第几列</p>
+<p>本题中矩阵是隐藏的，你可以通过我们预设的<code>int</code>函数<code>query</code>来获得矩阵中某个位置的数值是多少</p>
+<p>例如，<code>query(a,b)</code>即可获得矩阵中第<code>a</code>行第<code>b</code>列的位置的数值</p>
 <p><strong>注意：</strong></p>
 <ol>
-<li>矩阵的行和列均从<code>0</code>开始编号。</li>
-<li><code>query()</code>函数的调用次数不能超过<code>(n+2)×⌈log2n⌉+n</code></li>
-<li>答案不唯一，输出任意一个极小值的位置即可。</li>
+<li>矩阵的行和列均从<code>0</code>开始编号</li>
+<li><code>query()</code>函数的调用次数不能超过<code>(n + 2) × ⌈log2n⌉ + n</code></li>
+<li>答案不唯一，输出任意一个极小值的位置即可</li>
 </ol>
-<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p><code>1 ≤ n ≤ 300</code>，矩阵中的整数在<code>int</code>范围内。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p><code>1 ≤ n ≤ 300</code>，矩阵中的整数在<code>int</code>范围内</p>
 <h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</span><br></pre></td></tr></table></figure>
 
 <h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[0, 0]</span><br></pre></td></tr></table></figure>
@@ -463,7 +463,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
