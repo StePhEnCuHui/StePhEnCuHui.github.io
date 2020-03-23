@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="归并排序​        归并排序是另一种排序算法，也是采用分治的思想，但是和快排有很大的区别，归并排序是稳定的，而快排则不稳定">
+<meta name="description" content="前缀和及差分​        前缀和与差分是互为逆运算的两种计算方式，前缀和指的是一个数组是另一个数组中前n项元素之和，而差分指的是一个数组的前n项的和是另一个数组 ​        实际上就是，如果数组a是数组b的前缀和，那b就是a的差分">
 <meta name="keywords" content="李明徽的算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法——归并排序">
-<meta property="og:url" content="http://yoursite.com/2020/01/14/算法——归并排序/index.html">
+<meta property="og:title" content="算法——前缀和及差分">
+<meta property="og:url" content="http://yoursite.com/2020/03/23/算法——前缀和及差分/index.html">
 <meta property="og:site_name" content="Step By Step">
-<meta property="og:description" content="归并排序​        归并排序是另一种排序算法，也是采用分治的思想，但是和快排有很大的区别，归并排序是稳定的，而快排则不稳定">
+<meta property="og:description" content="前缀和及差分​        前缀和与差分是互为逆运算的两种计算方式，前缀和指的是一个数组是另一个数组中前n项元素之和，而差分指的是一个数组的前n项的和是另一个数组 ​        实际上就是，如果数组a是数组b的前缀和，那b就是a的差分">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-14T10:39:35.363Z">
+<meta property="og:updated_time" content="2020-03-23T08:35:01.703Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法——归并排序">
-<meta name="twitter:description" content="归并排序​        归并排序是另一种排序算法，也是采用分治的思想，但是和快排有很大的区别，归并排序是稳定的，而快排则不稳定">
+<meta name="twitter:title" content="算法——前缀和及差分">
+<meta name="twitter:description" content="前缀和及差分​        前缀和与差分是互为逆运算的两种计算方式，前缀和指的是一个数组是另一个数组中前n项元素之和，而差分指的是一个数组的前n项的和是另一个数组 ​        实际上就是，如果数组a是数组b的前缀和，那b就是a的差分">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/01/14/算法——归并排序/">
+  <link rel="canonical" href="http://yoursite.com/2020/03/23/算法——前缀和及差分/">
 
 
 
 
 
-  <title>算法——归并排序 | Step By Step</title>
+  <title>算法——前缀和及差分 | Step By Step</title>
   
 
 
@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/14/算法——归并排序/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/23/算法——前缀和及差分/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiMinghui">
@@ -256,7 +256,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算法——归并排序</h1>
+          <h1 class="post-title" itemprop="name headline">算法——前缀和及差分</h1>
         
 
         <div class="post-meta">
@@ -268,8 +268,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-14T17:54:45+08:00">
-                2020-01-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-23T16:11:59+08:00">
+                2020-03-23
               </time>
             
 
@@ -306,27 +306,20 @@
       
 
       
-        <h1 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h1><p>​        归并排序是另一种排序算法，也是采用分治的思想，但是和快排有很大的区别，归并排序是稳定的，而快排则不稳定</p>
+        <h1 id="前缀和及差分"><a href="#前缀和及差分" class="headerlink" title="前缀和及差分"></a>前缀和及差分</h1><p>​        前缀和与差分是互为逆运算的两种计算方式，前缀和指的是一个数组是另一个数组中前<code>n</code>项元素之和，而差分指的是一个数组的前<code>n</code>项的和是另一个数组</p>
+<p>​        实际上就是，如果数组<code>a</code>是数组<code>b</code>的前缀和，那<code>b</code>就是<code>a</code>的差分</p>
 <a id="more"></a>
 
-<h2 id="归并的思想"><a href="#归并的思想" class="headerlink" title="归并的思想"></a>归并的思想</h2><p>​        归并排序的思想可以简单的分为三个步骤：</p>
-<ol>
-<li>确定分界点 mid</li>
-<li>递归分界点得到左右空间</li>
-<li>归并，将若干数组合并为一个有序数组</li>
-</ol>
-<h2 id="确定分界点"><a href="#确定分界点" class="headerlink" title="确定分界点"></a>确定分界点</h2><p>​        确定分界点，归并排序的分界点即为数组的中点，设数组左边界为 left，有边界为 right，那么分界点 mid 便为 </p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h1><p>​        根据如上的的解释，我们可以理解为，假设有数组<code>a</code>为<code>[1, 2, 3, 4, 5]</code>那么代表它的前缀和数组的数组<code>b</code>就是<code>1, 3, 6, 10, 15</code>，也就是说，<code>a[n] = b[1] + b[2] + ... + b[n - 1] + b[n]</code>，这里我们假设数组是从下标<code>1</code>开始的，这样我们可以减去一步繁琐的判断</p>
+<p>​        通过前缀和，我们可以快速的求出原数组从<code>l</code>到<code>r</code>的区间中元素的和，等于<code>S[l ~ r] = b[r] - b[l - 1]</code>，有如下代码:</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> a[N], s[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) s[i]= s[i - <span class="number">1</span>] + a[i];</span><br><span class="line">    <span class="keyword">while</span> (m--) &#123;</span><br><span class="line">        <span class="keyword">int</span> l, r;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;l, &amp;r);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, s[r] - s[l - <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>​        归并排序的分界点和快排的分界点有本质的区别，快排的分界点是对数组的元素值而言的，而归并排序的分界点是就数组的 index 来说的</p>
-<p>​        通过确定的分界点，一个数组就被分解成了两个以 mid 为分界的数组，第一个数组的就原素组而言的下标范围是 left &lt;= index &lt;= mid，第二个数组是 mid + 1 &lt;= index &lt;= right</p>
-<h2 id="递归分界点左右空间"><a href="#递归分界点左右空间" class="headerlink" title="递归分界点左右空间"></a>递归分界点左右空间</h2><p>​        根据第一步得到的结果，可以使用递归将得到的两个数组继续分解，即</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">merge_sort(q, l, mid);</span><br><span class="line">merge_sort(q, mid + <span class="number">1</span>, r);</span><br></pre></td></tr></table></figure>
+<h1 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h1><p>​        作为前缀和的逆运算，差分可以理解为有算数组<code>a</code>，它的差分数组<code>b</code>有如下关系</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a[1] = b[1]</span><br><span class="line">a[2] = b[1] + b[2]</span><br><span class="line">a[3] = b[1] + b[2] + b[3]</span><br><span class="line">...</span><br><span class="line">a[n - 1] = b[1] + b[2] + b[3] + ... + b[n - 2] + b[n - 1]</span><br><span class="line">a[n] = b[1] + b[2] + b[3] + ... + b[n - 2] + b[n - 1] + b[n]</span><br></pre></td></tr></table></figure>
 
-<h2 id="归并"><a href="#归并" class="headerlink" title="归并"></a>归并</h2><p>​        这是归并排序最重要的一步，是对归并得到的数组得处理，对于两个有序数组来说，想要合并，就要不断得对比数组头位置元素的大小，这又是使用双指针，分别指向两个数组的头元素，不断对比两个指针对应元素大小，保存较小的那个，并后移与其对应的指针，由于两个指针实际上是分步执行的，当其中一个数组被遍历完后，直接将另一个数组接到答案数组的尾部即可，代码如下</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//k 用来记录答案数组中现存元素的数量</span></span><br><span class="line"><span class="keyword">int</span> k = <span class="number">0</span>, i = l, j = mid + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= r) &#123;</span><br><span class="line">	<span class="keyword">if</span> (q[i] &lt;= q[j])</span><br><span class="line">		tmp[k++] = q[i++];</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		tmp[k++] = q[j++];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (i &lt;= mid)</span><br><span class="line">	tmp[k++] = q[i++];</span><br><span class="line"><span class="keyword">while</span> (j &lt;= r)</span><br><span class="line">	tmp[k++] = q[j++];</span><br><span class="line"><span class="keyword">for</span> (i = l, j = <span class="number">0</span>; i &lt;= r; i++, j++)</span><br><span class="line">	q[i] = tmp[j];</span><br></pre></td></tr></table></figure>
-
-<h2 id="全部代码"><a href="#全部代码" class="headerlink" title="全部代码"></a>全部代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> q[N], tmp[N];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge_sort</span><span class="params">(<span class="keyword">int</span> q[], <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (l == r)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">	merge_sort(q, l, mid);</span><br><span class="line">	merge_sort(q, mid + <span class="number">1</span>, r);</span><br><span class="line">	<span class="keyword">int</span> k = <span class="number">0</span>, i = l, j = mid + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= r) &#123;</span><br><span class="line">		<span class="keyword">if</span> (q[i] &lt;= q[j])</span><br><span class="line">			tmp[k++] = q[i++];</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			tmp[k++] = q[j++];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (i &lt;= mid)</span><br><span class="line">		tmp[k++] = q[i++];</span><br><span class="line">	<span class="keyword">while</span> (j &lt;= r)</span><br><span class="line">		tmp[k++] = q[j++];</span><br><span class="line">	<span class="keyword">for</span> (i = l, j = <span class="number">0</span>; i &lt;= r; i++, j++)</span><br><span class="line">		q[i] = tmp[j];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; q[i];</span><br><span class="line">	&#125;</span><br><span class="line">	merge_sort(q, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; q[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​        由此可见，如果<code>b</code>是<code>a</code>的差分数组，那<code>a</code>就是<code>b</code>的前缀和数组，通过差分，我们可以快速的实现对一个区间内的所有元素的同增同减操作</p>
+<p>​        假设我们要让<code>a[2]</code>到<code>a[6]</code>的元素全部<code>+1</code>，我们只需要让<code>b[2] += 1</code>，<code>b[7] -= 1</code>即可，代码如下</p>
+<h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[N], b[N];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) b[i] = a[i] - a[i - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">while</span> (m--) &#123;</span><br><span class="line">        <span class="keyword">int</span> l, r, c;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;l, &amp;r, &amp;c);</span><br><span class="line">        b[l] += c;</span><br><span class="line">        b[r + <span class="number">1</span>] -= c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">        a[i] = a[i - <span class="number">1</span>] + b[i];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -368,8 +361,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/13/算法——快速排序/" rel="next" title="算法——快速排序">
-                <i class="fa fa-chevron-left"></i> 算法——快速排序
+              <a href="/2020/03/22/Spring框架——Autowired注解用法详解/" rel="next" title="Spring框架——@Autowired注解用法详解">
+                <i class="fa fa-chevron-left"></i> Spring框架——@Autowired注解用法详解
               </a>
             
           </div>
@@ -377,10 +370,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/01/15/算法——二分查找/" rel="prev" title="算法——二分查找">
-                算法——二分查找 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -526,7 +515,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#归并排序"><span class="nav-number">1.</span> <span class="nav-text">归并排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#归并的思想"><span class="nav-number">1.1.</span> <span class="nav-text">归并的思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#确定分界点"><span class="nav-number">1.2.</span> <span class="nav-text">确定分界点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归分界点左右空间"><span class="nav-number">1.3.</span> <span class="nav-text">递归分界点左右空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并"><span class="nav-number">1.4.</span> <span class="nav-text">归并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全部代码"><span class="nav-number">1.5.</span> <span class="nav-text">全部代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前缀和及差分"><span class="nav-number">1.</span> <span class="nav-text">前缀和及差分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前缀和"><span class="nav-number">2.</span> <span class="nav-text">前缀和</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.1.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#差分"><span class="nav-number">3.</span> <span class="nav-text">差分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码-1"><span class="nav-number">3.1.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
             
 
           </div>
