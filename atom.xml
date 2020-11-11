@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-20T03:46:03.823Z</updated>
+  <updated>2020-11-11T05:09:01.056Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>12</title>
+    <link href="http://yoursite.com/2020/11/11/12/"/>
+    <id>http://yoursite.com/2020/11/11/12/</id>
+    <published>2020-11-11T05:09:01.000Z</published>
+    <updated>2020-11-11T05:09:01.056Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>使用alibaba-nacos实现分布式系统中的服务中心</title>
+    <link href="http://yoursite.com/2020/06/03/%E4%BD%BF%E7%94%A8alibaba-nacos%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%AD%E5%BF%83/"/>
+    <id>http://yoursite.com/2020/06/03/使用alibaba-nacos实现分布式系统中的服务中心/</id>
+    <published>2020-06-03T08:04:33.000Z</published>
+    <updated>2020-06-03T09:43:33.991Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用-alibaba-nacos-实现分布式系统中的服务中心"><a href="#使用-alibaba-nacos-实现分布式系统中的服务中心" class="headerlink" title="使用 alibaba-nacos 实现分布式系统中的服务中心"></a>使用 alibaba-nacos 实现分布式系统中的服务中心</h1><p>​        最近在做一个分布式电商系统，使用<strong>spring-cloud-alibaba</strong>中的<code>nacos</code>作为项目的服务中心，下面简单介绍一下分布式系统、服务中心、以及<code>nacos</code>的使用</p><h2 id="什么是分布式"><a href="#什么是分布式" class="headerlink" title="什么是分布式"></a>什么是分布式</h2><p>​        首先我们要清楚分布式的概念：</p><blockquote><p> 分布式系统（<em>distributed system</em>）是建立在网络之上的软件系统。正是因为软件的特性，所以分布式系统具有高度的内聚性和透明性。因此，网络和分布式系统之间的区别更多的在于高层软件（特别是操作系统），而不是硬件。                          ——百度百科</p></blockquote><p>​        百度百科的解释看起来十分晦涩，我们可以理解为分布式系统是一种由多个节点构成的系统，节点之间互相连通，可以进行通信，它的优点是具有更高的效率和可靠性，庞大的任务可以被拆分成若干子任务，整个系统也不会因为一个节点的故障而崩溃，当一个节点崩溃时，其他节点仍然可以正常运行</p><p>​        举个简单的例子，假设我们现在有两种服务，一个是用户服务，一个是商品服务，当我们要实现用户买商品时，按照传统思路，所有的用户都需要访问这一个用户服务程序，再访问同一个商品服务程序，当访问量巨大时，会出现效率极低的情况，并且，一旦唯一的用户服务或商品服务掉线，整个系统都会崩溃</p><p>​        如果我们采用分布式系统的设计，将若干个用户服务和若干和商品服务同时部署，再发生上述情况时，服务器的压力会大大减小，并且，若出现服务故障，当前任务进程可以去申请其他节点的服务继续执行，系统崩溃的几率会大大降低</p><h2 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h2><p>​        分布式是一种工作方式，集群是一种物理形态</p><p>​        例如京东是一个分布式系统，众多业务运行在不同的机器，所有业务构成一个大型的业务集群，每一个小业务在访问压力大的时候使用一台服务器是不够的，我们就应该将相同的业务部署在多个服务器上，也就是每一个业务都可以做成集群化，而集群中的一个服务器，就称为节点</p><h2 id="远程调用"><a href="#远程调用" class="headerlink" title="远程调用"></a>远程调用</h2><p>​        在分布式系统中，各个服务处于不同主机，但是服务之间不可避免的需要相互作用，我们称为远程调用</p><p>​        <strong>Spring-Cloud</strong>中使用<strong>HTTP + JSON</strong>的方式完成这种远程调用</p><h2 id="服务的注册和发现——注册中心"><a href="#服务的注册和发现——注册中心" class="headerlink" title="服务的注册和发现——注册中心"></a>服务的注册和发现——注册中心</h2><p>​        当<code>A</code>服务嗲用<code>B</code>服务时，<code>A</code>服务并不知道系统中当前哪几台服务器在运行<code>B</code>服务，哪些<code>B</code>服务是正常的，哪些是下线的，为了解决这个问题，引入了注册中心</p><p>​        当某些服务上线或者下线，会在在注册中心注册或注销，注册中心会实时感知到这些服务的状态，从而避免调用不可用的服务</p><p><img src="C:%5CUsers%5CStePhEnCuHui%5CDesktop%5Cchance%5C%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83.png" alt></p><p>​        </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;使用-alibaba-nacos-实现分布式系统中的服务中心&quot;&gt;&lt;a href=&quot;#使用-alibaba-nacos-实现分布式系统中的服务中心&quot; class=&quot;headerlink&quot; title=&quot;使用 alibaba-nacos 实现分布式系统中的服务中心&quot;&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="dstore-项目笔记" scheme="http://yoursite.com/tags/dstore-%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>asd</title>
+    <link href="http://yoursite.com/2020/06/03/asd/"/>
+    <id>http://yoursite.com/2020/06/03/asd/</id>
+    <published>2020-06-03T08:04:00.000Z</published>
+    <updated>2020-06-03T08:04:00.148Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>HashMap——HashMap中如何确定元素的位置</title>
@@ -472,80 +523,6 @@
 &lt;li&gt;请同时实现迭代版本和递归版本&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&quot;样例&quot;&gt;&lt;a href=&quot;#样例&quot; class=&quot;headerlink&quot; title=&quot;样例&quot;&gt;&lt;/a&gt;样例&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;输入:1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;输出:5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="面试题" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试题——链表中环的入口节点</title>
-    <link href="http://yoursite.com/2020/03/18/%E9%9D%A2%E8%AF%95%E9%A2%98%E2%80%94%E2%80%94%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%8E%AF%E7%9A%84%E5%85%A5%E5%8F%A3%E8%8A%82%E7%82%B9/"/>
-    <id>http://yoursite.com/2020/03/18/面试题——链表中环的入口节点/</id>
-    <published>2020-03-18T10:51:02.000Z</published>
-    <updated>2020-03-19T08:29:01.928Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="AcWing-34-链表中环的入口节点"><a href="#AcWing-34-链表中环的入口节点" class="headerlink" title="AcWing 34 链表中环的入口节点"></a>AcWing 34 链表中环的入口节点</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个链表，若其中包含环，则输出环的入口节点</p><p>若其中不包含环，则输出<code>null</code></p><h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><p><img src="https://img-blog.csdnimg.cn/2020031819140188.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70" alt></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">给定如上所示的链表：</span><br><span class="line">[1, 2, 3, 4, 5, 6]</span><br><span class="line">2</span><br><span class="line">注意，这里的2表示编号是2的节点，节点编号从0开始。所以编号是2的节点就是val等于3的节点。</span><br><span class="line"></span><br><span class="line">则输出环的入口节点3.</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>​        这道题解法很巧妙，有一股数学的气息，首先我们回忆一下怎么确定一个链表中是否存在环</p><p>​        我们是使用快慢指针的方式来确定链表中是否存在环的，两个指针<code>one</code>和<code>two</code>都从链表的<code>head</code>出发，<code>one</code>每次走一个节点，<code>two</code>每次走两个节点，如果链表存在环的情况下，两个指针一定会在环中的某个位置相遇，否则如果<code>two</code>走到了链表结尾，说明链表没有环</p><p>​        那我们如何确定链表中环的入口节点呢？请看这张图</p><p><img src="https://img-blog.csdnimg.cn/20200318191445974.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70" alt></p><p>​        首先，我们假设入口节点<code>b</code>距离<code>head</code>节点<code>a</code>的距离为<code>x</code>，两个指针相遇的点<code>c</code>距离<code>b</code>点的长度是<code>y</code>，那么，<code>one</code>指针走到<code>b</code>需要<code>x</code>步，而此时<code>two</code>指针已经走了<code>2x</code>步，正在环中某处（假设链表存在环），而当<code>one</code>再走<code>y</code>步就会到达两个指针相遇的<code>c</code>点，再次期间，<code>two</code>同样会走<code>2y</code>步，所以，在<code>one</code>到达<code>b</code>点时，<code>two</code>实际距离<code>b</code>点<code>y</code>步，也就是说，这个环的长度为<code>x + y</code>，所以我们可以得到，当<code>two</code>在<code>c</code>点时，它距离<code>b</code>点差<code>x</code>步</p><p>​        通过这个结论，我们可以在两个指针相遇时，让<code>one</code>指回头节点，此时<code>one</code>距离<code>b</code>点差<code>x</code>步，<code>two</code>距离<code>b</code>点也为<code>x</code>步，从这个时候开始，我们让两个指针每次走一个单位，当两个指针再次相遇时，这个点就是<code>b</code>点，代码如下：</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">entryNodeOfLoop</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line"><span class="keyword">auto</span> i = head, j = head;</span><br><span class="line"><span class="keyword">while</span> (i &amp;&amp; j) &#123;</span><br><span class="line">i = i-&gt;next;</span><br><span class="line">j = j-&gt;next;</span><br><span class="line"><span class="keyword">if</span> (j) &#123;</span><br><span class="line">j = j-&gt;next;</span><br><span class="line"><span class="keyword">if</span> (!j) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (i == j) &#123;</span><br><span class="line">i = head;</span><br><span class="line"><span class="keyword">while</span> (i != j) &#123;</span><br><span class="line">i = i-&gt;next;</span><br><span class="line">j = j-&gt;next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;AcWing-34-链表中环的入口节点&quot;&gt;&lt;a href=&quot;#AcWing-34-链表中环的入口节点&quot; class=&quot;headerlink&quot; title=&quot;AcWing 34 链表中环的入口节点&quot;&gt;&lt;/a&gt;AcWing 34 链表中环的入口节点&lt;/h1&gt;&lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;给定一个链表，若其中包含环，则输出环的入口节点&lt;/p&gt;
-&lt;p&gt;若其中不包含环，则输出&lt;code&gt;null&lt;/code&gt;&lt;/p&gt;
-&lt;h4 id=&quot;样例&quot;&gt;&lt;a href=&quot;#样例&quot; class=&quot;headerlink&quot; title=&quot;样例&quot;&gt;&lt;/a&gt;样例&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/2020031819140188.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NjZm9yMzMz,size_16,color_FFFFFF,t_70&quot; alt&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;给定如上所示的链表：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[1, 2, 3, 4, 5, 6]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;注意，这里的2表示编号是2的节点，节点编号从0开始。所以编号是2的节点就是val等于3的节点。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;则输出环的入口节点3.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="面试题" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试题——包含min函数得栈</title>
-    <link href="http://yoursite.com/2020/03/18/%E9%9D%A2%E8%AF%95%E9%A2%98%E2%80%94%E2%80%94%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E5%BE%97%E6%A0%88/"/>
-    <id>http://yoursite.com/2020/03/18/面试题——包含min函数得栈/</id>
-    <published>2020-03-18T10:31:42.000Z</published>
-    <updated>2020-03-19T08:29:19.121Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="AcWing-41-包含-min-函数得栈"><a href="#AcWing-41-包含-min-函数得栈" class="headerlink" title="AcWing 41 包含 min 函数得栈"></a>AcWing 41 包含 min 函数得栈</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>设计一个支持push，pop，top等操作并且可以在O(1)时间内检索出最小元素的堆栈</p><ul><li>push(x)–将元素x插入栈中</li><li>pop()–移除栈顶元素</li><li>top()–得到栈顶元素</li><li>getMin()–得到栈中最小元素</li></ul><h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MinStack minStack = new MinStack();</span><br><span class="line">minStack.push(-1);</span><br><span class="line">minStack.push(3);</span><br><span class="line">minStack.push(-4);</span><br><span class="line">minStack.getMin();   --&gt; Returns -4.</span><br><span class="line">minStack.pop();</span><br><span class="line">minStack.top();      --&gt; Returns 3.</span><br><span class="line">minStack.getMin();   --&gt; Returns -1.</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>​        首先我们要了解栈是一个什么样得数据结构，栈是一种先入后出得数据结构，它类似于一个一端封闭得容器，我们只能从一个入口向容器中放入元素，也只能从这个入口取出元素，且取出得元素一定是上一次放入操作放入的元素</p><p>​        回归这个问题，我们怎么实现一个包含压栈（push）、出栈（pop）、获取栈顶元素（top）、和获取当前栈中最小元素（getMin）这四种方法呢？</p><p>​        我们这里采用数组模拟栈，用数组模拟栈的好处是便捷，并且在不很复杂的问题中对数组模拟栈进行操作可以节省运算时间和运算成本，我们定义一个长度足够的数组<code>stk</code>用来表示栈，用一个<code>int</code>类型的变量<code>tt</code>表示栈顶的索引位置，当我们创建一个空栈时，这个指针应该指向<code>0</code>这个位置，每次我们进行压栈操作，<code>++tt</code>，每次我们出栈，<code>--tt</code>，获取栈顶元素时，我们只需要然会<code>stk[tt - 1]</code>即可</p><p>​        最关键的问题时如何找到当前栈中的最小值，如果没有时间限制的话，我们可以通过遍历栈的方式找到最小值，但是这道题的时间限制是<code>O(1)</code>，我们可以考虑，另外开辟一个数组<code>stkmin</code>，用这个数组来存储当前栈的最小值，每当我们在栈中压入一个数，我们就检测压入的元素是否比<code>stkmin</code>的栈顶元素小，如果是，那么新压入的元素便是最小值，否则原栈顶元素是最小值，而当<code>stk</code>中有元素出栈时，我们也同样只需要让<code>stkmin</code>的栈顶元素出栈即可，所以<code>stkmin</code>的栈顶元素就是<code>stk</code>中的最小值，下面是代码：</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> stk[<span class="number">100010</span>];</span><br><span class="line"><span class="keyword">int</span> stkmin[<span class="number">100010</span>];</span><br><span class="line"><span class="keyword">int</span> tt;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">MinStack() &#123;</span><br><span class="line">tt = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (tt == <span class="number">0</span>)</span><br><span class="line">stkmin[tt] = x;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="keyword">if</span> (stkmin[tt - <span class="number">1</span>] &gt;= x)</span><br><span class="line">stkmin[tt] = x;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">stkmin[tt] = stkmin[tt - <span class="number">1</span>];</span><br><span class="line">stk[tt++] = x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">--tt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> stk[tt - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> stkmin[tt - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;AcWing-41-包含-min-函数得栈&quot;&gt;&lt;a href=&quot;#AcWing-41-包含-min-函数得栈&quot; class=&quot;headerlink&quot; title=&quot;AcWing 41 包含 min 函数得栈&quot;&gt;&lt;/a&gt;AcWing 41 包含 min 函数得栈&lt;/h1&gt;&lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;设计一个支持push，pop，top等操作并且可以在O(1)时间内检索出最小元素的堆栈&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;push(x)–将元素x插入栈中&lt;/li&gt;
-&lt;li&gt;pop()–移除栈顶元素&lt;/li&gt;
-&lt;li&gt;top()–得到栈顶元素&lt;/li&gt;
-&lt;li&gt;getMin()–得到栈中最小元素&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;样例&quot;&gt;&lt;a href=&quot;#样例&quot; class=&quot;headerlink&quot; title=&quot;样例&quot;&gt;&lt;/a&gt;样例&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;MinStack minStack = new MinStack();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;minStack.push(-1);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;minStack.push(3);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;minStack.push(-4);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;minStack.getMin();   --&amp;gt; Returns -4.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;minStack.pop();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;minStack.top();      --&amp;gt; Returns 3.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;minStack.getMin();   --&amp;gt; Returns -1.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="面试题" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指Offer（面试题3-1）——找出数组中重复的数字</title>
-    <link href="http://yoursite.com/2020/03/17/%E5%89%91%E6%8C%87Offer%EF%BC%88%E9%9D%A2%E8%AF%95%E9%A2%983-1%EF%BC%89%E2%80%94%E2%80%94%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/"/>
-    <id>http://yoursite.com/2020/03/17/剑指Offer（面试题3-1）——找出数组中重复的数字/</id>
-    <published>2020-03-17T03:05:05.000Z</published>
-    <updated>2020-03-20T14:44:46.275Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="剑指-Offer——面试题-3-1"><a href="#剑指-Offer——面试题-3-1" class="headerlink" title="剑指 Offer——面试题 3-1"></a>剑指 Offer——面试题 3-1</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>找出数组中的重复数字</p><p>在一个长度为<code>n</code>的数组里的所有数字都在<code>0 ~ n - 1</code>的范围内，数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次，请找出数组中任意一个重复的数字</p><h4 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2, 3, 1, 0, 2, 5, 3]</span><br></pre></td></tr></table></figure><h4 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 或 3</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>​        这道题是一个很常见的数组问题，解法也有很多种，</p><p>​        首先想到的我们可以通过暴力方法（手动狗头），我们排序这个数组，然后遍历一遍数组看看有没有连续的两个相同的数字；另外，我们可以通过哈希表的特性，在遍历数组的过程中，每次检测哈希表中是否存在这个数字，不存在就放入哈希表中，存在就直接返回这个重复元素</p><p>​        那有没有什么比较巧妙的方法呢嘿嘿</p><p>​        这里提供一种方法，首先，如果这个数组没有重复元素，那么它一定会包含<code>0 ~ n - 1</code>中的所有数字，那么我们从头开始遍历这个数组，每遇到一个数，就检测它是不是在自己的位置上，即数组为<code>nums</code>，循环变量是<code>i</code>，当我们遍历到<code>nums[i]</code>时，我们检测<code>nums[i] == i</code>，如果不相等，我们就把<code>nums[i]</code>放到<code>nums[i]</code>的位置上，这样，在继续遍历的过程中，如果第二次遇到一个相同的数字，就会出现<code>nums[i] == nums[nums[i]]</code>这种情况，此时就是重复的数字了！代码如下：</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dublicate</span><span class="params">(<span class="keyword">int</span> numbers[], <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (numbers == <span class="literal">nullptr</span> || length &lt;= <span class="number">0</span>)</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; ++i) &#123;</span><br><span class="line"><span class="keyword">while</span> (numbers[i] != i) &#123;</span><br><span class="line"><span class="keyword">if</span> (numbers[i] == numbers[numbers[i]])</span><br><span class="line"><span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">int</span> item = numbers[numbers[i]];</span><br><span class="line">numbers[numbers[i]] = numbers[i];</span><br><span class="line">numbers[i] = item;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">5</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">4</span> &#125;;</span><br><span class="line"><span class="keyword">if</span> (dublicate(a, <span class="number">5</span>))</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"yes"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"no"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;剑指-Offer——面试题-3-1&quot;&gt;&lt;a href=&quot;#剑指-Offer——面试题-3-1&quot; class=&quot;headerlink&quot; title=&quot;剑指 Offer——面试题 3-1&quot;&gt;&lt;/a&gt;剑指 Offer——面试题 3-1&lt;/h1&gt;&lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;找出数组中的重复数字&lt;/p&gt;
-&lt;p&gt;在一个长度为&lt;code&gt;n&lt;/code&gt;的数组里的所有数字都在&lt;code&gt;0 ~ n - 1&lt;/code&gt;的范围内，数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次，请找出数组中任意一个重复的数字&lt;/p&gt;
-&lt;h4 id=&quot;输入样例&quot;&gt;&lt;a href=&quot;#输入样例&quot; class=&quot;headerlink&quot; title=&quot;输入样例&quot;&gt;&lt;/a&gt;输入样例&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[2, 3, 1, 0, 2, 5, 3]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h4 id=&quot;输出样例&quot;&gt;&lt;a href=&quot;#输出样例&quot; class=&quot;headerlink&quot; title=&quot;输出样例&quot;&gt;&lt;/a&gt;输出样例&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;2 或 3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
